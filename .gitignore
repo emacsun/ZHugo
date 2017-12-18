@@ -1,2 +1,7 @@
 public/
+themes/academic/
 .idea/
+*.rel
+*.thm
+*.tex
+*.pdf

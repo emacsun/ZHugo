@@ -1,15 +1,15 @@
 +++
 # Recent Posts widget.
 # This widget displays recent posts from `content/post/`.
-widget = "posts"
-active = false
+widget = "computer"
+active = true
 date = "2016-04-20T00:00:00"
 
-title = "Recent Posts"
-subtitle = ""
+title = "Computer"
+subtitle = "My learning of computer science lives here ranging from classic algorithms to modern deep learning algorithms"
 
 # Order that this section will appear in.
-weight = 40
+weight = 41
 
 # Filter posts by tag.
 #  By default, show all recent posts.

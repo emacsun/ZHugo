@@ -1,12 +1,12 @@
 +++
 # Recent Posts widget.
 # This widget displays recent posts from `content/post/`.
-widget = "posts"
-active = false
+widget = "math"
+active = true
 date = "2016-04-20T00:00:00"
 
-title = "Recent Posts"
-subtitle = ""
+title = "Math"
+subtitle = "The beauty of math always attracts me. Math lays the foundation of my career."
 
 # Order that this section will appear in.
 weight = 40

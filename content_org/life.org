@@ -1,0 +1,51 @@
+#+HUGO_BASE_DIR: ../
+#+HUGO_SECTION: life
+#+FILETAGS:life
+#+SEQ_TODO: TODO NEXT DRAFT DONE
+#+OPTIONS:   *:t <:nil timestamp:nil
+#+FILETAGS: life
+#+HUGO_AUTO_SET_LASTMOD: t
+
+
+* life
+  [2017-09-27 Wed 22:18]
+
+** DONE 我的回忆
+   CLOSED: [2017-12-18 Mon 18:03]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: my-memory
+   :EXPORT_DATE: [2017-09-27 Wed]
+   :END:
+   :LOGBOOK:
+   - CLOSING NOTE [2017-12-18 Mon 18:03] \\
+     done
+   :END:
+
+   今天我准备写一写我的回忆，我很少这么郑重去写回忆，总感觉时间还有很多，一年又一年，无穷无尽，至少。让我下这个决定的是我的妈妈，她得了奇怪的癌症，奇怪到连医生也难以给这个癌症起个名字。一年多的化疗夺走了她的头发和精气神。每次和她微信视频她都要捋一捋自己越来越少的头发，她不希望我们看到她现在这个样子，但是她也没有办法，至好偷偷的抹眼泪。她看上去很痛苦，很虚弱，而且还会继续痛苦和虚弱下去，直到。。。。我不敢微信视频，不愿接受现实。这还是我的妈妈么？
+
+   我不知道要怎么组织我的思绪，总之很乱，我也无法给我母亲的一生下一个定论。我写不下去了，要掉眼泪了。从同年到现在所有的回忆都涌上心头，我想抓紧把它们记下来，害怕时间把这些记忆冲走，可是我越害怕，就越不知道开始从哪些地方开始。我就任由这思绪像流水一样从心头流过，心痛了我就赶紧捧起一捧，存起来。
+
+   我的母亲是从山的那一边嫁到山的这一边的。她和我的父亲是通过媒人认识的。至于媒人怎么介绍，我就不知道了。母亲兄妹六个，她是家里最小的孩子，家里人都很宠。父亲是家里哥俩两个，父亲是老大。
+
+
+** DONE 666 小聚                                                   :@life:666:
+   CLOSED: [2017-10-11 Wed 02:02]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: 666-hang-out
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :thumbnailImage /img/life/20171011666.png
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :coverImage /img/life/friend.png
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :thumbnailImagePosition left
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :coverSize partial
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :showSocial false
+   :EXPORT_DATE: [2017-10-11 Wed 01:19]
+   :END:
+   :LOGBOOK:
+   - CLOSING NOTE [2017-10-11 Wed 02:02]
+   CLOCK: [2017-10-11 Wed 01:24]--[2017-10-11 Wed 02:02] =>  0:38
+   CLOCK: [2017-10-11 Wed 01:19]--[2017-10-11 Wed 01:20] =>  0:01
+   :END:
+
+#+begin_quote
+如果能有这么一群人一直陪着喝酒，也是幸福生活加分项。
+#+end_quote
+#+INCLUDE: ./life/666-hang-out-20171011.org :only-contents t

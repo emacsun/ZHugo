@@ -1,15 +1,15 @@
 +++
 # Recent Posts widget.
 # This widget displays recent posts from `content/post/`.
-widget = "posts"
-active = false
+widget = "telecommunication"
+active = true
 date = "2016-04-20T00:00:00"
 
-title = "Recent Posts"
-subtitle = ""
+title = "Communication"
+subtitle = "This section contains all my posts for wireless communication and signal processing"
 
 # Order that this section will appear in.
-weight = 40
+weight = 43
 
 # Filter posts by tag.
 #  By default, show all recent posts.

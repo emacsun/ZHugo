@@ -1,10 +1,10 @@
 +++
 # Contact widget.
 widget = "contact"
-active = true
+active =false
 date = "2016-04-20T00:00:00"
 
-title = "Contact"
+title = "Contact Me"
 subtitle = ""
 
 # Order that this section will appear in.
@@ -14,4 +14,3 @@ weight = 70
 autolink = true
 
 +++
-
