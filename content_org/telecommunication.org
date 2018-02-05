@@ -5,3 +5,218 @@
 #+OPTIONS:   *:t <:nil timestamp:nil
 #+HUGO_AUTO_SET_LASTMOD: t
 * Telecommunication
+* Telecommunication
+
+** TODO channel coding : the road to channel-capacity
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: channel-coding-the-road-to-channel-capacity
+   :EXPORT_DATE: <2018-02-03 Sat 09:15>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "the roadmap to approach channel capacity"
+   :END:
+   :LOGBOOK:
+   - CLOSING NOTE [2018-02-03 Sat 09:28] \\
+     first commit
+   CLOCK: [2018-02-03 Sat 09:16]--[2018-02-03 Sat 09:19] =>  0:03
+   :END:
+
+*** Introduction
+    After the Shannon's seminal paper, It takes the communication engineers
+    around 60 years to find the capacity-approaching channel coding schemes. In
+    that paper Shannon told us that coding can help us approach a reliable
+    transmission. However, he did not show us how to construct such a code in a
+    low complexity. Fortunately, communication engineers have achieved tremendous
+    advances in the channel coding field. Now, through an algorithm named
+    *message passing algorithm*, we can approach the channel capacity with only
+    fractional gaps by using some code defined on graphs. The message passing
+    algorithm is so important that it has influence in many field other than
+    channel coding. Hence, several names are interchangable such as *belief
+    propagation* and *sum-product message passing*. Before the so-called modern
+    channel coding, the 60-year project witnessed so many schemes with so many
+    beautiful features.
+
+    In this article, I am going to take you to fly through all the roadmap that
+    the channel coding project has experienced. Hold your belt.
+*** What Shannon Told Us
+    [2018-02-03 Sat 14:02]
+
+    Shannon showed us that on an AWGN channel with a given SNR and bandwidth W
+    Hz, the channel capacity is:
+
+\begin{equation}
+\label{eq:1}
+C = W\log_{2} (1+\mathrm{SNR})
+\end{equation}
+
+    The above equation showed that you cannot trasmit information at a rate
+    \(R\) larger than \(C\) in a noisy channel with additive white Gaussian
+    noise. However, if the data \(R < C\), there is always a channel coding
+    scheme supporting the rate. Shannon also showed that if a long code with
+    rate \(R < C \), there exists a decoding scheme such that with high
+    probability the code and decoder will achieve highly reliable transmission.
+
+    We define another foundamental concept *spectral efficiency*.  \(\eta = R/W
+    \). The unit is \(b/s/Hz\). Equivalently, Shannon capacity can be described
+    as:
+\begin{equation}
+\label{eq:4}
+\eta < log_{2}(1 + \mathrm{SNR})
+\end{equation}
+
+On the other hand, if \(\eta\) is given, the \(\mathrm{SNR}\) needed for
+reliable transmission is lowerbounded by:
+\begin{equation}
+\label{eq:5}
+\mathrm{SNR} > 2^{\eta} -1
+\end{equation}
+
+So there are three ways to represent Shannon limit:
+#+CAPTION: Shannon limit
+#+NAME: tab:2018
+#+ATTR_HTML: :border 1 :rules all :frame border :align center
+#+ATTR_LATEX: :align center
+| Shannon limit | representation |
+|---------------+----------------|
+|               |                |
+|               |                |
+|               |                |
+|               |                |
+
+
+** NEXT Density Evolution             :LDPC:@telecommunication:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: density-evolution
+   :EXPORT_DATE: <2018-02-05 Mon 14:10>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Density evolution plays the foundamental role in designing and analysing LDPC"
+   :END:
+   :LOGBOOK:
+   CLOCK: [2018-02-05 Mon 14:22]
+   CLOCK: [2018-02-05 Mon 14:11]--[2018-02-05 Mon 14:21] =>  0:10
+   :END:
+*** Introduction
+[2018-02-05 Mon 15:55]
+
+For a given Tanner graph, it is still an open question to tell for which channel
+noise level the message passing algorithm will be able to reach a reliable
+transmission. Fortunately, it is possible to tell how an ensemble of Tanner
+graphs is likely to behave given that the channel is memoryless and the Tanner
+graphs are all cycle free. We could do this by tracking the evolution of
+probability density functions during the message passing procedure. We call this
+method *Density Evolution* which is first invented by Richardson and Urbanke in
+their papers in 2001.
+
+Now there are some effective ways to decide whether a LDPC ensemble is good or
+not, but most of them are based on density evolution. We define *threshold* as
+the maximum level of channel noise under which the MPA(message passing
+algorithm) can reach a reliable transmission. By watching the threshold, we can
+design some excellent LDPC ensemble, from which a good LDPC matrix can be
+selected.
+*** Density evolution on the BEC
+[2018-02-05 Mon 14:33]
+
+On the BEC, an erased bit can be corrected if that bit was the only bit in the
+parity check equation. We assume that the MPA is passing messages down through
+the layers of a Tanner graph which is a tree. Under such assumption the
+bit-to-check message to check node in a lower level of the graph is determined
+by the check-to-bit message from all the incoming edges in the level above.
+**** Regular LDPC codes
+[2018-02-05 Mon 14:40]
+
+Problem: given an ensemble \(\mathcal{T}(w_{c},w_{r})\), which sonsists of all
+regular LDPC Tanner graphs with bit nodes of degree \(w_{c}\) and check nodes of
+degree \(w_{r}\), show the maximum erasure probability at which the MPA can
+recover all the erasure bit.
+
+For BEC, the message hold either the current value of the bit ( can be "1" or
+"0") or "x" (the bit value is unknown). Define \(q_{l}\) as the probability that
+at iteration \(l\) a check to bit message is an \(x\) and \(p_{l}\) as the
+probability that at iteration \(l\) a bit to check message is an \(x\).
+
+For a regular LDPC ensemble, the C2B (check to bit) message on an edge is \(x\)
+if one or more of the incoming messages on the other \(w_{r} - 1\) edges into
+that check node is an \(x\). Suppose that all the incoming messages are
+identical and independent of each other, i.e. they have i.i.d. So,
+\begin{equation}
+\label{eq:2}
+q_{l} = 1 - (1-p_{l})^{(w_{r} - 1)}
+\end{equation}
+
+At iteration \(l\), the B2C message will be \(x\) if the origin message from the
+channel was an erasure and all the incoming message from check at iteration
+\(l-1\) are erasures. So,
+\begin{equation}
+\label{eq3}
+p_{l} = \epsilon(q_{l-1})^{w_{c} - 1}
+\end{equation}
+Here, \(\epsilon\) is the probability of \(x\) for the origin message from the
+channel. We use \(w_{c} - 1\) instead of \(w_{c}\), because we have to remove
+the message coming from the check node to which the bit node will send the new
+message. We do this to make the messages uncorrelated.
+
+Combining the \(q_{l}\) and \(p_{l}\), we get:
+\begin{equation}
+\label{eq:6}
+p_{l} = \epsilon \big( 1 - (1-p_{l-1})^{(w_{r} - 1)}\big)^{(w_{c} -1)}
+\end{equation}
+
+Before the iteration, we have \(p_{0} = \epsilon\) which is the probability that
+a bit is erased by the channel.
+
+Thus, for a \((w_{c},w_{r})\) regular ensemble, we have a recursion:
+\begin{eqnarray}
+\label{eq:3}
+p_{0}&=&\epsilon \newline
+p_{l}&=& \epsilon \big( 1 - (1-p_{l-1})^{(w_{r} - 1)}\big)^{(w_{c} -1)}
+\end{eqnarray}
+The above recursion describes how the erasure probability of MPA evolves as a
+function of the iteration number \(l\). For example, we can find that with
+\(\epsilon = 0.3\) the decoder can correct the erasure after \(l = 7\). With \(l
+\to \infty\), we find that \(\epsilon \in (0.4293,0.4294)\) is OK. So we can say
+that the threshold for a \((3,6)\) regular LDPC code is between \(0.4293\) and
+\(0.4294\).
+
+
+
+**** Irregular LDPC codes
+[2018-02-05 Mon 15:53]
+
+For an irregular LDPC codes, the columns and rows have varying weights. So we
+describe an irregular LDPC ensemble in a different way. We designated the
+fraction of columns of weight \(i\) by \(v_{i}\) and the fraction of rows of
+weight \(i\) by \(h_{i}\). An irregular LDPC ensemble can be described using
+\(v_{i}\) and \(h_{i}\)
+
+To develop the irregular version of density evolution, we define fraction of
+edges connecting to degree-\(i\) bit nodes as \(\lambda_{i}\) and \(\rho_{i}\)
+the fraction of edges connecting to degree-\(i\) check nodes.
+
+It's easy to get:
+\begin{eqnarray}
+\label{eq:7}
+\sum_{i}\lambda_{i}&=& 1 \newline
+\sum_{i}\rho_{i} &=& 1
+\end{eqnarray}
+
+We also define the *degree distrubution functions* as:
+\begin{eqnarray}
+\label{eq:8}
+\lambda(x)&=&\lambda_{2} x + \lambda_{3}x^{2} + \ldots + \lambda_{i}x^{i-1} + \ldots \newline
+\rho(x) &=& \rho_{2}(x) + \rho_{3}x^{2} + \ldots + \rho_{i}x^{i-1} + \ldots
+\end{eqnarray}
+
+We can transform between node degrees and edge degrees by:
+\begin{eqnarray}
+\label{eq:9}
+v_{i}&=& \frac{\lambda_{i}/i}{\sum_{j}\lambda_{j}/j} \newline
+h_{i}&=& \frac{\rho_{i}/i}{\sum_{j}\rho_{j}/j}
+\end{eqnarray}
+
+
+* ECC
+  [2018-02-03 Sat 09:14]
+
+
+* MIMO
+  [2018-02-03 Sat 09:15]
+
+* Wireless Channel
+  [2018-02-03 Sat 09:15]
