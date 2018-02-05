@@ -32,15 +32,16 @@ defaultContentLanguageInSubdir = false
 [params]
   # Color theme.
   #   Choose from `default`, `ocean`, `forest`, `coffee`, `dark`, or `1950s`.
-  color_theme = "ocean"
+  color_theme = "coffee"
 
   # Font style.
   #   Choose from `default`, `classic`, or `playfair`.
+  # font = "classic"
   font = "classic"
 
   # Your details.
   name = "Eason Zhang"
-  role = "telecommunication engineer"
+  role = "communication engineer"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
@@ -134,8 +135,8 @@ defaultContentLanguageInSubdir = false
   #   For more info on the highlighting options, see:
   #   https://sourcethemes.com/academic/post/writing-markdown-latex/#highlighting-options
   highlight = true
-  highlight_languages = []
-  # highlight_style = "github"
+  highlight_languages = ["lisp","c","c++","matlab","python","java","emacs-lisp"]
+  highlight_style = "solarized-dark"
 
   # Enable native social sharing buttons?
   sharing = true
@@ -205,22 +206,22 @@ defaultContentLanguageInSubdir = false
   [[params.social]]
     icon = "envelope"
     icon_pack = "fa"
-    link = "mailto:test@example.org"
+    link = "mailto:emacsun@163.com"
 
   [[params.social]]
-    icon = "twitter"
+    icon = "weibo"
     icon_pack = "fa"
-    link = "//twitter.com/GeorgeCushen"
+    link = "//weibo.com/u/2022302215"
 
-  [[params.social]]
-    icon = "google-scholar"
-    icon_pack = "ai"
-    link = "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ"
+  # [[params.social]]
+  #   icon = "google-scholar"
+  #   icon_pack = "ai"
+  #   link = "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ"
 
   [[params.social]]
     icon = "github"
     icon_pack = "fa"
-    link = "//github.com/gcushen"
+    link = "//github.com/emacsun"
 
 
 # Navigation Links

@@ -6,7 +6,7 @@ active = true
 date = "2016-04-20T00:00:00"
 
 title = "Computer"
-subtitle = "My learning of computer science lives here ranging from classic algorithms to modern deep learning algorithms"
+subtitle = "The beauty created in the digital world is more breathtaking than that created by nature"
 
 # Order that this section will appear in.
 weight = 41

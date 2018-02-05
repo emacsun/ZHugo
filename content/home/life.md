@@ -6,7 +6,7 @@ active = true
 date = "2016-04-20T00:00:00"
 
 title = "Life"
-subtitle = "My soft life, everything except technology lives here. Different from other sections I use both Chinese and English in this section."
+subtitle = "My soft life, everything except technology lives here. Different from other sections I'd like using both Chinese and English."
 
 # Order that this section will appear in.
 weight = 100

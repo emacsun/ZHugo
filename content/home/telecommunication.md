@@ -6,7 +6,7 @@ active = true
 date = "2016-04-20T00:00:00"
 
 title = "Communication"
-subtitle = "This section contains all my posts for wireless communication and signal processing"
+subtitle = "Telecommunication, the perfect combination of math and reality, gives me an excellent starting point."
 
 # Order that this section will appear in.
 weight = 43

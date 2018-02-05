@@ -1,11 +1,11 @@
 +++
 title = "Blogging with Emacs Org"
 date = 2018-01-28T18:01:00+08:00
-lastmod = 2018-01-28T22:13:00+08:00
-tags = ["tools", "Emacs", "Org", "Hugo"]
-categories = ["tools"]
+lastmod = 2018-02-04T20:57:00+08:00
+tags = ["tools", "Org", "Hugo"]
+categories = ["tools", "Emacs"]
 draft = false
-summary = "summary of my blog workflow"
+summary = "My blog workflow based on Emacs Org"
 +++
 
 <div class="ox-hugo-toc toc">
@@ -19,6 +19,7 @@ summary = "summary of my blog workflow"
 - [Settings for ox-hugo](#settings-for-ox-hugo)
     - [settings for each section based on ox-hugo](#settings-for-each-section-based-on-ox-hugo)
     - [settings for each article based on ox-hugo](#settings-for-each-article-based-on-ox-hugo)
+- [Settings for Hugo themes](#settings-for-hugo-themes)
 </div>
 <!--endtoc-->
 
@@ -80,8 +81,8 @@ article on _mathematical analysis_ in the file named `content-org/math.org`
 so that after exporting, the markdown file will be put in the subdirectory
 `content/math/` .
 
-<a id="orge37fca0"></a>
-{{<figure src="/tools/20180126HugoArchitecture.png" caption="architecture of Hugo project" width="400">}}
+<a id="orgd0a639c"></a>
+{{< figure src="/tools/20180126HugoArchitecture.png" caption="architecture of Hugo project" width="400" >}}
 
 
 ## Settings for ox-hugo {#settings-for-ox-hugo}
@@ -132,7 +133,7 @@ beginning of this file is like:
 
 I use the `org-capture` to start a article. The emacs-lisp:
 
-```emacs-lisp
+```lisp
 (setq org-capture-templates
       '(
         ("t" "todo" entry (file "~/zorg/Dropbox/base/zrefile.org")
@@ -167,7 +168,7 @@ From the above code, you can see that I rely heavily on ox-hugo. there is one
 function named `org-hugo-new-subtree-post-capture-template` which is shown
 as below:
 
-```emacs-lisp
+```lisp
   (defun org-hugo-new-subtree-post-capture-template ()
     "Returns `org-capture' template string for new Hugo post.
 See `org-capture-templates' for more information."
@@ -189,3 +190,35 @@ See `org-capture-templates' for more information."
 
 One more point, it is awesome to preview each article after saveing it.
 Yes! you can do it according [this article](https://ox-hugo.scripter.co/doc/auto-export-on-saving).
+
+
+## Settings for Hugo themes {#settings-for-hugo-themes}
+
+Now, there are more than 190+ [themes](https://themes.gohugo.io/) for Hugo. It is pretty straightforward
+to [install and config](https://gohugo.io/themes/) a theme as you wish. I prefer the [Academic theme](https://sourcethemes.com/academic/) which I
+adopt for the following reasons:
+
+1.  It is easy manage my post according to different categories.
+2.  I love the widget most.
+3.  support of \\(\mathrm{\LaTeX}\\) so I can with the mathematical expressions
+    fluently.
+4.  Responsive and mobile friendly.
+5.  easy to update.
+
+    There are [several ways](https://sourcethemes.com/academic/docs/install/) to install the Academic theme. I use the Academic
+    Kickstart way:
+
+    ```shell
+    git clone https://github.com/sourcethemes/academic-kickstart.git My_Website
+    ```
+
+    The very reason I use the Kickstart way lies in the updatation of Academic.
+    In the Kickstart way, Academic is installed as a Git sub-module.
+
+    If you want to update the theme,all you have to do is:
+
+    ```shell
+    git submodule update --remote --merge
+    ```
+
+    Also, for different methods of updating the theme, you can check [here](https://sourcethemes.com/academic/docs/update/).

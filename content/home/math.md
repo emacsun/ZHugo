@@ -6,7 +6,7 @@ active = true
 date = "2016-04-20T00:00:00"
 
 title = "Math"
-subtitle = "The beauty of math always attracts me. Math lays the foundation of my career."
+subtitle = "Math, which lays the foundation of my career always attracts me for its rigor and beauty."
 
 # Order that this section will appear in.
 weight = 40
