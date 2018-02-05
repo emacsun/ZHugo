@@ -2,61 +2,60 @@
 #+HUGO_SECTION: telecommunication
 #+FILETAGS:telecommunication
 #+SEQ_TODO: TODO NEXT DRAFT DONE
-#+OPTIONS:   *:t <:nil timestamp:nil
+#+OPTIONS:   *:t <:nil timestamp:nil num:t toc:t
 #+HUGO_AUTO_SET_LASTMOD: t
-* Telecommunication
 * Telecommunication
 
 ** TODO channel coding : the road to channel-capacity
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: channel-coding-the-road-to-channel-capacity
-   :EXPORT_DATE: <2018-02-03 Sat 09:15>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "the roadmap to approach channel capacity"
-   :END:
-   :LOGBOOK:
-   - CLOSING NOTE [2018-02-03 Sat 09:28] \\
-     first commit
-   CLOCK: [2018-02-03 Sat 09:16]--[2018-02-03 Sat 09:19] =>  0:03
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: channel-coding-the-road-to-channel-capacity
+:EXPORT_DATE: <2018-02-03 Sat 09:15>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "the roadmap to approach channel capacity"
+:END:
+:LOGBOOK:
+- CLOSING NOTE [2018-02-03 Sat 09:28] \\
+  first commit
+CLOCK: [2018-02-03 Sat 09:16]--[2018-02-03 Sat 09:19] =>  0:03
+:END:
 
 *** Introduction
-    After the Shannon's seminal paper, It takes the communication engineers
-    around 60 years to find the capacity-approaching channel coding schemes. In
-    that paper Shannon told us that coding can help us approach a reliable
-    transmission. However, he did not show us how to construct such a code in a
-    low complexity. Fortunately, communication engineers have achieved tremendous
-    advances in the channel coding field. Now, through an algorithm named
-    *message passing algorithm*, we can approach the channel capacity with only
-    fractional gaps by using some code defined on graphs. The message passing
-    algorithm is so important that it has influence in many field other than
-    channel coding. Hence, several names are interchangable such as *belief
-    propagation* and *sum-product message passing*. Before the so-called modern
-    channel coding, the 60-year project witnessed so many schemes with so many
-    beautiful features.
+After the Shannon's seminal paper, It takes the communication engineers
+around 60 years to find the capacity-approaching channel coding schemes. In
+that paper Shannon told us that coding can help us approach a reliable
+transmission. However, he did not show us how to construct such a code in a
+low complexity. Fortunately, communication engineers have achieved tremendous
+advances in the channel coding field. Now, through an algorithm named
+*message passing algorithm*, we can approach the channel capacity with only
+fractional gaps by using some code defined on graphs. The message passing
+algorithm is so important that it has influence in many field other than
+channel coding. Hence, several names are interchangable such as *belief
+propagation* and *sum-product message passing*. Before the so-called modern
+channel coding, the 60-year project witnessed so many schemes with so many
+beautiful features.
 
-    In this article, I am going to take you to fly through all the roadmap that
-    the channel coding project has experienced. Hold your belt.
+In this article, I am going to take you to fly through all the roadmap that
+the channel coding project has experienced. Hold your belt.
 *** What Shannon Told Us
-    [2018-02-03 Sat 14:02]
+[2018-02-03 Sat 14:02]
 
-    Shannon showed us that on an AWGN channel with a given SNR and bandwidth W
-    Hz, the channel capacity is:
+Shannon showed us that on an AWGN channel with a given SNR and bandwidth W
+Hz, the channel capacity is:
 
 \begin{equation}
 \label{eq:1}
 C = W\log_{2} (1+\mathrm{SNR})
 \end{equation}
 
-    The above equation showed that you cannot trasmit information at a rate
-    \(R\) larger than \(C\) in a noisy channel with additive white Gaussian
-    noise. However, if the data \(R < C\), there is always a channel coding
-    scheme supporting the rate. Shannon also showed that if a long code with
-    rate \(R < C \), there exists a decoding scheme such that with high
-    probability the code and decoder will achieve highly reliable transmission.
+The above equation showed that you cannot trasmit information at a rate
+\(R\) larger than \(C\) in a noisy channel with additive white Gaussian
+noise. However, if the data \(R < C\), there is always a channel coding
+scheme supporting the rate. Shannon also showed that if a long code with
+rate \(R < C \), there exists a decoding scheme such that with high
+probability the code and decoder will achieve highly reliable transmission.
 
-    We define another foundamental concept *spectral efficiency*.  \(\eta = R/W
-    \). The unit is \(b/s/Hz\). Equivalently, Shannon capacity can be described
-    as:
+We define another foundamental concept *spectral efficiency*.  \(\eta = R/W
+\). The unit is \(b/s/Hz\). Equivalently, Shannon capacity can be described
+as:
 \begin{equation}
 \label{eq:4}
 \eta < log_{2}(1 + \mathrm{SNR})
@@ -83,15 +82,15 @@ So there are three ways to represent Shannon limit:
 
 
 ** NEXT Density Evolution             :LDPC:@telecommunication:
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: density-evolution
-   :EXPORT_DATE: <2018-02-05 Mon 14:10>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Density evolution plays the foundamental role in designing and analysing LDPC"
-   :END:
-   :LOGBOOK:
-   CLOCK: [2018-02-05 Mon 14:22]
-   CLOCK: [2018-02-05 Mon 14:11]--[2018-02-05 Mon 14:21] =>  0:10
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: density-evolution
+:EXPORT_DATE: <2018-02-05 Mon 14:10>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Density evolution plays the foundamental role in designing and analysing LDPC"
+:END:
+:LOGBOOK:
+CLOCK: [2018-02-05 Mon 14:22]--[2018-02-05 Mon 21:58] =>  7:36
+CLOCK: [2018-02-05 Mon 14:11]--[2018-02-05 Mon 14:21] =>  0:10
+:END:
 *** Introduction
 [2018-02-05 Mon 15:55]
 
@@ -205,18 +204,148 @@ We also define the *degree distrubution functions* as:
 
 We can transform between node degrees and edge degrees by:
 \begin{eqnarray}
-\label{eq:9}
+\label{eq9}
 v_{i}&=& \frac{\lambda_{i}/i}{\sum_{j}\lambda_{j}/j} \newline
 h_{i}&=& \frac{\rho_{i}/i}{\sum_{j}\rho_{j}/j}
 \end{eqnarray}
 
+About the above equation, take
+$$v_{i}=\frac{\lambda_{i}/i}{\sum_{j}\lambda_{j}/j} $$ for example,
+suppose the number of degree \(i\) bit nodes is \(n_{i}\), so
+\(\lambda_{i} = \frac{ n_{i} i }{\sum_{j}n_{j}j} \). Then
+\begin{equation}
+\label{eq:1}
+\lambda_{i}/i  = \frac{n_{i}}{\sum_{j}n_{j}j}
+\end{equation}
+Thus,
+\begin{equation}
+\label{eq:9}
+\sum_{k}\lambda_{k}/k = \sum_{k} \frac{n_{k}}{\sum_{j}n_{j}j}
+\end{equation}
+Then,
+\begin{eqnarray}
+\label{eq:10}
+\frac{\lambda_{i}/i}{\sum_{k} \lambda_{k}/k } &=& \frac{ \frac{n_{i}}{\sum_{j}n_{j}j}  }{ \sum_{k} \frac{n_{k}}{\sum_{j}n_{j}j}} \newline
+&=& \frac{n_{i}}{\sum_{k}n_{k}} \newline
+&=& v_{i}
+\end{eqnarray}
+
+At the regular LDPC codes section, we get that, at the \(l\)
+iteration of MPA decoding, the probability that C2B is \(x\), is:
+\begin{equation}
+\label{eq:11}
+q_{l} = 1- (1-p_{l})^{(w_{r} -1)}
+\end{equation}
+for an edge connected to a degree \(w_{r}\) check node. When it comes
+to an irregular Tanner graph, the probability that an edge is
+connected to a degree \(w_{r}\) check node is \( \rho_{w_{r}} \).
+
+So,
+\begin{equation}
+\label{eq:12}
+q_{l} =\sum_{i} \rho_{i} ( 1 - (1-p_{l})^{(i-1)} ) = 1 - \sum_{i}\rho_{i} (1-p_{l})^{(i-1)}
+\end{equation}
+Before, we define
+\begin{equation}
+\label{eq:13}
+\rho(x) = \rho_{2}(x) + \rho_{3}x^{2} + \ldots + \rho_{i}x^{i-1} + \ldots
+\end{equation}
+
+So,
+\begin{equation}
+\label{eq:14}
+q_{l} = 1-\rho(1-p_{l})
+\end{equation}
+
+Now, let's check the \(p_{l}\). In the regular LDPC codes on BEC with
+erasure probability \(\epsilon\), at the \(l\)-th iteration of MPA
+decoding if all incoming messages are independent, is :
+\begin{equation}
+\label{eq:15}
+p_{l} = \epsilon (q_{l-1})^{(w_{c} -1)}
+\end{equation}
+When it comes to irregular LDPC codes with the probability that an
+edge is connected to a bit node of degree \(w_{c}\) is
+\(\lambda_{w_{c}}\), the \(p_{l}\) can be derived in a straightforward
+way:
+\begin{equation}
+\label{eq:16}
+p_{l} = \epsilon\sum_{i}\lambda_{i} (q_{l-1})^{i-1}
+\end{equation}
+We also have the definition of \(\lambda(x)\), So,
+\begin{equation}
+\label{eq:17}
+p_{l} = \epsilon \lambda(q_{l-1})
+\end{equation}
+
+At last, we get
+\begin{equation}
+\label{eq:18}
+p_{l} = \epsilon \lambda \big( 1- \rho(1-p_{l-1}) \big)
+\end{equation}
+with \(p0=\epsilon\)
+*** Density evolution on general memoryless channels
+     [2018-02-05 Mon 22:02]
+
+On general memoryless channels, the B2C messages are the LLRs during
+the MPA. We define LLR as
+\begin{equation}
+\label{eq:19}
+L(x) = \log \big( \frac{p(x=0)}{p(x=1)} \big)
+\end{equation}
+So the sign of \(L(x)\) determine it is \(0\) or \(1\) and the
+magnatue of \(|L(x)|\) tell us how sure we are about the decision.
+
+Figure [[fig20180205gaussian]] shows a gaussian PDF for
+\(\mathcal{p}(r)\) and the probability that the bit is "1" is the area
+of the shade.
+
+#+CAPTION:  a Gaussian PDF
+#+ATTR_HTML:  :width 400 :align center
+#+NAME: fig20180205gaussian
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/telecommunication/20180205gaussian.png]]
+
+The LLR are real numbers, so it can be illustrated using a probability
+density function. We define the PDF for a B2C message at iteration as
+\(p(M_{l})\) and C2B \(p(E_{l})\). Also, \(p(r)\) as the PDF for the
+LLR of the received signal corrupted by the channel. Also, we suppose
+that the message along the edges are I.I.D (This constraint can can
+be removed when it comes to MET-LDPC).
+
+The output of a bit node is the sum of incoming LLRs on the other
+edges into that node:
+\begin{equation}
+\label{eq:20}
+M_{j,i} = \sum_{j^{'}\in A_{i},j^{'}\neq j} E_{j^{'},i} + r_{i}
+\end{equation}
+
+The probability textbook told us that the PDF of summation of I.I.D random
+variables is the convolution of the PDF of these random variables.
+
+
+
+
+
+** TODO Density Evolution for irregular LDPC code on BEC :LDPC:@telecommunication:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: density-evolution-for-irregular-ldpc-code-on-bec
+   :EXPORT_DATE: <2018-02-05 Mon 21:57>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+   :END:
+   :LOGBOOK:
+   CLOCK: [2018-02-05 Mon 21:58]--[2018-02-05 Mon 21:59] =>  0:01
+   :END:
 
 * ECC
-  [2018-02-03 Sat 09:14]
+  :LOGBOOK:
+  CLOCK: [2018-02-05 Mon 21:59]
+  :END:
+[2018-02-03 Sat 09:14]
 
 
 * MIMO
-  [2018-02-03 Sat 09:15]
+[2018-02-03 Sat 09:15]
 
 * Wireless Channel
-  [2018-02-03 Sat 09:15]
+[2018-02-03 Sat 09:15]

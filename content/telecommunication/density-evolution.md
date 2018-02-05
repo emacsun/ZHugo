@@ -1,0 +1,284 @@
++++
+title = "Density Evolution"
+date = 2018-02-05T14:10:00+08:00
+lastmod = 2018-02-05T22:35:00+08:00
+tags = ["telecommunication", "LDPC"]
+categories = ["telecommunication"]
+draft = false
+summary = "Density evolution plays the foundamental role in designing and analysing LDPC"
++++
+
+<style>
+  .ox-hugo-toc ul {
+    list-style: none;
+  }
+</style>
+<div class="ox-hugo-toc toc">
+<div></div>
+
+## Table of Contents
+
+- <span class="section-num">1</span> [Introduction](#introduction)
+- <span class="section-num">2</span> [Density evolution on the BEC](#density-evolution-on-the-bec)
+    - <span class="section-num">2.1</span> [Regular LDPC codes](#regular-ldpc-codes)
+    - <span class="section-num">2.2</span> [Irregular LDPC codes](#irregular-ldpc-codes)
+- <span class="section-num">3</span> [Density evolution on general memoryless channels](#density-evolution-on-general-memoryless-channels)
+</div>
+<!--endtoc-->
+
+
+## <span class="section-num">1</span> Introduction {#introduction}
+
+
+
+For a given Tanner graph, it is still an open question to tell for which channel
+noise level the message passing algorithm will be able to reach a reliable
+transmission. Fortunately, it is possible to tell how an ensemble of Tanner
+graphs is likely to behave given that the channel is memoryless and the Tanner
+graphs are all cycle free. We could do this by tracking the evolution of
+probability density functions during the message passing procedure. We call this
+method **Density Evolution** which is first invented by Richardson and Urbanke in
+their papers in 2001.
+
+Now there are some effective ways to decide whether a LDPC ensemble is good or
+not, but most of them are based on density evolution. We define **threshold** as
+the maximum level of channel noise under which the MPA(message passing
+algorithm) can reach a reliable transmission. By watching the threshold, we can
+design some excellent LDPC ensemble, from which a good LDPC matrix can be
+selected.
+
+
+## <span class="section-num">2</span> Density evolution on the BEC {#density-evolution-on-the-bec}
+
+
+
+On the BEC, an erased bit can be corrected if that bit was the only bit in the
+parity check equation. We assume that the MPA is passing messages down through
+the layers of a Tanner graph which is a tree. Under such assumption the
+bit-to-check message to check node in a lower level of the graph is determined
+by the check-to-bit message from all the incoming edges in the level above.
+
+
+### <span class="section-num">2.1</span> Regular LDPC codes {#regular-ldpc-codes}
+
+
+
+Problem: given an ensemble \\(\mathcal{T}(w\_{c},w\_{r})\\), which sonsists of all
+regular LDPC Tanner graphs with bit nodes of degree \\(w\_{c}\\) and check nodes of
+degree \\(w\_{r}\\), show the maximum erasure probability at which the MPA can
+recover all the erasure bit.
+
+For BEC, the message hold either the current value of the bit ( can be "1" or
+"0") or "x" (the bit value is unknown). Define \\(q\_{l}\\) as the probability that
+at iteration \\(l\\) a check to bit message is an \\(x\\) and \\(p\_{l}\\) as the
+probability that at iteration \\(l\\) a bit to check message is an \\(x\\).
+
+For a regular LDPC ensemble, the C2B (check to bit) message on an edge is \\(x\\)
+if one or more of the incoming messages on the other \\(w\_{r} - 1\\) edges into
+that check node is an \\(x\\). Suppose that all the incoming messages are
+identical and independent of each other, i.e. they have i.i.d. So,
+
+\begin{equation}
+\label{eq:2}
+q\_{l} = 1 - (1-p\_{l})^{(w\_{r} - 1)}
+\end{equation}
+
+At iteration \\(l\\), the B2C message will be \\(x\\) if the origin message from the
+channel was an erasure and all the incoming message from check at iteration
+\\(l-1\\) are erasures. So,
+
+\begin{equation}
+\label{eq3}
+p\_{l} = \epsilon(q\_{l-1})^{w\_{c} - 1}
+\end{equation}
+
+Here, \\(\epsilon\\) is the probability of \\(x\\) for the origin message from the
+channel. We use \\(w\_{c} - 1\\) instead of \\(w\_{c}\\), because we have to remove
+the message coming from the check node to which the bit node will send the new
+message. We do this to make the messages uncorrelated.
+
+Combining the \\(q\_{l}\\) and \\(p\_{l}\\), we get:
+
+\begin{equation}
+\label{eq:6}
+p\_{l} = \epsilon \big( 1 - (1-p\_{l-1})^{(w\_{r} - 1)}\big)^{(w\_{c} -1)}
+\end{equation}
+
+Before the iteration, we have \\(p\_{0} = \epsilon\\) which is the probability that
+a bit is erased by the channel.
+
+Thus, for a \\((w\_{c},w\_{r})\\) regular ensemble, we have a recursion:
+
+\begin{eqnarray}
+\label{eq:3}
+p\_{0}&=&\epsilon \newline
+p\_{l}&=& \epsilon \big( 1 - (1-p\_{l-1})^{(w\_{r} - 1)}\big)^{(w\_{c} -1)}
+\end{eqnarray}
+
+The above recursion describes how the erasure probability of MPA evolves as a
+function of the iteration number \\(l\\). For example, we can find that with
+\\(\epsilon = 0.3\\) the decoder can correct the erasure after \\(l = 7\\). With \\(l
+\to \infty\\), we find that \\(\epsilon \in (0.4293,0.4294)\\) is OK. So we can say
+that the threshold for a \\((3,6)\\) regular LDPC code is between \\(0.4293\\) and
+\\(0.4294\\).
+
+
+### <span class="section-num">2.2</span> Irregular LDPC codes {#irregular-ldpc-codes}
+
+
+
+For an irregular LDPC codes, the columns and rows have varying weights. So we
+describe an irregular LDPC ensemble in a different way. We designated the
+fraction of columns of weight \\(i\\) by \\(v\_{i}\\) and the fraction of rows of
+weight \\(i\\) by \\(h\_{i}\\). An irregular LDPC ensemble can be described using
+\\(v\_{i}\\) and \\(h\_{i}\\)
+
+To develop the irregular version of density evolution, we define fraction of
+edges connecting to degree-\\(i\\) bit nodes as \\(\lambda\_{i}\\) and \\(\rho\_{i}\\)
+the fraction of edges connecting to degree-\\(i\\) check nodes.
+
+It's easy to get:
+
+\begin{eqnarray}
+\label{eq:7}
+\sum\_{i}\lambda\_{i}&=& 1 \newline
+\sum\_{i}\rho\_{i} &=& 1
+\end{eqnarray}
+
+We also define the **degree distrubution functions** as:
+
+\begin{eqnarray}
+\label{eq:8}
+\lambda(x)&=&\lambda\_{2} x + \lambda\_{3}x^{2} + \ldots + \lambda\_{i}x^{i-1} + \ldots \newline
+\rho(x) &=& \rho\_{2}(x) + \rho\_{3}x^{2} + \ldots + \rho\_{i}x^{i-1} + \ldots
+\end{eqnarray}
+
+We can transform between node degrees and edge degrees by:
+
+\begin{eqnarray}
+\label{eq9}
+v\_{i}&=& \frac{\lambda\_{i}/i}{\sum\_{j}\lambda\_{j}/j} \newline
+h\_{i}&=& \frac{\rho\_{i}/i}{\sum\_{j}\rho\_{j}/j}
+\end{eqnarray}
+
+About the above equation, take
+\\[v\_{i}=\frac{\lambda\_{i}/i}{\sum\_{j}\lambda\_{j}/j} \\] for example,
+suppose the number of degree \\(i\\) bit nodes is \\(n\_{i}\\), so
+\\(\lambda\_{i} = \frac{ n\_{i} i }{\sum\_{j}n\_{j}j} \\). Then
+
+\begin{equation}
+\label{eq:1}
+\lambda\_{i}/i  = \frac{n\_{i}}{\sum\_{j}n\_{j}j}
+\end{equation}
+
+Thus,
+
+\begin{equation}
+\label{eq:9}
+\sum\_{k}\lambda\_{k}/k = \sum\_{k} \frac{n\_{k}}{\sum\_{j}n\_{j}j}
+\end{equation}
+
+Then,
+
+\begin{eqnarray}
+\label{eq:10}
+\frac{\lambda\_{i}/i}{\sum\_{k} \lambda\_{k}/k } &=& \frac{ \frac{n\_{i}}{\sum\_{j}n\_{j}j}  }{ \sum\_{k} \frac{n\_{k}}{\sum\_{j}n\_{j}j}} \newline
+&=& \frac{n\_{i}}{\sum\_{k}n\_{k}} \newline
+&=& v\_{i}
+\end{eqnarray}
+
+At the regular LDPC codes section, we get that, at the \\(l\\)
+iteration of MPA decoding, the probability that C2B is \\(x\\), is:
+
+\begin{equation}
+\label{eq:11}
+q\_{l} = 1- (1-p\_{l})^{(w\_{r} -1)}
+\end{equation}
+
+for an edge connected to a degree \\(w\_{r}\\) check node. When it comes
+to an irregular Tanner graph, the probability that an edge is
+connected to a degree \\(w\_{r}\\) check node is \\( \rho\_{w\_{r}} \\).
+
+So,
+
+\begin{equation}
+\label{eq:12}
+q\_{l} =\sum\_{i} \rho\_{i} ( 1 - (1-p\_{l})^{(i-1)} ) = 1 - \sum\_{i}\rho\_{i} (1-p\_{l})^{(i-1)}
+\end{equation}
+
+Before, we define
+
+\begin{equation}
+\label{eq:13}
+\rho(x) = \rho\_{2}(x) + \rho\_{3}x^{2} + \ldots + \rho\_{i}x^{i-1} + \ldots
+\end{equation}
+
+So,
+
+\begin{equation}
+\label{eq:14}
+q\_{l} = 1-\rho(1-p\_{l})
+\end{equation}
+
+Now, let's check the \\(p\_{l}\\). In the regular LDPC codes on BEC with
+erasure probability \\(\epsilon\\), at the \\(l\\)-th iteration of MPA
+decoding if all incoming messages are independent, is :
+
+\begin{equation}
+\label{eq:15}
+p\_{l} = \epsilon (q\_{l-1})^{(w\_{c} -1)}
+\end{equation}
+
+When it comes to irregular LDPC codes with the probability that an
+edge is connected to a bit node of degree \\(w\_{c}\\) is
+\\(\lambda\_{w\_{c}}\\), the \\(p\_{l}\\) can be derived in a straightforward
+way:
+
+\begin{equation}
+\label{eq:16}
+p\_{l} = \epsilon\sum\_{i}\lambda\_{i} (q\_{l-1})^{i-1}
+\end{equation}
+
+We also have the definition of \\(\lambda(x)\\), So,
+
+\begin{equation}
+\label{eq:17}
+p\_{l} = \epsilon \lambda(q\_{l-1})
+\end{equation}
+
+At last, we get
+
+\begin{equation}
+\label{eq:18}
+p\_{l} = \epsilon \lambda \big( 1- \rho(1-p\_{l-1}) \big)
+\end{equation}
+
+with \\(p0=\epsilon\\)
+
+
+## <span class="section-num">3</span> Density evolution on general memoryless channels {#density-evolution-on-general-memoryless-channels}
+
+
+
+On general memoryless channels, the B2C messages are the LLRs during
+the MPA. We define LLR as
+
+\begin{equation}
+\label{eq:19}
+L(x) = \log \big( \frac{p(x=0)}{p(x=1)} \big)
+\end{equation}
+
+So the sign of \\(L(x)\\) determine it is \\(0\\) or \\(1\\) and the
+magnatue of \\(|L(x)|\\) tell us how sure we are about the decision.
+
+Figure [1](#orga14b69f) shows a gaussian PDF for
+\\(\mathcal{p}( r)\\) and the probability that the bit is "1" is the area
+of the shade.
+
+<a id="orga14b69f"></a>
+{{< figure src="/img/telecommunication/20180205gaussian.png" caption="a Gaussian PDF" width="400" >}}
+
+The LLR are real numbers, so it can be illustrated using a probability
+density function. We define the PDF for a B2C message at iteration as
+\\(p(M\_{l})\\) and C2B \\(p(E\_{l})\\). Also, \\(p( r)\\) as the PDF for the
+LLR of the received signal corrupted by the channel.

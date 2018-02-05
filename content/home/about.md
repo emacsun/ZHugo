@@ -8,26 +8,20 @@ date = "2016-04-20T00:00:00"
 weight = 90
 
 # List your academic interests.
-[interests]
-  interests = [
-    "Artificial Intelligence",
-    "natural language processing",
-    "Information Theory",
-    "channel coding"
-  ]
 
 # List your qualifications (such as academic degrees).
-[[education.courses]]
-  course = "PhD in signal and communication system"
-  institution = "GUCAS"
-  year = 2014
-
-[[education.courses]]
-  course = "BSc in electrical information science and technology"
-  institution = "CCNU"
-  year = 2009
 
 +++
 
 # Biography
-A serious software engineer with wide interests. Spending more than ten years to be a communication engineer, I am armed with solid math foundation for information theory, channel coding theory and wireless communication system. Also, computer science which has so much in common with the fields mentioned before always attract me. I would love devote my life to be a beauty-creator with the spirit of craftman in the digital world.
+After spending more than ten years to be a communication engineer, I am armed with solid math foundation for information theory, channel coding theory and wireless communication system. From the very beginning being a serious software eigineer has always been on my dream list. Fortunately, computer science has so much in common with the information theory, which lends me a hand to transform from a communication engineer to a software engineer. No matter in which field, I would love to devote my life to be a beauty-creator with the spirit of craftman in the digital world.
+
+My interests includes (not all):
+
+1. information theory
+
+2. channel coding theory
+
+3. artificial intelligence
+
+4. natural language processing
