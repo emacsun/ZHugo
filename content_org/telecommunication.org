@@ -81,13 +81,16 @@ So there are three ways to represent Shannon limit:
 |               |                |
 
 
-** NEXT Density Evolution          :LDPC:@telecommunication:
+** DONE Density Evolution          :LDPC:@telecommunication:
+CLOSED: [2018-02-07 Wed 20:02]
 :PROPERTIES:
 :EXPORT_FILE_NAME: density-evolution
 :EXPORT_DATE: <2018-02-05 Mon 14:10>
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Density evolution plays the foundamental role in designing and analyzing LDPC"
 :END:
 :LOGBOOK:
+- CLOSING NOTE [2018-02-07 Wed 20:02] \\
+  done with draft v1.0
 CLOCK: [2018-02-07 Wed 10:20]--[2018-02-07 Wed 11:25] =>  1:05
 CLOCK: [2018-02-05 Mon 14:22]--[2018-02-05 Mon 17:30] =>  3:08
 CLOCK: [2018-02-05 Mon 14:11]--[2018-02-05 Mon 14:21] =>  0:10
@@ -95,29 +98,31 @@ CLOCK: [2018-02-05 Mon 14:11]--[2018-02-05 Mon 14:21] =>  0:10
 *** Introduction
 [2018-02-05 Mon 15:55]
 
-For a given Tanner graph, it is still an open question to tell for which channel
-noise level the message passing algorithm will be able to reach a reliable
-transmission. Fortunately, it is possible to tell how an ensemble of Tanner
-graphs is likely to behave given that the channel is memoryless and the Tanner
-graphs are all cycle free. We could do this by tracking the evolution of
-probability density functions during the message passing procedure. We call this
-method *Density Evolution* which is first invented by Richardson and Urbanke in
-their papers in 2001.
+For a given Tanner graph, it is still an open question to tell for
+which channel noise level the message passing algorithm will be able
+to reach a reliable transmission. Fortunately, it is possible to tell
+how an ensemble of Tanner graphs is likely to behave given that the
+channel is memoryless and the Tanner graphs are all cycle free. We
+could do this by tracking the evolution of probability density
+functions during the message passing procedure. We call this method
+*Density Evolution* which is first invented by Richardson and Urbanke
+in their papers in 2001.
 
-Now there are some effective ways to decide whether a LDPC ensemble is good or
-not, but most of them are based on density evolution. We define *threshold* as
-the maximum level of channel noise under which the MPA(message passing
-algorithm) can reach a reliable transmission. By watching the threshold, we can
-design some excellent LDPC ensemble, from which a good LDPC matrix can be
-selected.
+Now there are some effective ways to decide whether a LDPC ensemble is
+good or not, but most of them are based on density evolution. We
+define *threshold* as the maximum level of channel noise under which
+the MPA(message passing algorithm) can reach a reliable transmission.
+By watching the threshold, we can design some excellent LDPC ensemble,
+from which a good LDPC matrix can be selected.
 *** Density evolution on the BEC
 [2018-02-05 Mon 14:33]
 
-On the BEC, an erased bit can be corrected if that bit was the only bit in the
-parity check equation. We assume that the MPA is passing messages down through
-the layers of a Tanner graph which is a tree. Under such assumption the
-bit-to-check message to check node in a lower level of the graph is determined
-by the check-to-bit message from all the incoming edges in the level above.
+On the BEC, an erased bit can be corrected if that bit was the only
+bit in the parity check equation. We assume that the MPA is passing
+messages down through the layers of a Tanner graph which is a tree.
+Under such assumption the bit-to-check message to check node in a
+lower level of the graph is determined by the check-to-bit message
+from all the incoming edges in the level above.
 
 **** Regular LDPC codes
 [2018-02-05 Mon 14:40]
@@ -285,7 +290,134 @@ At last, we get
 \label{eq:18}
 p_{l} = \epsilon \lambda \big( 1- \rho(1-p_{l-1}) \big)
 \end{equation}
-with \(p0=\epsilon\)
+with \(p_{0}=\epsilon\)
+*** threshold and stability of density evolution on BEC
+[2018-02-07 Wed 20:30]
+
+According to \ref{eq:18}, we can evaluate the ensemble code with given
+degree distribution \(\lambda,\rho\) assuming that the graphs are
+cycle free.
+
+To examine the influence of \(\epsilon\), we define the function:
+\begin{equation}
+\label{eq:24}
+f(p,\epsilon) = \epsilon\lambda(1- \rho(1-p))
+\end{equation}
+The erasure probability at iteration \(l\) is then
+\begin{equation}
+\label{eq:25}
+p_{l}(\epsilon) = f(p_{l-1},\epsilon)
+\end{equation}
+\(f(p,\epsilon)\) is a strictly increasing function in \(p\) for
+\(\epsilon > 0\) so \(p_{l+1} > p_{l}\).
+
+In particular,
+\begin{eqnarray}
+\label{eq:26}
+f(0,\epsilon)&=&\epsilon \lambda(1-\rho(1)) = 0 \\
+f(1,\epsilon)&=&\epsilon \lambda(1-\rho(1-1)) = \epsilon
+\end{eqnarray}
+Since \(f(p,\epsilon)\) is a strictly increasing function in \(p\)
+\begin{equation}
+\label{eq:27}
+0 \leq f(p,\epsilon) \leq \epsilon, \quad \forall p\in [0,1], \forall \epsilon\in [0,1]
+\end{equation}
+Thus, \(p_{\infty}\) will definitely converges to an element
+\(p_{\infty} \in [0,\epsilon]\).Further, for a degree distribution
+pair \(\lambda,\rho\) and an \(\epsilon\in [0,1]\), it can be proven
+that if \(p_{l}(\epsilon) \to 0\) then \(p_{l}(\epsilon^{'}) \to 0\)
+for all \(\epsilon < \epsilon^{'}\). Indeed, there is a value
+\(\epsilon^{*}\) called the threshold such that for values of
+\(\epsilon\) below \(\epsilon^{*}\), \(p_{l}\) approaches zero as the
+number of iterations goes to infinity while for values of \(\epsilon >
+\epsilon^{*}\) it does not. The threshold, \(\epsilon^{*}\), for
+\((\lambda,\rho)\) is defined as the supremum of \(\epsilon\) for
+which \(p_{l}(\epsilon) \to 0\):
+\begin{equation}
+\label{eq:28}
+\epsilon^{*} (\lambda,\rho) = \sup \{ \epsilon\in [0.1] :p_{l}(\epsilon)_{l\to \infty} \to 0 \}
+\end{equation}
+
+
+We wish to find the threshold of an irregular LDPC ensemble with
+degree distributions:
+\begin{equation}
+\label{eq:29}
+\lambda(x) = 0.1x + 0.4x^{2} + 0.5x^{19}
+\end{equation}
+and
+\begin{equation}
+\label{eq:30}
+\rho(x) = 0.5 x^{7} + 0.5 x^{8}
+\end{equation}
+This code has rate:
+\begin{equation}
+\label{eq:31}
+1- \frac{\sum_{i}\lambda_{i}/i}{\sum_{i}\rho_{i}/i} \approx 0.5
+\end{equation}
+By using the recursion of Density evolution, we find that the
+threshold for this ensemble is an erasure probability between 0.465
+and 0.475.
+
+It is easy to find that the density evolution quickly results in very
+high order as the iteration number is increased. However, to
+understand its behavior when \(p_{l}\) is small we can approximate it
+by a Taylor series expansion of the right hand side around 0. i.e.
+\begin{equation}
+\label{eq:32}
+p_{l} = f(p_{l-1},\epsilon)\approx f^{'}(p,\epsilon) p_{l-1}
+\end{equation}
+A function \(f(x) = g(h(x))\) has a derivative with respect to \(x\)
+given by:
+\begin{equation}
+\label{eq:34}
+\frac{df}{dx} = \frac{dg}{dh} \frac{dh}{dx}
+\end{equation}
+Thus for:
+\begin{equation}
+\label{eq:35}
+f(p,\epsilon) = \epsilon \lambda(h(p)) \quad h(p) = 1-\rho(1-p)
+\end{equation}
+the derivative with respect to \(p\) is :
+\begin{equation}
+\label{eq:36}
+\frac{df(p,\epsilon)}{dp} = \frac{d\lambda}{dh} \frac{dh}{dp}
+\end{equation}
+Evaluating this derivative at \(p = 0\) we have that
+\begin{equation}
+\label{eq:37}
+h(p=0) = 1-\rho(1) =0
+\end{equation}
+and so
+\begin{equation}
+\label{eq:38}
+\frac{d\lambda}{dh}\bigg|_{p=0} =  \lambda_{2} + 2\lambda_{3}h + \ldots + (i-1)\lambda_{i}h^{(i-2)} + \ldots \bigg|_{h=0} = \lambda_{2}
+\end{equation}
+and
+\begin{equation}
+\label{eq:39}
+\frac{dh}{dp}\bigg|_{p=0} = \frac{d(1-\rho(1-p)}{dp} \bigg|_{(1-p)=1} = \rho^{'}(1)
+\end{equation}
+So, we get:
+\begin{equation}
+\label{eq:40}
+p_{l} \approx \epsilon \lambda_{2}\rho^{'}(1)p_{l-1}, \quad p_{l} \to 0
+\end{equation}
+
+For \(p_{l} \to 0\) as \(l\to \infty\), must have \(p_{l} < p_{l-1}
+\), and so requires:
+\begin{equation}
+\label{eq:41}
+\epsilon \lambda_{2}\rho^{'}(1) < 1
+\end{equation}
+So \(\lambda_{2}\) is upper bounded by:
+\begin{equation}
+\label{eq:42}
+\lambda_{2} <  \frac{1}{\epsilon \rho^{'}(1)}
+\end{equation}
+We call (\ref{eq:42}) the /stability constraint/ of density evolution.
+
+
 *** Density evolution on general memoryless channels
 :LOGBOOK:
 CLOCK: [2018-02-07 Wed 11:25]--[2018-02-07 Wed 11:51] =>  0:26
@@ -384,36 +516,26 @@ between these.
 *** Summary
 [2018-02-07 Wed 14:05]
 
-In this post, we analyze density evolution for regular and irregular LDPC codes based on
-BEC and memoryless channel. As a tool for designing and analyzing LDPC matrix,
-density evolution plays a foundamental role and helps researchers find many LDPC
-matrices of good performance.
+In this post, we analyze density evolution for regular and irregular
+LDPC codes based on BEC and memoryless channel. As a tool for
+designing and analyzing LDPC matrix, density evolution plays a
+foundamental role and helps researchers find many LDPC matrices of
+good performance.
 
-However, the drawback of density evolution includes: 1. assumption of cycle-free
-tanner graph, which is hard to be satisfied in reality; 2. assumption of infinite
-length of codeword, which is also hard to be satisfied; 3. extremely high
-computational complexity, which makes it hard to use and results in many
-simplied and effective alternatives which are out of this post's scope.
+However, the drawback of density evolution includes: 1. assumption of
+cycle-free tanner graph, which is hard to be satisfied in reality; 2.
+assumption of infinite length of codeword, which is also hard to be
+satisfied; 3. extremely high computational complexity, which makes it
+hard to use and results in many simplied and effective alternatives
+which are out of this post's scope.
 
 We will meet density evolution again!!!
 
 
 
 
-** TODO Density Evolution for irregular LDPC code on BEC :LDPC:@telecommunication:
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: density-evolution-for-irregular-ldpc-code-on-bec
-   :EXPORT_DATE: <2018-02-05 Mon 21:57>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
-   :END:
-   :LOGBOOK:
-   CLOCK: [2018-02-05 Mon 21:58]--[2018-02-05 Mon 21:59] =>  0:01
-   :END:
 
 * ECC
-  :LOGBOOK:
-  CLOCK: [2018-02-05 Mon 21:59]
-  :END:
 [2018-02-03 Sat 09:14]
 
 
