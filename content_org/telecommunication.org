@@ -81,14 +81,15 @@ So there are three ways to represent Shannon limit:
 |               |                |
 
 
-** NEXT Density Evolution             :LDPC:@telecommunication:
+** NEXT Density Evolution          :LDPC:@telecommunication:
 :PROPERTIES:
 :EXPORT_FILE_NAME: density-evolution
 :EXPORT_DATE: <2018-02-05 Mon 14:10>
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Density evolution plays the foundamental role in designing and analysing LDPC"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Density evolution plays the foundamental role in designing and analyzing LDPC"
 :END:
 :LOGBOOK:
-CLOCK: [2018-02-05 Mon 14:22]--[2018-02-05 Mon 21:58] =>  7:36
+CLOCK: [2018-02-07 Wed 10:20]--[2018-02-07 Wed 11:25] =>  1:05
+CLOCK: [2018-02-05 Mon 14:22]--[2018-02-05 Mon 17:30] =>  3:08
 CLOCK: [2018-02-05 Mon 14:11]--[2018-02-05 Mon 14:21] =>  0:10
 :END:
 *** Introduction
@@ -117,6 +118,7 @@ parity check equation. We assume that the MPA is passing messages down through
 the layers of a Tanner graph which is a tree. Under such assumption the
 bit-to-check message to check node in a lower level of the graph is determined
 by the check-to-bit message from all the incoming edges in the level above.
+
 **** Regular LDPC codes
 [2018-02-05 Mon 14:40]
 
@@ -285,7 +287,10 @@ p_{l} = \epsilon \lambda \big( 1- \rho(1-p_{l-1}) \big)
 \end{equation}
 with \(p0=\epsilon\)
 *** Density evolution on general memoryless channels
-     [2018-02-05 Mon 22:02]
+:LOGBOOK:
+CLOCK: [2018-02-07 Wed 11:25]--[2018-02-07 Wed 11:51] =>  0:26
+:END:
+[2018-02-05 Mon 22:02]
 
 On general memoryless channels, the B2C messages are the LLRs during
 the MPA. We define LLR as
@@ -321,8 +326,76 @@ M_{j,i} = \sum_{j^{'}\in A_{i},j^{'}\neq j} E_{j^{'},i} + r_{i}
 \end{equation}
 
 The probability textbook told us that the PDF of summation of I.I.D random
-variables is the convolution of the PDF of these random variables.
+variables is the convolution of the PDF of these random variables. So the PDF of
+the B2C message can be expressed as:
 
+\begin{equation}
+p_{M} = p(r) \otimes p(E_{l})^{\otimes(w_{c}-1)}
+\end{equation}
+Considering the irregular LDPC codes and the bit degree distribution
+\(\lambda(x)\):
+\begin{equation}
+\label{eq:21}
+p(M_{l}) = p(r) \otimes\sum_{i}\lambda_{i} p(E_{l})^{\otimes(i-1)} = p(r)\otimes \lambda^{\otimes}(p(E_{l}))
+\end{equation}
+Now, there are many efficient ways to evaluate the convolution.
+
+For belief propagation, the function to be evaluated at each check node is show
+as below:
+\begin{equation}
+\label{eq:22}
+E_{j,i} = \log \big(  \frac{ 1+ \prod_{i^{'}\in B_{j,i^{'} \neq i} } tanh (M_{j,i^{'}}/2)}{ 1- \prod_{i^{'}\in B_{j,i^{'} \neq i} } tanh (M_{j,i^{'}}/2)} \big)
+\end{equation}
+So, to get the PDF of two messages \(x\) and \(y\), we have to caculate the
+function:
+\begin{equation}
+\label{eq:23}
+f(x,y) = \log \frac{ 1 + tanh(x/2) tanh(y/2) }{ 1- tanh(x/2)tanh(y/2)} = -\log \frac{ e^{x} + e^{y} }{ 1 + e^{x+y}}
+\end{equation}
+
+One simple way to use the density evolution on general channels is to assume tht
+the original codeword was all zeros. So that the probability that the bit is in
+error is the probability that the LLR is negative.
+
+One more thing, although the PDFs at the beginning of iteration is Gaussian, the
+result of the convolution of Gaussian PDFs is not Gaussian except in the limit.
+However, for the sake of simplicity, we assume that after convolution the PDFs
+remain Gaussian. The truth make Gaussian easy to use that we can use mean and
+variance to describe Gaussian. So that we can only track the mean and variance
+of the PDFs during the iteration.
+**** get an excellent degree distribution
+[2018-02-07 Wed 11:29]
+
+Using density evolution, we can analyze the threshold of an LDPC ensemble.
+However, for a code designers, the question more urging is which degree
+distribution will produce the best threshold.
+
+In general, the more irregular, the better. Accroding to work of Sae-Young
+Chung, Forney, Richardson and Urbanke, there is only an 0.0045dB gap between
+Shannon limit and the irregular LDPC they designed. For that LDPC code, it has a
+codewordlength of \(10^{7}\) and degree varying from 2 to 8000.
+
+Because \(H\) is sparse, a large proportion of degree-2 bit nodes are required
+to guarentee the low density. It can be shown that a degree distribution with a
+good threshold will contain a few very high degree bit nodes, many degree two
+nodes, but no more than allowed for by stability, and some nodes with degree
+between these.
+
+*** Summary
+[2018-02-07 Wed 14:05]
+
+In this post, we analyze density evolution for regular and irregular LDPC codes based on
+BEC and memoryless channel. As a tool for designing and analyzing LDPC matrix,
+density evolution plays a foundamental role and helps researchers find many LDPC
+matrices of good performance.
+
+However, the drawback of density evolution includes: 1. assumption of cycle-free
+tanner graph, which is hard to be satisfied in reality; 2. assumption of infinite
+length of codeword, which is also hard to be satisfied; 3. extremely high
+computational complexity, which makes it hard to use and results in many
+simplied and effective alternatives which are out of this post's scope.
+
+We will meet density evolution again!!!
 
 
 
