@@ -1,7 +1,7 @@
 +++
 title = "Density Evolution"
 date = 2018-02-05T14:10:00+08:00
-lastmod = 2018-02-05T22:35:00+08:00
+lastmod = 2018-02-06T21:52:00+08:00
 tags = ["telecommunication", "LDPC"]
 categories = ["telecommunication"]
 draft = false
@@ -271,14 +271,27 @@ L(x) = \log \big( \frac{p(x=0)}{p(x=1)} \big)
 So the sign of \\(L(x)\\) determine it is \\(0\\) or \\(1\\) and the
 magnatue of \\(|L(x)|\\) tell us how sure we are about the decision.
 
-Figure [1](#orga14b69f) shows a gaussian PDF for
+Figure [1](#org905f9b6) shows a gaussian PDF for
 \\(\mathcal{p}( r)\\) and the probability that the bit is "1" is the area
 of the shade.
 
-<a id="orga14b69f"></a>
+<a id="org905f9b6"></a>
 {{< figure src="/img/telecommunication/20180205gaussian.png" caption="a Gaussian PDF" width="400" >}}
 
 The LLR are real numbers, so it can be illustrated using a probability
 density function. We define the PDF for a B2C message at iteration as
 \\(p(M\_{l})\\) and C2B \\(p(E\_{l})\\). Also, \\(p( r)\\) as the PDF for the
-LLR of the received signal corrupted by the channel.
+LLR of the received signal corrupted by the channel. Also, we suppose
+that the message along the edges are I.I.D (This constraint can can
+be removed when it comes to MET-LDPC).
+
+The output of a bit node is the sum of incoming LLRs on the other
+edges into that node:
+
+\begin{equation}
+\label{eq:20}
+M\_{j,i} = \sum\_{j^{'}\in A\_{i},j^{'}\neq j} E\_{j^{'},i} + r\_{i}
+\end{equation}
+
+The probability textbook told us that the PDF of summation of I.I.D random
+variables is the convolution of the PDF of these random variables.
