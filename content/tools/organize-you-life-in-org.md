@@ -1,8 +1,8 @@
 +++
 title = "Organize you life in Emacs Org"
 author = ["Eason Zhang"]
-date = 2018-02-04T20:45:00+08:00
-lastmod = 2018-02-11T00:55:00+08:00
+date = 2018-02-11T21:52:00+08:00
+lastmod = 2018-02-11T21:57:00+08:00
 tags = ["tools", "Org"]
 categories = ["tools", "Emacs"]
 draft = false
@@ -26,6 +26,13 @@ summary = "My GTD workflow based on Emacs Org"
     - <span class="section-num">3.2</span> [set the refile targets](#set-the-refile-targets)
     - <span class="section-num">3.3</span> [set the org capture templates](#set-the-org-capture-templates)
     - <span class="section-num">3.4</span> [set the org agenda custom commands](#set-the-org-agenda-custom-commands)
+- <span class="section-num">4</span> [One day based on my workflow](#one-day-based-on-my-workflow)
+    - <span class="section-num">4.1</span> [Punch In](#punch-in)
+    - <span class="section-num">4.2</span> [check out the agenda](#check-out-the-agenda)
+    - <span class="section-num">4.3</span> [focus on certain project](#focus-on-certain-project)
+    - <span class="section-num">4.4</span> [change the state of one task](#change-the-state-of-one-task)
+    - <span class="section-num">4.5</span> [using the mobile phone to take capture](#using-the-mobile-phone-to-take-capture)
+- <span class="section-num">5</span> [conclusion](#conclusion)
 </div>
 <!--endtoc-->
 
@@ -74,7 +81,7 @@ workflow will go the road shown as below whick is the same as show in
 [Organize Your Life In Plain Text](http://doc.norang.ca/org-mode.html) but with different triggering
 conditions:
 
-<a id="orgca2c240"></a>
+<a id="org60a044f"></a>
 {{< figure src="/img/tools/20180210myworkflow.png" caption="state transitions for a task in my workflow" width="400" >}}
 
 The main features are listed below.
@@ -89,12 +96,12 @@ The main features are listed below.
 4.  After the scheduled one and the deadlined one, I take a `NEXT`
     task, which is in `NEXT` status. Also, I start a clock under such
     task.
-5.  After finished the `NEXT` tasks, the `NEXT` status will be changed
+5.  After finishing the `NEXT` tasks, the `NEXT` status will be changed
     to `DONE` automatically. Then I pick a new task in the `TODO` lists
     and change the `TODO` status into `NEXT`. Everytime I change a
     `TODO`  task into a `NEXT` task, clock is running under that task
     automatically.
-6.  After finished all the `TODO` tasks, I check the `DONE` list to see
+6.  After finishing all the `TODO` tasks, I check the `DONE` list to see
     if there is any tasks need to be archived.
 
 
@@ -279,7 +286,7 @@ are interested in my .spacemacs.d
 According to the command, one of the sample of my org agenda may look
 like:
 
-<a id="org4310c5b"></a>
+<a id="orgce6e879"></a>
 {{< figure src="/img/tools/20180210orgagenda.png" caption="my org agenda sample" width="900" >}}
 
 I have three projects: math,computer and communication
@@ -292,3 +299,137 @@ under one project is in `NEXT` state, the project is running.
 I think the structure of my agenda buffer is straightforward. you can
 define your own `org-agenda-custom-commands` by reading the manual and
 [this post](https://orgmode.org/worg/org-tutorials/org-custom-agenda-commands.html).
+
+
+## <span class="section-num">4</span> One day based on my workflow {#one-day-based-on-my-workflow}
+
+
+
+
+### <span class="section-num">4.1</span> Punch In {#punch-in}
+
+
+
+At the beginning of every day, I use `F8 I` to punch in, which starts
+a clock under a task called Organization:
+
+```lisp
+(defvar bh/organization-task-id "eb155a82-92b2-4f25-a3c6-0304591af2f9")
+```
+
+
+### <span class="section-num">4.2</span> check out the agenda {#check-out-the-agenda}
+
+
+
+Check out the agenda, using `org-agenda` which is bound to `SPC a o o
+SPC` or `SPC o a SPC` or `F5 SPC` . Because the `org-agenda` buffer
+will be visited quite a few times, I bind this command to several
+shortcuts. Using the customed command `SPC` , I collect all the
+projects,  tasks with `TODO` and `NEXT` states in the project which
+give me an overview of what should be done next and what should be
+started next.
+
+<a id="org44a51bf"></a>
+{{< figure src="/img/tools/20180210orgagenda2.png" caption="my org agenda overview" width="900" >}}
+
+As we can see from the screenshot, the agenda of today is listed at
+the beginning with scheduled task and deadline task.
+
+Following today's agenda, several blocks are displayed with each
+headline in green color and large font size. Those blocks shows:
+
+1.  **Notes to Refile**, which is the draft of a post which should be
+    refile to math.org computer.org or telecommunication.org.
+2.  **Tasks to Refile**, which is the Ideas or tasks hitting my head
+    during handling one tasks. I store these tasks in zrefile.org then
+    process them later after finishing current tasks.
+3.  **Stuck Projects**, which are the projects have no sub-tasks in
+    `NEXT` state.
+4.  **Projects**, which are the projects have at least one sub-tasks in
+    `NEXT` state.
+5.  **Project Next Tasks**, which are `NEXT` sub-tasks in all Projects.
+    In particular, you can filter out the `NEXT` tasks belonging to
+    certain project.
+6.  **Project Subtasks TODO**, which are all the `TODO` sub-tasks
+    belonging to all projects.
+7.  **Project Subtasks DONE**, which are all the `DONE` sub-tasks
+    belonging to all projects.
+8.  **Waiting and Postponed Tasks**, which are all the tasks in `WAITING`
+    and `HOLD` state.
+9.  **Tasks to Archive**, which are the tasks being tagged as `DONE` for
+    a period and need to be archived.
+
+
+### <span class="section-num">4.3</span> focus on certain project {#focus-on-certain-project}
+
+
+
+If you have many `TODO` tasks, it is desirable to focus on certain
+project at one time. Just move the cursor on the Project you want to
+focus, then press `^` . If you want to focus on another project, press
+`^` again then select another project, press `^`.
+
+<a id="org0626b05"></a>
+{{< figure src="/img/tools/20180210orgagenda3.png" caption="focus on certain project" width="900" >}}
+
+Actually, there are quite a few commands helping you coin your own
+view of the agenda buffer. some handy are listed below:
+
+<a id="org22a9818"></a>
+
+<div class="table-caption">
+  <span class="table-number">Table 1:</span>
+  some handy agenda commands
+</div>
+
+| shortcuts | command                           | description                                                                                              |
+|-----------|-----------------------------------|----------------------------------------------------------------------------------------------------------|
+| `/`       | org-agenda-filter-by-tag          | Filter the agenda view with respect to a tag                                                             |
+| `<`       | org-agenda-filter-by-category     | Filter the current agenda view with respect to the category of the item at point                         |
+| `^`       | org-agenda-filter-by-top-headline | Filter the current agenda view and only display the siblings and the parent headline of the one at point |
+| `=`       | org-agenda-filter-by-regexp       | Filter the agenda view by a regular expression                                                           |
+| `_`       | org-agenda-filter-by-effort       | filter the agenda view with respect to effort estimates                                                  |
+
+You can find more agenda commands by reading `Agenda views` part of
+the Org manual which is built in the Emacs.
+
+
+### <span class="section-num">4.4</span> change the state of one task {#change-the-state-of-one-task}
+
+
+
+It is quite easy to change the state of one task. By default, the
+state is in `TODO` state. After start clocking the task, the task will
+be in `NEXT` state automatically.
+
+From `NEXT` to other state, you just use `C-c C-t` . If you are in the
+org agenda buffer, press `t` one the line of the task.
+
+Once the task is set as `DONE` , a temporary buffer will jump out and
+let you take some note to record the task.
+
+
+### <span class="section-num">4.5</span> using the mobile phone to take capture {#using-the-mobile-phone-to-take-capture}
+
+
+
+In general, there are two app one is `Org-mobile` and the another one
+is `BeOrg`. I prefer to the later because of is easy to use. All you
+have to do is put your agenda files in a Dropbox directory.
+
+`Org-mobile` is kind of complex, and need to config both on the phone
+and the PC. I finally make it run on both my iPhone and Surface pro 4.
+However, I resort to `BeOrg` because you will never forget how to use
+`BeOrg` . Unfortunately, I forget how to use `Org-mobile` after I did
+not use it for a month.
+
+
+## <span class="section-num">5</span> conclusion {#conclusion}
+
+
+
+My GTD workflow based on Org is summarized. To be honest, I change my
+workflow quite often. So the configuration will change subsequently
+which is the source of joy using Emacs. You can always config it as
+handy as possible.
