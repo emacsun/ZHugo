@@ -1,16 +1,16 @@
+#+TITLE: TOOLS
 #+HUGO_BASE_DIR: ../
 #+HUGO_SECTION: Tools
 #+FILETAGS: tools
 #+HUGO: more
 #+SEQ_TODO: TODO NEXT DRAFT DONE
 #+HUGO_AUTO_SET_LASTMOD: t
-#+LATEX_CLASS:cn-article
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 * Tools
 * Emacs
 [2018-01-28 Sun 10:14]
 
-** DONE Blogging with Emacs Org         :@tools:@Emacs:Org:Hugo:
+** DONE Blogging with Emacs Org    :@tools:@Emacs:Org:Hugo:
 CLOSED: [2018-01-28 Sun 18:01]
 :PROPERTIES:
 :EXPORT_FILE_NAME: my-blog-workflow
@@ -211,7 +211,7 @@ adopt for the following reasons:
 
    Also, for different methods of updating the theme, you can check [[https://sourcethemes.com/academic/docs/update/][here]].
 
-** DONE Organize you life in Emacs Org       :Org:@tools:@Emacs:
+** DONE Organize you life in Emacs Org  :Org:@tools:@Emacs:
 CLOSED: [2018-02-11 Sun 21:52]
    :PROPERTIES:
    :EXPORT_FILE_NAME: organize-you-life-in-org
@@ -544,8 +544,8 @@ Actually, there are quite a few commands helping you coin your own
 view of the agenda buffer. some handy are listed below:
 #+CAPTION: some handy agenda commands
 #+NAME: tab:20180211handyagendacommand
-#+ATTR_HTML: :border 1 :rules all :frame border :align center
-#+ATTR_LATEX: :align center
+#+ATTR_HTML: :border 1 :rules all :frame border :align left
+#+ATTR_LATEX: :align |l|l|l|
 |-----------+-----------------------------------+----------------------------------------------------------------------------------------------------------|
 | shortcuts | command                           | description                                                                                              |
 |-----------+-----------------------------------+----------------------------------------------------------------------------------------------------------|
@@ -594,3 +594,11 @@ handy as possible.
 
 * Git
 [2018-01-28 Sun 10:14]
+
+
+cite:barg_random_2002
+
+polar code
+
+bibliography:~/zorg/research_library/zcl.bib
+bibliographystyle:unsrt
