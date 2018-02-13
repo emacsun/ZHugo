@@ -6,6 +6,8 @@
 #+SEQ_TODO: TODO NEXT DRAFT DONE
 #+HUGO_AUTO_SET_LASTMOD: t
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
+
+
 * Tools
 * Emacs
 [2018-01-28 Sun 10:14]

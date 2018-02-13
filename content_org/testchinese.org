@@ -1,0 +1,12 @@
+#+TITLE: TOOLS
+#+HUGO_BASE_DIR: ../
+#+HUGO_SECTION: Tools
+#+FILETAGS: tools
+#+HUGO: more
+#+SEQ_TODO: TODO NEXT DRAFT DONE
+#+HUGO_AUTO_SET_LASTMOD: t
+#+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
+
+你好，中文！
+
+Hello, Chinese!

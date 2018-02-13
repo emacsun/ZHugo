@@ -2,50 +2,47 @@
  "tools"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-class-options
-                     '(("org-article" "koma" "letterpaper" "captions=tableheading" "utopia" "11pt" "listings-sv" "microtype" "paralist" "colorlinks=true" "urlcolor=blue")))
-   (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("inputenc" "utf8")))
+                     '(("org-article" "koma" "letterpaper" "captions=tableheading" "ctex" "11pt" "listings-sv" "microtype" "paralist" "colorlinks=true" "urlcolor=blue")))
    (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
    (TeX-run-style-hooks
     "latex2e"
     "org-article"
-    "org-article11"
-    "inputenc")
+    "org-article11")
    (LaTeX-add-labels
-    "sec:orgbbc628b"
-    "sec:org6f7fbc3"
-    "sec:org8d62867"
-    "sec:org1bfdebc"
-    "sec:org64d4ebb"
-    "sec:orgc5304ec"
-    "fig:orgc2408c5"
-    "sec:orge006e2e"
-    "sec:orgee2a024"
-    "sec:org726b87b"
-    "sec:org18bf082"
-    "sec:orgeb209d7"
-    "sec:org0db9df3"
-    "sec:org805b3a5"
-    "fig:org20736ea"
-    "sec:org46d5ae2"
-    "sec:orgf08662b"
-    "sec:org7132f88"
-    "sec:org02a2efa"
-    "sec:org177a7fb"
-    "fig:orga0e971b"
-    "sec:org8896f18"
-    "sec:org816a8dd"
-    "sec:org0663888"
-    "fig:org1e1ff04"
-    "sec:orgc49f3c5"
-    "fig:org81bfe22"
-    "tab:org83d6383"
-    "sec:org6c308ed"
-    "sec:orgab8b182"
-    "sec:org9f6b47a"
-    "sec:org3d3aeec")
+    "sec:org2003146"
+    "sec:orge3e3ed5"
+    "sec:orgae68f6d"
+    "sec:org45ba521"
+    "sec:org7a44f45"
+    "sec:org55e17b2"
+    "fig:org35b1e55"
+    "sec:orgd75fe39"
+    "sec:org1bad030"
+    "sec:org2a79e55"
+    "sec:orgf625f5f"
+    "sec:orgdac3197"
+    "sec:orgaac6ebb"
+    "sec:orga4027d0"
+    "fig:orga8bf26a"
+    "sec:org02165a9"
+    "sec:org6b48ca2"
+    "sec:org14c597b"
+    "sec:orgf52f1e1"
+    "sec:org19f197c"
+    "fig:orgd9b1a38"
+    "sec:orga0fbf15"
+    "sec:org2714363"
+    "sec:org6e6e185"
+    "fig:org4192e91"
+    "sec:orgb33db4a"
+    "fig:org593dd20"
+    "tab:org82d214b"
+    "sec:org53596f2"
+    "sec:orgb27471d"
+    "sec:org8c30137"
+    "sec:org5b3c301")
    (LaTeX-add-bibliographies
     "../../research_library/zcl"))
  :latex)

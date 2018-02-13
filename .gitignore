@@ -6,3 +6,8 @@ themes/academic/
 *.tex
 *.pdf
 *.bbl
+*.out
+*.aux
+*.log
+*.toc
+./content_ort/auto/*
