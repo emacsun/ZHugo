@@ -2,7 +2,7 @@
 title = "Organize you life in Emacs Org"
 author = ["Eason Zhang"]
 date = 2018-02-11T21:52:00+08:00
-lastmod = 2018-02-11T21:57:00+08:00
+lastmod = 2018-02-21T09:18:00+08:00
 tags = ["tools", "Org"]
 categories = ["tools", "Emacs"]
 draft = false
@@ -81,8 +81,8 @@ workflow will go the road shown as below whick is the same as show in
 [Organize Your Life In Plain Text](http://doc.norang.ca/org-mode.html) but with different triggering
 conditions:
 
-<a id="org60a044f"></a>
-{{< figure src="/img/tools/20180210myworkflow.png" caption="state transitions for a task in my workflow" width="400" >}}
+<a id="org6e81c32"></a>
+{{< figure src="/img/tools/20180210myworkflow.png" caption="Figure 1: state transitions for a task in my workflow" width="400" >}}
 
 The main features are listed below.
 
@@ -286,8 +286,8 @@ are interested in my .spacemacs.d
 According to the command, one of the sample of my org agenda may look
 like:
 
-<a id="orgce6e879"></a>
-{{< figure src="/img/tools/20180210orgagenda.png" caption="my org agenda sample" width="900" >}}
+<a id="orgb6363e7"></a>
+{{< figure src="/img/tools/20180210orgagenda.png" caption="Figure 2: my org agenda sample" width="900" >}}
 
 I have three projects: math,computer and communication
 (telecommunication). For each projects, there are some tasks. All the
@@ -330,8 +330,8 @@ projects,  tasks with `TODO` and `NEXT` states in the project which
 give me an overview of what should be done next and what should be
 started next.
 
-<a id="org44a51bf"></a>
-{{< figure src="/img/tools/20180210orgagenda2.png" caption="my org agenda overview" width="900" >}}
+<a id="orgb1042c6"></a>
+{{< figure src="/img/tools/20180210orgagenda2.png" caption="Figure 3: my org agenda overview" width="900" >}}
 
 As we can see from the screenshot, the agenda of today is listed at
 the beginning with scheduled task and deadline task.
@@ -370,13 +370,13 @@ project at one time. Just move the cursor on the Project you want to
 focus, then press `^` . If you want to focus on another project, press
 `^` again then select another project, press `^`.
 
-<a id="org0626b05"></a>
-{{< figure src="/img/tools/20180210orgagenda3.png" caption="focus on certain project" width="900" >}}
+<a id="org88f3fa1"></a>
+{{< figure src="/img/tools/20180210orgagenda3.png" caption="Figure 4: focus on certain project" width="900" >}}
 
 Actually, there are quite a few commands helping you coin your own
 view of the agenda buffer. some handy are listed below:
 
-<a id="org22a9818"></a>
+<a id="org2b4b0ac"></a>
 
 <div class="table-caption">
   <span class="table-number">Table 1:</span>

@@ -1,9 +1,10 @@
 +++
 title = "Version Control Using Magit in Spacemacs"
 author = ["Eason Zhang"]
-date = 2018-02-19T15:15:00+08:00
-lastmod = 2018-02-19T17:12:00+08:00
-tags = ["tools"]
+date = 2018-02-20T22:14:00+08:00
+lastmod = 2018-02-21T09:18:00+08:00
+tags = ["tools", "Emacs", "git"]
+categories = ["git", "Emacs"]
 draft = false
 summary = "My Use of Magit in Spacemacs"
 +++
@@ -58,7 +59,7 @@ Taking my `.spacemacs.d` project for example, after some modifications
 on the config, I want to commit the changes. The mentioned two ways
 bring me to a magit buffer like this:
 
-<a id="org8ebb445"></a>
+<a id="org5295721"></a>
 {{< figure src="/img/tools/20180219magitbuffer1.png" caption="Figure 1: magit buffer of my .spacemacs.d" width="400" >}}
 
 From the above buffer, it records that I have one untracted file and
@@ -71,14 +72,14 @@ become:
 <div align="center">
   <div></div>
 
-<a id="org4dd6e20"></a>
+<a id="org0ea80ea"></a>
 <img src="/img/tools/20180219magitbuffer2.png" alt="20180219magitbuffer2.png" width="400" align="center" />
 If you regret, press `u` to unstage the changes. If you want to
 commit, just press `c`, you will get a menu.
 
 </div>
 
-<a id="org2ff0ebb"></a>
+<a id="orgd124ad0"></a>
 {{< figure src="/img/tools/20180219magitbuffer3.png" caption="Figure 3: press `c`  to commit" width="400" >}}
 
 The menu is clear for you to choose. If nothing to change, just press
@@ -87,25 +88,25 @@ on this commit. Also, there is a buffer showing the diff of this
 commit. If you regret at this moment, just press `C-c C-k` to abort
 the commit.
 
-<a id="org0acdc2f"></a>
+<a id="org9fdf700"></a>
 {{< figure src="/img/tools/20180219magitbuffer4.png" caption="Figure 4: press `c` to commit" width="400" >}}
 
 After finishing the notes, press `C-c C-c` to finish the commit. you
 are in a buffer showing the current state of the project.
 
-<a id="orgceb5084"></a>
+<a id="org6d0c626"></a>
 {{< figure src="/img/tools/20180219magitbuffer5.png" caption="Figure 5: after commit" width="400" >}}
 
 It shows that I am ahead one commit of the remote/master. So, If you
 want to push the commit to the remote/master, press `p` , a buffer
 will popup for you to choose where to push.
 
-<a id="orgc74644a"></a>
+<a id="org25db75a"></a>
 {{< figure src="/img/tools/20180219magitbuffer6.png" caption="Figure 6: press `u`  to push" width="400" >}}
 
 Press `u` to push the commit to the origin/master, and you get:
 
-<a id="org8763d38"></a>
+<a id="org34e0b94"></a>
 {{< figure src="/img/tools/20180219magitbuffer7.png" caption="Figure 7: after pushing to the origin/master" width="400" >}}
 
 Then a commit is finished locally and remotely.

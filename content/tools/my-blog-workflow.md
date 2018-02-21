@@ -1,25 +1,31 @@
 +++
 title = "Blogging with Emacs Org"
+author = ["Eason Zhang"]
 date = 2018-01-28T18:01:00+08:00
-lastmod = 2018-02-04T20:57:00+08:00
+lastmod = 2018-02-21T09:18:00+08:00
 tags = ["tools", "Org", "Hugo"]
 categories = ["tools", "Emacs"]
 draft = false
 summary = "My blog workflow based on Emacs Org"
 +++
 
+<style>
+  .ox-hugo-toc ul {
+    list-style: none;
+  }
+</style>
 <div class="ox-hugo-toc toc">
 <div></div>
 
 ## Table of Contents
 
-- [Writing with Emacs Org publish](#writing-with-emacs-org-publish)
-- [Writing with Hugo](#writing-with-hugo)
-    - [architecture of the site](#architecture-of-the-site)
-- [Settings for ox-hugo](#settings-for-ox-hugo)
-    - [settings for each section based on ox-hugo](#settings-for-each-section-based-on-ox-hugo)
-    - [settings for each article based on ox-hugo](#settings-for-each-article-based-on-ox-hugo)
-- [Settings for Hugo themes](#settings-for-hugo-themes)
+- <span class="section-num">1</span> [Writing with Emacs Org publish](#writing-with-emacs-org-publish)
+- <span class="section-num">2</span> [Writing with Hugo](#writing-with-hugo)
+    - <span class="section-num">2.1</span> [architecture of the site](#architecture-of-the-site)
+- <span class="section-num">3</span> [Settings for ox-hugo](#settings-for-ox-hugo)
+    - <span class="section-num">3.1</span> [settings for each section based on ox-hugo](#settings-for-each-section-based-on-ox-hugo)
+    - <span class="section-num">3.2</span> [settings for each article based on ox-hugo](#settings-for-each-article-based-on-ox-hugo)
+- <span class="section-num">4</span> [Settings for Hugo themes](#settings-for-hugo-themes)
 </div>
 <!--endtoc-->
 
@@ -35,7 +41,7 @@ your blog using Emacs Org then publish them in the markdwon format
 automatically.
 
 
-## Writing with Emacs Org publish {#writing-with-emacs-org-publish}
+## <span class="section-num">1</span> Writing with Emacs Org publish {#writing-with-emacs-org-publish}
 
 It's easy to build a static website using [Emacs Org](https://orgmode.org/manual/Publishing.html). [Worg](https://orgmode.org/worg/), the Org-mode
 community, also have comprehensive tutorials about using Org to build your
@@ -48,7 +54,7 @@ In general, through Emacs Org mode, all you need is to set the variable
 some knowledge about CSS and JavaScript is necessary.
 
 
-## Writing with Hugo {#writing-with-hugo}
+## <span class="section-num">2</span> Writing with Hugo {#writing-with-hugo}
 
 Now, I moved from the Emacs built-in publishing system to Hugo because of
 Hugo's efficiency and flexibility. You can build your static site in just a
@@ -71,7 +77,7 @@ Especially, there is tons of themes for you. Also, you can set up your own
 theme.
 
 
-### architecture of the site {#architecture-of-the-site}
+### <span class="section-num">2.1</span> architecture of the site {#architecture-of-the-site}
 
 Using `hugo` , there is a default architecture. Using `ox-hugo` , I store
 the Org file in the subdirectory `content-org` . There are several sections
@@ -81,14 +87,14 @@ article on _mathematical analysis_ in the file named `content-org/math.org`
 so that after exporting, the markdown file will be put in the subdirectory
 `content/math/` .
 
-<a id="orgd0a639c"></a>
-{{< figure src="/tools/20180126HugoArchitecture.png" caption="architecture of Hugo project" width="400" >}}
+<a id="org799910a"></a>
+{{< figure src="/tools/20180126HugoArchitecture.png" caption="Figure 1: architecture of Hugo project" width="400" >}}
 
 
-## Settings for ox-hugo {#settings-for-ox-hugo}
+## <span class="section-num">3</span> Settings for ox-hugo {#settings-for-ox-hugo}
 
 
-### settings for each section based on ox-hugo {#settings-for-each-section-based-on-ox-hugo}
+### <span class="section-num">3.1</span> settings for each section based on ox-hugo {#settings-for-each-section-based-on-ox-hugo}
 
 As mentioned before, there are several sections for my site and I use
 ox-hugo to handle articles for this sections. In the subdirectory
@@ -129,7 +135,7 @@ beginning of this file is like:
     is modified.
 
 
-### settings for each article based on ox-hugo {#settings-for-each-article-based-on-ox-hugo}
+### <span class="section-num">3.2</span> settings for each article based on ox-hugo {#settings-for-each-article-based-on-ox-hugo}
 
 I use the `org-capture` to start a article. The emacs-lisp:
 
@@ -192,7 +198,7 @@ One more point, it is awesome to preview each article after saveing it.
 Yes! you can do it according [this article](https://ox-hugo.scripter.co/doc/auto-export-on-saving).
 
 
-## Settings for Hugo themes {#settings-for-hugo-themes}
+## <span class="section-num">4</span> Settings for Hugo themes {#settings-for-hugo-themes}
 
 Now, there are more than 190+ [themes](https://themes.gohugo.io/) for Hugo. It is pretty straightforward
 to [install and config](https://gohugo.io/themes/) a theme as you wish. I prefer the [Academic theme](https://sourcethemes.com/academic/) which I

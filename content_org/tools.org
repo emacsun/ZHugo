@@ -9,125 +9,118 @@
 
 
 * Tools
-** NEXT Version Control Using Magit in Spacemacs :Emacs:git:@git:@Emacs:
-:PROPERTIES:
-:EXPORT_FILE_NAME: version-control-emacs-magit
-:EXPORT_DATE: <2018-02-19 Mon 15:15>
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "My Use of Magit in Spacemacs"
-:END:
-:LOGBOOK:
-CLOCK: [2018-02-19 Mon 16:10]--[2018-02-20 Tue 09:09] => 16:59
-CLOCK: [2018-02-19 Mon 15:16]--[2018-02-19 Mon 15:45] =>  0:29
-:END:
+** NEXT Journal your life Using Emacs Org   :journal:@Emacs:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: journal-your-life-using-emacs-org
+   :EXPORT_DATE: <2018-02-20 Tue 22:21>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "journal your work using Emacs Org"
+   :END:
+   :LOGBOOK:
+   CLOCK: [2018-02-21 Wed 09:16]
+   CLOCK: [2018-02-21 Wed 07:47]--[2018-02-21 Wed 09:04] =>  1:17
+   CLOCK: [2018-02-20 Tue 22:23]--[2018-02-20 Tue 22:29] =>  0:06
+   :END:
+*** Introduction
+    [2018-02-21 Wed 07:48]
+    Long time ago, I read a post about [[https://www.emacswiki.org/emacs/PersonalDiary][taking daily journal using Emacs]].
+    Until recently, I realized that I need to take journals on my work.
+    So I read the post again and integrate the configuration into my
+    .spacemacs.d.
 
-There is an [[http://spacemacs.org/layers/+source-control/git/README.html][official layer]] called [[http://spacemacs.org/layers/+source-control/git/README.html][=git=]]builtin spacemacs. The =git=
-layer is based on =magit= . Actually, on the magit website, you can
-always find what you want. This post is a summary of How I use magit
-in spacemacs.
+    Here, I am not going to preach why you should keep a daily
+    journal. Google will tell you more.
 
-I like the magit website because of the beautiful font and pleasing
-color combination. More important is the maintainor Jonas Bernoulli
-who devotes his yearly efforts to coin the magit great for Emacsers.
-Now, after [[https://www.kickstarter.com/projects/1681258897/its-magit-the-magical-git-client/posts/1988383][a successful campaign on the Kickstarter]], Jonas Bernoulli
-was able to work on Magit full-time for another year, which was he'd
-love to.
+*** Install
+    [2018-02-21 Wed 07:48]
 
-Lets's goto my daily use of Magit in Spacemacs. If you are not using
-[[http://spacemacs.org/layers/+source-control/git/README.html][Spacemacs]], I highly recommend it for you.
-*** Commit Your Changes
-[2018-02-19 Mon 16:34]
+    If you want to Install the org-journal layer, just clone my
+    [[https://github.com/emacsun/.spacemacs.d][.spacemacs.d]] there is a layer named =zcljournal=, which is forked
+    from [[https://github.com/borgnix/spacemacs-journal][spacemacs-journal]] with a little modified.
 
-Suppose you have already make some changes on a project version
-controlled using Git, the next step is to stage the changes and then
-commit the changes.
-
-If your cursor are in the buffer of a file belonging to that project,
-press =SPC g s= will bring you to the magit buffer of current project.
-
-If your cursor are not in the buffer of a file belongint to that
-project, using =SPC p p= goto the helm-projectile buffer, then move
-cursor to the project, then press =M-g=, you will goto the magit
-buffer of current project.
-
-Taking my =.spacemacs.d= project for example, after some modifications
-on the config, I want to commit the changes. The mentioned two ways
-bring me to a magit buffer like this:
-#+CAPTION:  magit buffer of my .spacemacs.d
-#+ATTR_HTML:  :width 400 :align center
-#+NAME: fig:20180219magitbuffer1
-#+ATTR_LATEX: :width 0.6\textwidth :align center
-[[../static/img/tools/20180219magitbuffer1.png]]
-
-From the above buffer, it records that I have one untracted file and
-two unstaged changes on two existing files. On the headlines of the
-untracted files and unstaged changes, press =s= will stage all the
-untracted files and unstaged changes. If you are not at the headlines,
-to stage all the changes you need to press =S=. After this, the buffer
-become:
-
-#+CAPTION:   press =s= to stage the changes
-#+ATTR_HTML:  :width 400 :align center
-#+NAME: fig:20180219magitbuffer2
-#+ATTR_LATEX: :width 0.6\textwidth :align center
-[[../static/img/tools/20180219magitbuffer2.png]]
-If you regret, press =u= to unstage the changes. If you want to
-commit, just press =c=, you will get a menu.
+    To use this journal system, you need set =org-journal-dir=:
+    #+begin_src lisp
+    (setq org-journal-dir "~/.spacemacs.d/journal/")
+    #+end_src
+*** Keys
+    [2018-02-21 Wed 07:58]
 
 
-#+CAPTION:   press =c=  to commit
-#+ATTR_HTML:  :width 400 :align center
-#+NAME: fig:20180219magitbuffer3
-#+ATTR_LATEX: :width 0.6\textwidth :align center
-[[../static/img/tools/20180219magitbuffer3.png]]
+**** Global Bindings
+     | Key Binding | Description                                      |
+     |-------------+--------------------------------------------------|
+     | ~SPC a j j~ | new journal entry                                |
+     | ~SPC a j v~ | view journal of today                            |
+     | ~SPC a j s~ | search journals within a specified time interval |
+     | ~SPC a j S~ | search all journal for a string                 |
+**** Major Mode Bindings
+     | Key Binding | Description                     |
+     |-------------+---------------------------------|
+     | ~SPC m j j~ | new journal entry               |
+     | ~SPC m j n~ | next journal file               |
+     | ~SPC m j p~ | previous journal file           |
+     | ~SPC m j s~ | search the current journal file |
+     | ~SPC m j v~ | read journal entry              |
+     | ~SPC m j V~ | display journal entry           |
+     | ~SPC m j S~ | search all journals             |
+     | ~SPC m j w~ | search calendar week            |
+     | ~SPC m j m~ | search calendar month           |
+     | ~SPC m j y~ | search calendar year            |
 
-The menu is clear for you to choose. If nothing to change, just press
-=c= again, and there will a buffer pop up for you to take some notes
-on this commit. Also, there is a buffer showing the diff of this
-commit. If you regret at this moment, just press =C-c C-k= to abort
-the commit.
+     Also, you can replace the prefix ~SPC m~ with ~,~ which is more
+     handy.
 
-#+CAPTION:   press =c= to commit
-#+ATTR_HTML:  :width 400 :align center
-#+NAME: fig:20180219magitbuffer4
-#+ATTR_LATEX: :width 0.6\textwidth :align center
-[[../static/img/tools/20180219magitbuffer4.png]]
 
-After finishing the notes, press =C-c C-c= to finish the commit. you
-are in a buffer showing the current state of the project.
+**** Calendar Mode Bindings
+     | Key Binding | Description                                |
+     |-------------+--------------------------------------------|
+     | ~J j~       | new journal entry                          |
+     | ~J v~       | view an entry in a new buffer              |
+     | ~J V~       | view an entry but do not switch to it      |
+     | ~J n~       | go to next day with journal entries        |
+     | ~J p~       | go to previous day with journal entries    |
+     | ~J S~       | search in all entries of all time          |
+     | ~J w~       | search in all entries of the current week  |
+     | ~J m~       | search in all entries of the current month |
+     | ~J y~       | search in all entries of the current year  |
+*** After a Period
+     [2018-02-21 Wed 08:50]
 
-#+CAPTION:   after commit
-#+ATTR_HTML:  :width 400 :align center
-#+NAME: fig:20180219magitbuffer5
-#+ATTR_LATEX: :width 0.6\textwidth :align center
-[[../static/img/tools/20180219magitbuffer5.png]]
+     After a Period, say a month, there are quite a lot journals under
+     the =org-journal-dir= . One day One journal.
+** NEXT Take a Diary Using Emacs Org           :Org:diary:@Emacs:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: take-a-diary-using-emacs-org
+   :EXPORT_DATE: <2018-02-21 Wed 09:03>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "keep a diary using Emacs Org"
+   :END:
+   :LOGBOOK:
+   CLOCK: [2018-02-21 Wed 09:04]--[2018-02-21 Wed 09:16] =>  0:12
+   :END:
+*** Introduction
+    [2018-02-21 Wed 09:06]
 
-It shows that I am ahead one commit of the remote/master. So, If you
-want to push the commit to the remote/master, press =p= , a buffer
-will popup for you to choose where to push.
+    There is one diary system built in Emacs. When you are in the
+    Calendar buffer, press =i= will bring you a menu to select what
+    kind of diary you want to take. However, as a loyal fan of Emacs
+    Org, I want to take diary using Org. When I am in the org agenda
+    buffer, press =i= will bring me a menu like what show in the
+    calendar buffer after pressing =i=.
+*** Set up
+    [2018-02-21 Wed 09:09]
 
-#+CAPTION:   press =u=  to push
-#+ATTR_HTML:  :width 400 :align center
-#+NAME: fig:20180219magitbuffer6
-#+ATTR_LATEX: :width 0.6\textwidth :align center
-[[../static/img/tools/20180219magitbuffer6.png]]
+    It seems that all you need to do is set the
+      =org-agenda-diary-file=, so that Org knows where to put the
+      diary file.
 
-Press =u= to push the commit to the origin/master, and you get:
-#+CAPTION:   after pushing to the origin/master
-#+ATTR_HTML:  :width 400 :align center
-#+NAME: fig:20180219magitbuffer7
-#+ATTR_LATEX: :width 0.6\textwidth :align center
-[[../static/img/tools/20180219magitbuffer7.png]]
-
-Then a commit is finished locally and remotely.
+      #+begin_src lisp
+      (setq org-agenda-diary-file  "~/zorg/Dropbox/base/zdiary.org")
+      #+end_src
 
 
 
 
 
-
-
-
-* Emacs
+*  Emacs
 [2018-01-28 Sun 10:14]
 
 ** DONE Blogging with Emacs Org    :@tools:@Emacs:Org:Hugo:
@@ -713,6 +706,366 @@ My GTD workflow based on Org is summarized. To be honest, I change my
 workflow quite often. So the configuration will change subsequently
 which is the source of joy using Emacs. You can always config it as
 handy as possible.
+
+
+** DONE Using Emacs as a calculator through Cals :calc:@Emacs:
+CLOSED: [2018-02-20 Tue 17:13]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: calc-in-emacs
+   :EXPORT_DATE: <2018-02-19 Mon 15:15>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Summary of my use of Calc as a calculator"
+   :END:
+   :LOGBOOK:
+   - CLOSING NOTE [2018-02-20 Tue 17:13] \\
+     done with a draft version.
+   CLOCK: [2018-02-20 Tue 16:05]--[2018-02-20 Tue 17:13] =>  1:08
+   CLOCK: [2018-02-20 Tue 13:35]--[2018-02-20 Tue 16:05] =>  2:30
+   SCHEDULED: <2018-02-11 周日>
+   :END:
+   [2018-02-11 周日 13:34]
+*** Introduction
+    [2018-02-20 Tue 15:35]
+
+    In Emacs, execute =M-x calc= and you are in a =Calc= buffer. At first
+    time, perhaps you will be confused how begin. Press =?= you will get a
+    help manual.
+
+
+    Normally, Calc uses the RPN (Reverse Polish Notation) notation, which
+    is not the natation what I am familiar with. However, It did not take
+    me much time to get used to it. Generally, the core of an RPN
+    calculator is the stack. A calculator stack is like a stack of dishes.
+    New dishes are added at the top of the stack, and numbers are normally
+    only removed from the top of the stack. Also, in a RPN calculator,
+    operands are always entered first, the operator second. The calculator
+    pops the appropriate number of operands from the stack and pushes back
+    the result.
+
+    Take =2+3= for example, first, you enter 2;second , 3; at last, you
+    enter =+= . Then the 2 and 3 pops from the stack and 5 are pushed on
+    the top of the stack.
+*** Main Features
+    [2018-02-20 Tue 15:36]
+
+    1. Choice of algebraic or RPN entry of calculations;
+    2. Arbitrary precision integers and floating-point numbers.
+    3. Arithmetic on rational numbers, complex numbers (rectangular and
+       polar), error forms with standard deviations, open and closed
+       intervals, vectors and matrices, dates and times, infinities, sets,
+       quantities with units, and algebraic formulas.
+    4. Mathematical operations such as logarithms and trigonometric
+       functions.
+    5. Programmer's features (bitwise operations, non-decimal numbers).
+    6. Financial functions such as future value and internal rate of
+       return.
+    7. Number theoretical features such as prime factorization and
+       arithmetic modulo m for any m.
+    8. Algebraic manipulation features, including symbolic calculus.
+    9. Moving data to and from regular editing buffers.
+    10. Embedded mode for manipulating Calc formulas and data directly
+        inside any editing buffer.
+    11. Graphics using GNUPLOT, a versatile (and free) plotting program.
+    12. Easy programming using keyboard macros, algebraic formulas,
+        algebraic rewrite rules, or extended Emacs Lisp.
+
+From the features listed above, we can see Calc is a versatile
+calculator. It is almost impossible for me to touch all the features
+during daily use. Calc is large and maybe intimidating to the
+first-time user. My knowledge of Calc grows as time goes by. I use
+Calc every time when I want to calculate something. Day by day, I
+learn more and more about Calc.
+
+This post is the record of my use of Calc.
+*** switch between the algebraic and RPN mode
+    [2018-02-20 Tue 16:02]
+
+    =calc-algebraic-entry=
+
+    This command is used to input an expression in the algebraic mode
+    temporally. After this the Calc is in RPN mode. When you execute
+    the =calc-algebraic-entry= the minibuffer will be leading by the
+    word *Algebraic:* instead of *Calc:*, which is used in the RPN
+    mode.
+
+    After the *Algebraic:* you can enter your algebraic expression.
+
+    In the Calc buffer, press ='= also bring you the algebraic mode.
+    Press ='= two times bring you the last algebraic expression you
+    entered.
+
+    =calc-algebraic-mode=
+
+    This command will turn the Calc into algebraic mode. After calling
+    this command, every time you enter something in the Calc buffer,
+    the Calc is in the algebraic mode i.e. every time you enter
+    something , the minibuffer will be leading *Algebraic:* . So any
+    algebraic expression is accepted. I even try the =2 + log10(100)=
+    and it returns =4= .
+
+*** adding two numbers
+    [2018-02-20 Tue 15:57]
+
+    In the RPN mode, you enter the first operand and the second
+    operand, at last you enter =+= , then the first operand and the
+    second operand pops out of the stack and the result is pushed
+    back.
+
+    subtraction, multiplication and divide are in a straightforward
+    way.
+*** reference
+[2018-02-20 Tue 19:30]
+
+1. [[http://nullprogram.com/blog/2009/06/23/][The Emacs Calculator.]]
+2. [[https://www.gnu.org/software/emacs/manual/html_node/calc/index.html#Top][The manual: The GNU Emacs Calculator.]]
+
+
+** DONE Write in Emacs                                   :@Emacs:
+   CLOSED: [2018-02-20 Tue 22:13]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: write-in-emacs
+   :EXPORT_DATE: <2018-02-20 Mon 15:15>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Write an article in Emacs"
+   :END:
+   :LOGBOOK:
+   - CLOSING NOTE [2018-02-20 Tue 22:13] \\
+     done with a draft
+     Thanks my wife for taking care of the new born baby and spare me so
+     much time
+   CLOCK: [2018-02-20 Tue 19:32]--[2018-02-20 Tue 22:13] =>  2:41
+   :END:
+
+*** writing a book in Emacs
+[2018-02-20 Tue 19:22]
+
+I am not going to preach the powerful tool, Org. In this post, I want
+to write something on the tools which facilitate the literature
+writing. Indeed, if I am going to write a book someday (when time is
+not a problem), the very tool I will adopt definitely is Emacs.
+
+With high probability, I will adopt the [[https://www.masteringemacs.org/article/how-to-write-a-book-in-emacs][workflow like Mickey Petersen
+did]]. Also, Emacs has many extensions that make writing a book or an
+article in large size possible. In general, I will write it in Org
+mode, and export the book to other format with just a =C-c C-e=, which
+is a convenient shortcut memorized by my muscle.
+*** Extensions that facilitate writing
+[2018-02-20 Tue 19:24]
+**** Working Environment
+
+My working Environment is listed as below:
+1. Windows 10 on Surface Pro 4;
+2. Emacs 25.0.5;
+3. Org 9.1.6;
+4. Also, I use spacemacs, a comprehensive configuration with many
+   functions organized as layers.
+
+**** Org
+[2018-02-20 Tue 19:29]
+
+The Org mode, the killer extension, makes Emacs great again. I surely
+did quite a few customization on Org. However, I use the org layer
+shipped with spacemacs.
+
+Also, you can [[http://www.howardism.org/Technical/Emacs/orgmode-wordprocessor.html][configure Org like a word processor]]. Org-bullet package
+make Org mode beautiful. I set Org bullets as:
+#+begin_src lisp
+(setq org-bullets-bullet-list '("✿" "❀" "♣" "♧" ))
+#+end_src
+
+As mentioned before, you can export your Org file using several
+formats such as HTML,TeX, PDF, Markdown and so on.
+
+I use Org writing my own blog through [[https://github.com/kaushalmodi/ox-hugo][ox-hugo]]. Of course, I use Hugo.
+Why not? Hugo is fast and disk-space-friend. Hugo also has its windows
+distribution. ox-hugo export the org files as markdown files which are
+supported by hugo.
+
+I use Org to export PDF based on the latex class defined [[https://github.com/emacsun/org-article][org-article]]
+,which is a latex class I forked from [[https://github.com/tsdye/org-article][tsdye/org-article]] and added the
+support for Chinese characters. Org-article is a flexible latex class
+and export beautiful PDF with the good-looking fonts and architecture.
+
+
+**** Spell Checking
+[2018-02-20 Tue 19:33]
+
+Using flyspell, spell checking is easy. There is a layer named
+spell-checking distributed with spacemacs.
+
+I use aspell instead of ispell. So, I set:
+#+begin_src lisp
+(setq-default ispell-program-name "C:/Aspell/bin/aspell.exe")
+#+end_src
+Of course, you have to install aspell and the dictionaries. I use the
+[[http://aspell.net/win32/][Win32 version]].
+
+Using flyspell mode, you can also insert some word into your personal
+dictionary.
+**** Moving around
+[2018-02-20 Tue 20:10]
+
+Using Spacemacs, moving around is easy because it has almost all the
+jumping shortcuts used in Vim (if you use the Vim mode in spacemacs).
+
+On the other hand, using Org, you can jump from headline to headline
+easily. Promoting and demoting a headline is also fast. You can even
+change the head level of a headline using just a few keystrokes.
+
+The =tab= key is a useful shortcut to change the face of how the Org
+buffer looks like. I use the =tab= key to give me a sketch view of the
+post I am working on. Furthermore, you can even use the narrow
+function to restrict the buffer showing only the section of subsection
+part you are working if your file is getting large and you don't want
+to be distracted by other parts of your article.
+
+Through the writing of this post, I also using the commands moving
+around sentences and paragraphs often.
+#+CAPTION: move around in Org files
+#+NAME: tab:20180220movingaround
+#+ATTR_HTML: :border 1 :rules all :frame border :align center
+#+ATTR_LATEX: :align center
+| commands  | description                              |
+|-----------+------------------------------------------|
+| =h,j,k,l= | the basic Vim keys, need no description  |
+| =0=       | goto the beginning of a line             |
+| =$=       | goto the end of a line                   |
+| =M-a=     | goto the beginning of a sentence         |
+| =M-e=     | goto the end of a sentence               |
+| =M-k=     | move a paragraph up                      |
+| =M-j=     | move a paragraph down                    |
+| =M-{=     | goto the beginning of previous paragraph |
+| =M-}=     | goto the beginning of next paragraph     |
+
+
+**** count words
+[2018-02-20 Tue 20:12]
+
+=count-words= is a command built in Emacs. There is a github
+repository [[https://github.com/LdBeth/advance-words-count.el]["advance words count"]] which helps count the CJK word. If
+you write in CJK language, it will be handy.
+*** Reference
+     [2018-02-20 Tue 22:11]
+
+     1. [[https://www.masteringemacs.org/article/how-to-write-a-book-in-emacs][how-to-write-a-book-in-emacs]]
+** DONE Version Control Using Magit in Spacemacs :Emacs:git:@git:@Emacs:
+   CLOSED: [2018-02-20 Tue 22:14]
+:PROPERTIES:
+:EXPORT_FILE_NAME: version-control-emacs-magit
+:EXPORT_DATE: <2018-02-19 Mon 15:15>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "My Use of Magit in Spacemacs"
+:END:
+:LOGBOOK:
+- CLOSING NOTE [2018-02-20 Tue 22:14] \\
+  thank you my dear wife for taking care of the family, so that I could
+  sit down to write this post.
+CLOCK: [2018-02-19 Mon 16:10]--[2018-02-20 Tue 09:09] => 16:59
+CLOCK: [2018-02-19 Mon 15:16]--[2018-02-19 Mon 15:45] =>  0:29
+:END:
+
+There is an [[http://spacemacs.org/layers/+source-control/git/README.html][official layer]] called [[http://spacemacs.org/layers/+source-control/git/README.html][=git=]]builtin spacemacs. The =git=
+layer is based on =magit= . Actually, on the magit website, you can
+always find what you want. This post is a summary of How I use magit
+in spacemacs.
+
+I like the magit website because of the beautiful font and pleasing
+color combination. More important is the maintainor Jonas Bernoulli
+who devotes his yearly efforts to coin the magit great for Emacsers.
+Now, after [[https://www.kickstarter.com/projects/1681258897/its-magit-the-magical-git-client/posts/1988383][a successful campaign on the Kickstarter]], Jonas Bernoulli
+was able to work on Magit full-time for another year, which was he'd
+love to.
+
+Lets's goto my daily use of Magit in Spacemacs. If you are not using
+[[http://spacemacs.org/layers/+source-control/git/README.html][Spacemacs]], I highly recommend it for you.
+*** Commit Your Changes
+[2018-02-19 Mon 16:34]
+
+Suppose you have already make some changes on a project version
+controlled using Git, the next step is to stage the changes and then
+commit the changes.
+
+If your cursor are in the buffer of a file belonging to that project,
+press =SPC g s= will bring you to the magit buffer of current project.
+
+If your cursor are not in the buffer of a file belongint to that
+project, using =SPC p p= goto the helm-projectile buffer, then move
+cursor to the project, then press =M-g=, you will goto the magit
+buffer of current project.
+
+Taking my =.spacemacs.d= project for example, after some modifications
+on the config, I want to commit the changes. The mentioned two ways
+bring me to a magit buffer like this:
+#+CAPTION:  magit buffer of my .spacemacs.d
+#+ATTR_HTML:  :width 400 :align center
+#+NAME: fig:20180219magitbuffer1
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180219magitbuffer1.png]]
+
+From the above buffer, it records that I have one untracted file and
+two unstaged changes on two existing files. On the headlines of the
+untracted files and unstaged changes, press =s= will stage all the
+untracted files and unstaged changes. If you are not at the headlines,
+to stage all the changes you need to press =S=. After this, the buffer
+become:
+
+#+CAPTION:   press =s= to stage the changes
+#+ATTR_HTML:  :width 400 :align center
+#+NAME: fig:20180219magitbuffer2
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180219magitbuffer2.png]]
+If you regret, press =u= to unstage the changes. If you want to
+commit, just press =c=, you will get a menu.
+
+
+#+CAPTION:   press =c=  to commit
+#+ATTR_HTML:  :width 400 :align center
+#+NAME: fig:20180219magitbuffer3
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180219magitbuffer3.png]]
+
+The menu is clear for you to choose. If nothing to change, just press
+=c= again, and there will a buffer pop up for you to take some notes
+on this commit. Also, there is a buffer showing the diff of this
+commit. If you regret at this moment, just press =C-c C-k= to abort
+the commit.
+
+#+CAPTION:   press =c= to commit
+#+ATTR_HTML:  :width 400 :align center
+#+NAME: fig:20180219magitbuffer4
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180219magitbuffer4.png]]
+
+After finishing the notes, press =C-c C-c= to finish the commit. you
+are in a buffer showing the current state of the project.
+
+#+CAPTION:   after commit
+#+ATTR_HTML:  :width 400 :align center
+#+NAME: fig:20180219magitbuffer5
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180219magitbuffer5.png]]
+
+It shows that I am ahead one commit of the remote/master. So, If you
+want to push the commit to the remote/master, press =p= , a buffer
+will popup for you to choose where to push.
+
+#+CAPTION:   press =u=  to push
+#+ATTR_HTML:  :width 400 :align center
+#+NAME: fig:20180219magitbuffer6
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180219magitbuffer6.png]]
+
+Press =u= to push the commit to the origin/master, and you get:
+#+CAPTION:   after pushing to the origin/master
+#+ATTR_HTML:  :width 400 :align center
+#+NAME: fig:20180219magitbuffer7
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180219magitbuffer7.png]]
+
+Then a commit is finished locally and remotely.
+
+
+
+
+
+
 
 
 * Git
