@@ -2,7 +2,7 @@
 title = "Write in Emacs"
 author = ["Eason Zhang"]
 date = 2018-02-20T22:13:00+08:00
-lastmod = 2018-02-21T09:18:00+08:00
+lastmod = 2018-02-21T14:53:00+08:00
 tags = ["tools"]
 categories = ["Emacs"]
 draft = false
@@ -26,6 +26,7 @@ summary = "Write an article in Emacs"
     - <span class="section-num">2.3</span> [Spell Checking](#spell-checking)
     - <span class="section-num">2.4</span> [Moving around](#moving-around)
     - <span class="section-num">2.5</span> [count words](#count-words)
+    - <span class="section-num">2.6</span> [focus on current section](#focus-on-current-section)
 - <span class="section-num">3</span> [Reference](#reference)
 </div>
 <!--endtoc-->
@@ -133,24 +134,36 @@ to be distracted by other parts of your article.
 Through the writing of this post, I also using the commands moving
 around sentences and paragraphs often.
 
-<a id="org0edb567"></a>
+<a id="orgac7136d"></a>
 
 <div class="table-caption">
   <span class="table-number">Table 1:</span>
   move around in Org files
 </div>
 
-| commands  | description                              |
-|-----------|------------------------------------------|
-| `h,j,k,l` | the basic Vim keys, need no description  |
-| `0`       | goto the beginning of a line             |
-| `$`       | goto the end of a line                   |
-| `M-a`     | goto the beginning of a sentence         |
-| `M-e`     | goto the end of a sentence               |
-| `M-k`     | move a paragraph up                      |
-| `M-j`     | move a paragraph down                    |
-| `M-{`     | goto the beginning of previous paragraph |
-| `M-}`     | goto the beginning of next paragraph     |
+| commands  | description                                            |
+|-----------|--------------------------------------------------------|
+| `h,j,k,l` | the basic Vim keys, need no description                |
+| `0`       | goto the beginning of a line                           |
+| `$`       | goto the end of a line                                 |
+| `M-a`     | goto the beginning of a sentence                       |
+| `M-e`     | goto the end of a sentence                             |
+| `M-k`     | move a paragraph up  when cursor stays in a paragraph  |
+| `M-j`     | move a paragraph down when cursor stays in a paragraph |
+| `M-{`     | goto the beginning of previous paragraph               |
+| `M-}`     | goto the beginning of next paragraph                   |
+
+In the Org mode, the following commands are also very convenient.
+
+| `M-j`     | org metadown when cursor stays in a headline               |
+|-----------|------------------------------------------------------------|
+| `M-k`     | org metaup when cursor stays in a headline                 |
+| `<`       | promote a headline when cursor stays in a headline         |
+| `>`       | demote a headline when cursor stays in a headline          |
+| `C-c C-f` | goto the next headline of the same level                   |
+| `C-c C-b` | goto the previous headline of the same level               |
+| `C-c C-n` | goto the next headline, not necessarily the same level     |
+| `C-c C-p` | goto the previous headline, not necessarily the same level |
 
 
 ### <span class="section-num">2.5</span> count words {#count-words}
@@ -162,8 +175,32 @@ repository ["advance words count"](https://github.com/LdBeth/advance-words-count
 you write in CJK language, it will be handy.
 
 
+### <span class="section-num">2.6</span> focus on current section {#focus-on-current-section}
+
+
+
+Three handy functions help me focus on what I am working on.
+
+1.  the fullscreen `spacemacs/toggle-fullscreen-frame` which block
+    distractions from other apps.
+2.  the org-capture which allow me capture the ideas or
+    aspirations hitting my head.
+3.  the narrow function. This is extremely useful especially when
+    your article or post have quite a lot sections. You can narrow
+    your buffer to the very section you are working on.
+
+
 ## <span class="section-num">3</span> Reference {#reference}
 
 
 
 1.  [how-to-write-a-book-in-emacs](https://www.masteringemacs.org/article/how-to-write-a-book-in-emacs)
+2.  [Emacs for writing ? Tell me your tricks !](https://www.reddit.com/r/emacs/comments/4kj7cv/emacs_for_writing_tell_me_your_tricks/)
+3.  [My Emacs Writing Setup](http://www.tonyballantyne.com/EmacsWritingTips.html) . This is an old post by Tony
+    Ballantyne, a writer, whose blog <http://tonyballantyne.com/>
+    provides a lot of information on how to write.
+4.  On [irreal.org](http://irreal.org/blog/?p=4664) , you can always find something unexpectedly.
+5.  [An Absolute Beginners Guide to Spacemacs for Academic Writing](https://ontologicalblog.com/2016/10/14/an-absolute-beginners-guide-to-spacemacs-for-academic-writing/)  .
+    This post is a comprehensive guide for beginners using spacemacs. I
+    learn quite a lot from it.
+6.  [Pandoc](https://pandoc.org/), the swiss-army knife for file format conversion.

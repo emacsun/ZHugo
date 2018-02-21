@@ -10,4 +10,5 @@ themes/academic/
 *.aux
 *.log
 *.toc
-./content_ort/auto/*
+*.docx
+/content_org/auto/*

@@ -2,11 +2,11 @@
 title = "Take a Diary Using Emacs Org"
 author = ["Eason Zhang"]
 date = 2018-02-21T09:03:00+08:00
-lastmod = 2018-02-21T09:18:00+08:00
+lastmod = 2018-02-21T10:22:00+08:00
 tags = ["tools", "Org", "diary"]
 categories = ["Emacs"]
 draft = false
-summary = "summary"
+summary = "keep a diary using Emacs Org"
 +++
 
 <style>

@@ -8,8 +8,8 @@
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 
 
-* Tools
-** NEXT Journal your life Using Emacs Org   :journal:@Emacs:
+* TODO Tools
+** NEXT Journal your life Using Emacs Org  :journal:@Emacs:
    :PROPERTIES:
    :EXPORT_FILE_NAME: journal-your-life-using-emacs-org
    :EXPORT_DATE: <2018-02-20 Tue 22:21>
@@ -22,10 +22,14 @@
    :END:
 *** Introduction
     [2018-02-21 Wed 07:48]
+
     Long time ago, I read a post about [[https://www.emacswiki.org/emacs/PersonalDiary][taking daily journal using Emacs]].
     Until recently, I realized that I need to take journals on my work.
     So I read the post again and integrate the configuration into my
     .spacemacs.d.
+
+    In general, I use this journal system to note down my work. This
+    journal system is simple and easy to use and maintain.
 
     Here, I am not going to preach why you should keep a daily
     journal. Google will tell you more.
@@ -82,12 +86,50 @@
      | ~J w~       | search in all entries of the current week  |
      | ~J m~       | search in all entries of the current month |
      | ~J y~       | search in all entries of the current year  |
-*** After a Period
-     [2018-02-21 Wed 08:50]
+*** Take a Journal
+    [2018-02-21 Wed 09:31]
 
-     After a Period, say a month, there are quite a lot journals under
-     the =org-journal-dir= . One day One journal.
-** NEXT Take a Diary Using Emacs Org           :Org:diary:@Emacs:
+    After setting, you can take journal anywhere and anytime. In the
+    buffer not in =Org= mode, =SPC a j j= will generate and new
+    journal entry. In =Org= mode, =SPC m j j= or =, j j= will also
+    bring a new journal entry.
+*** Browse Your Journal
+    [2018-02-21 Wed 10:06]
+
+    To browse your journal, you'd better in the Calendar buffer using
+    =calendar= which I bind to =SPC o C= . In this buffer, press =J=
+    there will be a menu popping up for you.
+    [[../static/img/tools/20180221orgjournal.png]]
+
+    As you can see, the day with a journal is highlighted in yellow (
+    you can custom it to other colors ).
+
+   | keys  | description                           |
+   |-------+---------------------------------------|
+   | ~J n~ | jump to next day having a journal     |
+   | ~J p~ | jump to previous day having a journal |
+   | ~J v~ | display journal of current day        |
+
+*** Search Your Journal
+    [2018-02-21 Wed 09:34]
+
+    The key I use most is =org-journal-search-forever= which I bind to
+    =SPC a j S= and you can search all your journals anytime and
+    anywhere. You can also search a certain period by =SPC a j s=
+    with which you need to enter the begin and end of the period in
+    the minibuffer.
+
+
+    There are other search options which allow you search in a week,
+    month and a year. However, to search your journal in a week, a
+    month and a year, you need in the Calendar buffer.
+
+*** After a Period
+    [2018-02-21 Wed 08:50]
+
+    After a Period, say a month, there are quite a lot journals under
+    the =org-journal-dir= . One day One journal.
+** NEXT Take a Diary Using Emacs Org     :Org:diary:@Emacs:
    :PROPERTIES:
    :EXPORT_FILE_NAME: take-a-diary-using-emacs-org
    :EXPORT_DATE: <2018-02-21 Wed 09:03>
@@ -120,7 +162,7 @@
 
 
 
-*  Emacs
+* TODO Emacs
 [2018-01-28 Sun 10:14]
 
 ** DONE Blogging with Emacs Org    :@tools:@Emacs:Org:Hugo:
@@ -335,7 +377,7 @@ CLOSED: [2018-02-11 Sun 21:52]
    CLOCK: [2018-02-20 Tue 09:09]--[2018-02-20 Tue 09:10] =>  0:01
    CLOCK: [2018-02-19 Mon 15:45]--[2018-02-19 Mon 16:10] =>  0:25
    CLOCK: [2018-02-19 Mon 15:15]--[2018-02-19 Mon 15:16] =>  0:01
-   CLOCK: [2018-02-04 Sun 20:50]--[2018-02-09 Fri 21:12] => 120:22
+   CLOCK: [2018-02-04 Sun 20:50]--[2018-02-04 Fri 21:12] =>  0:22
    CLOCK: [2018-02-04 Sun 20:46]--[2018-02-04 Sun 20:49] =>  0:03
    :END:
 *** introduction
@@ -819,20 +861,20 @@ This post is the record of my use of Calc.
 2. [[https://www.gnu.org/software/emacs/manual/html_node/calc/index.html#Top][The manual: The GNU Emacs Calculator.]]
 
 
-** DONE Write in Emacs                                   :@Emacs:
-   CLOSED: [2018-02-20 Tue 22:13]
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: write-in-emacs
-   :EXPORT_DATE: <2018-02-20 Mon 15:15>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Write an article in Emacs"
-   :END:
-   :LOGBOOK:
-   - CLOSING NOTE [2018-02-20 Tue 22:13] \\
-     done with a draft
-     Thanks my wife for taking care of the new born baby and spare me so
-     much time
-   CLOCK: [2018-02-20 Tue 19:32]--[2018-02-20 Tue 22:13] =>  2:41
-   :END:
+** DONE Write in Emacs                             :@Emacs:
+CLOSED: [2018-02-20 Tue 22:13]
+:PROPERTIES:
+:EXPORT_FILE_NAME: write-in-emacs
+:EXPORT_DATE: <2018-02-20 Mon 15:15>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Write an article in Emacs"
+:END:
+:LOGBOOK:
+- CLOSING NOTE [2018-02-20 Tue 22:13] \\
+  done with a draft
+  Thanks my wife for taking care of the new born baby and spare me so
+  much time
+  CLOCK: [2018-02-20 Tue 19:32]--[2018-02-20 Tue 22:13] =>  2:41
+:END:
 
 *** writing a book in Emacs
 [2018-02-20 Tue 19:22]
@@ -923,18 +965,27 @@ around sentences and paragraphs often.
 #+NAME: tab:20180220movingaround
 #+ATTR_HTML: :border 1 :rules all :frame border :align center
 #+ATTR_LATEX: :align center
-| commands  | description                              |
-|-----------+------------------------------------------|
-| =h,j,k,l= | the basic Vim keys, need no description  |
-| =0=       | goto the beginning of a line             |
-| =$=       | goto the end of a line                   |
-| =M-a=     | goto the beginning of a sentence         |
-| =M-e=     | goto the end of a sentence               |
-| =M-k=     | move a paragraph up                      |
-| =M-j=     | move a paragraph down                    |
-| =M-{=     | goto the beginning of previous paragraph |
-| =M-}=     | goto the beginning of next paragraph     |
+| commands  | description                                                |
+|-----------+------------------------------------------------------------|
+| =h,j,k,l= | the basic Vim keys, need no description                    |
+| =0=       | goto the beginning of a line                               |
+| =$=       | goto the end of a line                                     |
+| =M-a=     | goto the beginning of a sentence                           |
+| =M-e=     | goto the end of a sentence                                 |
+| =M-k=     | move a paragraph up  when cursor stays in a paragraph     |
+| =M-j=     | move a paragraph down when cursor stays in a paragraph     |
+| =M-{=     | goto the beginning of previous paragraph                   |
+| =M-}=     | goto the beginning of next paragraph                       |
+In the Org mode, the following commands are also very convenient.
 
+| =M-j=     | org metadown when cursor stays in a headline               |
+| =M-k=     | org metaup when cursor stays in a headline                 |
+| =<=       | promote a headline when cursor stays in a headline         |
+| =>=       | demote a headline when cursor stays in a headline       |
+| =C-c C-f= | goto the next headline of the same level           |
+| =C-c C-b= | goto the previous headline of the same level               |
+| =C-c C-n= | goto the next headline, not necessarily the same level     |
+| =C-c C-p= | goto the previous headline, not necessarily the same level |
 
 **** count words
 [2018-02-20 Tue 20:12]
@@ -942,10 +993,34 @@ around sentences and paragraphs often.
 =count-words= is a command built in Emacs. There is a github
 repository [[https://github.com/LdBeth/advance-words-count.el]["advance words count"]] which helps count the CJK word. If
 you write in CJK language, it will be handy.
-*** Reference
-     [2018-02-20 Tue 22:11]
+**** focus on current section
+[2018-02-21 Wed 10:44]
 
-     1. [[https://www.masteringemacs.org/article/how-to-write-a-book-in-emacs][how-to-write-a-book-in-emacs]]
+Three handy functions help me focus on what I am working on.
+1. the fullscreen =spacemacs/toggle-fullscreen-frame= which block
+   distractions from other apps.
+2. the org-capture which allow me capture the ideas or
+   aspirations hitting my head.
+3. the narrow function. This is extremely useful especially when
+   your article or post have quite a lot sections. You can narrow
+   your buffer to the very section you are working on.
+
+*** Reference
+[2018-02-20 Tue 22:11]
+
+1. [[https://www.masteringemacs.org/article/how-to-write-a-book-in-emacs][how-to-write-a-book-in-emacs]]
+2. [[https://www.reddit.com/r/emacs/comments/4kj7cv/emacs_for_writing_tell_me_your_tricks/][Emacs for writing ? Tell me your tricks !]]
+3. [[http://www.tonyballantyne.com/EmacsWritingTips.html][My Emacs Writing Setup]] . This is an old post by Tony
+   Ballantyne, a writer, whose blog http://tonyballantyne.com/
+   provides a lot of information on how to write.
+4. On [[http://irreal.org/blog/?p=4664][irreal.org]] , you can always find something unexpectedly.
+5. [[https://ontologicalblog.com/2016/10/14/an-absolute-beginners-guide-to-spacemacs-for-academic-writing/][An Absolute Beginners Guide to Spacemacs for Academic Writing]]  .
+   This post is a comprehensive guide for beginners using spacemacs. I
+   learn quite a lot from it.
+6. [[https://pandoc.org/][Pandoc]], the swiss-army knife for file format conversion.
+
+
+
 ** DONE Version Control Using Magit in Spacemacs :Emacs:git:@git:@Emacs:
    CLOSED: [2018-02-20 Tue 22:14]
 :PROPERTIES:
@@ -1068,7 +1143,7 @@ Then a commit is finished locally and remotely.
 
 
 
-* Git
+* TODO Git
 [2018-01-28 Sun 10:14]
 
 
