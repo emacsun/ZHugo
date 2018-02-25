@@ -9,156 +9,224 @@
 
 
 * TODO Tools
-** NEXT Journal your life Using Emacs Org  :journal:@Emacs:
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: journal-your-life-using-emacs-org
-   :EXPORT_DATE: <2018-02-20 Tue 22:21>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "journal your work using Emacs Org"
-   :END:
-   :LOGBOOK:
-   CLOCK: [2018-02-21 Wed 09:16]
-   CLOCK: [2018-02-21 Wed 07:47]--[2018-02-21 Wed 09:04] =>  1:17
-   CLOCK: [2018-02-20 Tue 22:23]--[2018-02-20 Tue 22:29] =>  0:06
-   :END:
-*** Introduction
-    [2018-02-21 Wed 07:48]
+** TODO keys lead by space in spacemacs            :@Emacs:
+:PROPERTIES:
+:EXPORT_FILE_NAME: keys-lead-by-space-in-spacemacs
+:EXPORT_DATE: <2018-02-24 Sat 21:49>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:END:
+:LOGBOOK:
+CLOCK: [2018-02-24 Sat 21:49]--[2018-02-24 Sat 21:59] =>  0:10
+:END:
+Inspired by [[https://www.youtube.com/channel/UC9FdDIWaFP-4fHuQ7bhIT1Q][Eivind Fonn's]] spacemacs tutorial on Youtube, I think it is
+desirable to go through the keystroke leading with =spc= by myself.
+Actually, by doing this I learn quite more about spacemacs and improve
+my productivity on using it. I also find that several expensive short
+keystrokes are not being used and several expensive shortcuts are
+assigned to commands that I rarely knocked.
 
-    Long time ago, I read a post about [[https://www.emacswiki.org/emacs/PersonalDiary][taking daily journal using Emacs]].
-    Until recently, I realized that I need to take journals on my work.
-    So I read the post again and integrate the configuration into my
-    .spacemacs.d.
+All the keys in the following section are lead by =spc=.
+*** =g= git/version control
+[2018-02-24 Sat 23:23]
 
-    In general, I use this journal system to note down my work. This
-    journal system is simple and easy to use and maintain.
+#+CAPTION: =spc g=
+#+ATTR_HTML:  :width 600 :align center
+#+NAME: fig:20180224git
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180224git.png]]
 
-    Here, I am not going to preach why you should keep a daily
-    journal. Google will tell you more.
+| key | brief                           | comments                                |
+|-----+---------------------------------+-----------------------------------------|
+| =.=   |                                 |                                         |
+| =b=   | git blame moicro state          | I seldomly use blame                    |
+| =f h= | magit log buffile file          | useful to check the log of current file |
+| =H c= | clear                           |                                         |
+| =H h= | highlight by age of changes     |                                         |
+| =H t= | highlith by last time of update |                                         |
+| =I=   | helm git ignore                 |                                         |
+| =l C= | git link commit copy url only   |                                         |
+| =l c= | git link commit copy            |                                         |
+| =l L= | git link copy url only          |                                         |
+| =l l= | git link copy                   |                                         |
+|     |                                 |                                         |
+*** =i=  insert
+[2018-02-24 Sat 23:37]
 
-*** Install
-    [2018-02-21 Wed 07:48]
+| key | brief                       | comments |
+|-----+-----------------------------+----------|
+| =J=   | insert line below no indent |          |
+| =j=   | insert line below           |          |
+| =K=   | insert line above no indent |          |
+| =k=   | insert line above           |          |
 
-    If you want to Install the org-journal layer, just clone my
-    [[https://github.com/emacsun/.spacemacs.d][.spacemacs.d]] there is a layer named =zcljournal=, which is forked
-    from [[https://github.com/borgnix/spacemacs-journal][spacemacs-journal]] with a little modified.
+I need to add more keys under =spc i= . This key prefix havs no so many
+followers.
+*** =j= jump/join/split
+[2018-02-24 Sat 23:42]
 
-    To use this journal system, you need set =org-journal-dir=:
-    #+begin_src lisp
-    (setq org-journal-dir "~/.spacemacs.d/journal/")
-    #+end_src
-*** Keys
-    [2018-02-21 Wed 07:58]
+| key | brief                                 | comments           |
+|-----+---------------------------------------+--------------------|
+| =$=   | push mark and go to end of line       |                    |
+| =0=   | push mark and go to beginning of line |                    |
+| =   | indent region or buffer               |                    |
+| =b=   | avy mark pop                          |                    |
+| =D=   | dired jump other window               |                    |
+| =d=   | dired jump                            |                    |
+| =f=   | find function                         |                    |
+| =I=   | helm imenu in all buffers             |                    |
+| =i=   | helm jump in buffer                   |                    |
+| =J=   | avy go to 2chars                      |                    |
+| =j=   | avy go to char                        |                    |
+| =k=   | goto next line and indent             |                    |
+| =l=   | avy goto line                         | current buffer     |
+| =n=   | sp new line                           | split current line |
+| =o=   | open line above                       |                    |
+| =q=   | dumb jump quick look                  | never use it       |
+| =S=   | split and new line                    | same as =spc j n=    |
+| =s=   | split sexp                            |                    |
+| =u=   | avy goto url                          |                    |
+| =v=   | find variables                        |                    |
+| =w=   | avy goto word                         |                    |
+*** =k= lisp
+[2018-02-25 Sun 00:05]
+*** =l= layout transient state
+[2018-02-25 Sun 00:06]
+*** =m= major mode command
+[2018-02-25 Sun 00:07]
+*** =n= narror/numbers
+[2018-02-25 Sun 00:07]
+*** =o= prefix for org
+[2018-02-25 Sun 00:08]
+*** =p= projectile
+[2018-02-25 Sun 00:08]
+*** =P= run pandoc
+[2018-02-25 Sun 00:09]
 
+I'd like delete this command
+*** =q= quit
+[2018-02-25 Sun 00:10]
+*** =r=
+[2018-02-25 Sun 00:10]
 
-**** Global Bindings
-     | Key Binding | Description                                      |
-     |-------------+--------------------------------------------------|
-     | ~SPC a j j~ | new journal entry                                |
-     | ~SPC a j v~ | view journal of today                            |
-     | ~SPC a j s~ | search journals within a specified time interval |
-     | ~SPC a j S~ | search all journal for a string                 |
-**** Major Mode Bindings
-     | Key Binding | Description                     |
-     |-------------+---------------------------------|
-     | ~SPC m j j~ | new journal entry               |
-     | ~SPC m j n~ | next journal file               |
-     | ~SPC m j p~ | previous journal file           |
-     | ~SPC m j s~ | search the current journal file |
-     | ~SPC m j v~ | read journal entry              |
-     | ~SPC m j V~ | display journal entry           |
-     | ~SPC m j S~ | search all journals             |
-     | ~SPC m j w~ | search calendar week            |
-     | ~SPC m j m~ | search calendar month           |
-     | ~SPC m j y~ | search calendar year            |
+I like helm-mark-ring and helm-yank-ring
+*** =S= spell
+[2018-02-25 Sun 00:12]
+*** =s= search
+[2018-02-25 Sun 00:12]
+*** =t= toggles
+[2018-02-25 Sun 00:12]
+*** =T= UI toggles/themes
+[2018-02-25 Sun 00:13]
+*** =v= expand region
+[2018-02-25 Sun 00:14]
+*** =w= windows
+[2018-02-25 Sun 00:14]
+*** =x= text
+[2018-02-25 Sun 00:15]
+*** =z= zoom
+[2018-02-25 Sun 00:15]
+** TODO Link in Emacs Org Mode                 :@Emacs:Org:
+:PROPERTIES:
+:EXPORT_FILE_NAME: link-in-emacs-org-mode
+:EXPORT_DATE: <2018-02-25 Sun 10:30>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:END:
+:LOGBOOK:
+CLOCK: [2018-02-25 Sun 10:31]--[2018-02-25 Sun 11:13] =>  0:42
+:END:
 
-     Also, you can replace the prefix ~SPC m~ with ~,~ which is more
-     handy.
+Today, I am going to write something about link in Emacs Org mode. I
+have to admit in advance that I don't know all about Org's link.
+However, the part I know about Org link has already made my life much more
+efficient.
+** DRAFT Extends Emacs Org Mode on iOS Device  :@Emacs:Org:
+:PROPERTIES:
+:EXPORT_FILE_NAME: using-emacs-org-mode-on-ios-device
+:EXPORT_DATE: <2018-02-25 Sun 11:12>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:END:
+:LOGBOOK:
+CLOCK: [2018-02-25 Sun 12:57]--[2018-02-25 Sun 14:43] =>  1:46
+CLOCK: [2018-02-25 Sun 11:13]--[2018-02-25 Sun 12:38] =>  1:25
+:END:
 
+I use two APPs [[https://itunes.apple.com/us/app/beorg/id1238649962?mt=8][BeOrg]] and [[https://itunes.apple.com/us/app/drafts-quick-capture/id905337691?mt=8][Drafts]] as Org's extension on my iOS device.
+Oh, almost foget it. Another one: dropbox. Beorg and Drafts stores the
+captures of ideas into dropbox. I retrive them when I am home on
+Windows 10 using my Surface Pro.
 
-**** Calendar Mode Bindings
-     | Key Binding | Description                                |
-     |-------------+--------------------------------------------|
-     | ~J j~       | new journal entry                          |
-     | ~J v~       | view an entry in a new buffer              |
-     | ~J V~       | view an entry but do not switch to it      |
-     | ~J n~       | go to next day with journal entries        |
-     | ~J p~       | go to previous day with journal entries    |
-     | ~J S~       | search in all entries of all time          |
-     | ~J w~       | search in all entries of the current week  |
-     | ~J m~       | search in all entries of the current month |
-     | ~J y~       | search in all entries of the current year  |
-*** Take a Journal
-    [2018-02-21 Wed 09:31]
+The relationship among all the APPs I mentioned above is like
 
-    After setting, you can take journal anywhere and anytime. In the
-    buffer not in =Org= mode, =SPC a j j= will generate and new
-    journal entry. In =Org= mode, =SPC m j j= or =, j j= will also
-    bring a new journal entry.
-*** Browse Your Journal
-    [2018-02-21 Wed 10:06]
+#+CAPTION:  My using of Org mode through mobile device
+#+ATTR_HTML:  :width 600 :align center
+#+NAME: fig:20180225orgmobile
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180225orgmobile.png]]
 
-    To browse your journal, you'd better in the Calendar buffer using
-    =calendar= which I bind to =SPC o C= . In this buffer, press =J=
-    there will be a menu popping up for you.
-    [[../static/img/tools/20180221orgjournal.png]]
+Actually, I also tried another APP named MobileOrg, but dislike it
+because of its inflexibility ,boring GUI and hard-to-config. The
+combination of Beorg and Drafts works well for me with their playing
+each's own role.
 
-    As you can see, the day with a journal is highlighted in yellow (
-    you can custom it to other colors ).
+*** BeOrg
+[2018-02-25 Sun 11:14]
 
-   | keys  | description                           |
-   |-------+---------------------------------------|
-   | ~J n~ | jump to next day having a journal     |
-   | ~J p~ | jump to previous day having a journal |
-   | ~J v~ | display journal of current day        |
+Using BeOrg, I only capture a TODO. I leave capturing a note to Drafts
+which is good at notes.
 
-*** Search Your Journal
-    [2018-02-21 Wed 09:34]
+One screenshot of Beorg is shown as:
 
-    The key I use most is =org-journal-search-forever= which I bind to
-    =SPC a j S= and you can search all your journals anytime and
-    anywhere. You can also search a certain period by =SPC a j s=
-    with which you need to enter the begin and end of the period in
-    the minibuffer.
+[[../static/img/tools/20180225beorg.png]]
 
+The green button is used to add a todo capture. As you can see, Beorg
+can also read the todos from your iOS calendar (I am sorry for whom
+cannot read Chinese. That item in Chinese comes from iOS calendar
+reminding me to pick up the magazines and newspaper).
 
-    There are other search options which allow you search in a week,
-    month and a year. However, to search your journal in a week, a
-    month and a year, you need in the Calendar buffer.
+By default, Beorg display the week agenda. The TODO states are also
+can be customized. I set the file synchronization method as dropbox
+and set the org directory which is shared with Drafts and my windows.
+So I can keep the org files consistent.
 
-*** After a Period
-    [2018-02-21 Wed 08:50]
+Beorg also has an option for quick capture. Naturally, I also set it
+as the inbox of my Org mode on Drafts and Windows. You can also
+control the vivibility of your iOS calendars, i.e. which part shoule
+be integrated into BeOrg agenda view, the family? personal? work? You
+name it, as you wish.
 
-    After a Period, say a month, there are quite a lot journals under
-    the =org-journal-dir= . One day One journal.
-** NEXT Take a Diary Using Emacs Org     :Org:diary:@Emacs:
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: take-a-diary-using-emacs-org
-   :EXPORT_DATE: <2018-02-21 Wed 09:03>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "keep a diary using Emacs Org"
-   :END:
-   :LOGBOOK:
-   CLOCK: [2018-02-21 Wed 09:04]--[2018-02-21 Wed 09:16] =>  0:12
-   :END:
-*** Introduction
-    [2018-02-21 Wed 09:06]
+*** Drafts
+[2018-02-25 Sun 11:17]
 
-    There is one diary system built in Emacs. When you are in the
-    Calendar buffer, press =i= will bring you a menu to select what
-    kind of diary you want to take. However, as a loyal fan of Emacs
-    Org, I want to take diary using Org. When I am in the org agenda
-    buffer, press =i= will bring me a menu like what show in the
-    calendar buffer after pressing =i=.
-*** Set up
-    [2018-02-21 Wed 09:09]
+Drafts is the most efficient tool for taking a note. All you need is
+to focus on writing. Furthermore, you can even export your notes to
+way many other APPs such as evernote, markdown, oneDrive, google drive
+and so on. There are tons of commands available on the [[http://drafts4-actions.agiletortoise.com/][action
+directory of Drafts]].
 
-    It seems that all you need to do is set the
-      =org-agenda-diary-file=, so that Org knows where to put the
-      diary file.
+Combined with dropbox, I config several commands of my own. One
+screenshot is like:
 
-      #+begin_src lisp
-      (setq org-agenda-diary-file  "~/zorg/Dropbox/base/zdiary.org")
-      #+end_src
+[[../static/img/tools/20180225drafts.png]]
 
+Take my command =Drafts TODO BeOrg= for example, the step is append
+files on Dropbox and the content is shown as:
 
+#+begin_example
+ * TODO  [[title]]
+SCHEDULED: <[[created|%Y-%m-%d %a]]>
+[[body]]
+#+end_example
+
+Notice that, I set the format of creating timestamp the same as Emacs
+Org so that Emacs Org can follow the todo from Drafts.
+
+Of course, you can define your own command in Drafts just read the document.
+
+*** Dropbox
+[2018-02-25 Sun 11:17]
+
+The configuration of Dropbox is easy. All you have todo is to put the
+org files in a directory where Beorg, Drafts and Windows knows.
 
 
 
@@ -1141,6 +1209,160 @@ Then a commit is finished locally and remotely.
 
 
 
+
+
+** DONE Journal your life Using Emacs Org  :journal:@Emacs:
+CLOSED: [2018-02-25 Sun 19:46]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: journal-your-life-using-emacs-org
+   :EXPORT_DATE: <2018-02-20 Tue 22:21>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "journal your work using Emacs Org"
+   :END:
+   :LOGBOOK:
+   CLOCK: [2018-02-21 Wed 07:47]--[2018-02-21 Wed 09:04] =>  1:17
+   CLOCK: [2018-02-20 Tue 22:23]--[2018-02-20 Tue 22:29] =>  0:06
+   :END:
+*** Introduction
+    [2018-02-21 Wed 07:48]
+
+    Long time ago, I read a post about [[https://www.emacswiki.org/emacs/PersonalDiary][taking daily journal using Emacs]].
+    Until recently, I realized that I need to take journals on my work.
+    So I read the post again and integrate the configuration into my
+    .spacemacs.d.
+
+    In general, I use this journal system to note down my work. This
+    journal system is simple and easy to use and maintain.
+
+    Here, I am not going to preach why you should keep a daily
+    journal. Google will tell you more.
+
+*** Install
+    [2018-02-21 Wed 07:48]
+
+    If you want to Install the org-journal layer, just clone my
+    [[https://github.com/emacsun/.spacemacs.d][.spacemacs.d]] there is a layer named =zcljournal=, which is forked
+    from [[https://github.com/borgnix/spacemacs-journal][spacemacs-journal]] with a little modified.
+
+    To use this journal system, you need set =org-journal-dir=:
+    #+begin_src lisp
+    (setq org-journal-dir "~/.spacemacs.d/journal/")
+    #+end_src
+*** Keys
+    [2018-02-21 Wed 07:58]
+
+
+**** Global Bindings
+     | Key Binding | Description                                      |
+     |-------------+--------------------------------------------------|
+     | ~SPC a j j~ | new journal entry                                |
+     | ~SPC a j v~ | view journal of today                            |
+     | ~SPC a j s~ | search journals within a specified time interval |
+     | ~SPC a j S~ | search all journal for a string                 |
+**** Major Mode Bindings
+     | Key Binding | Description                     |
+     |-------------+---------------------------------|
+     | ~SPC m j j~ | new journal entry               |
+     | ~SPC m j n~ | next journal file               |
+     | ~SPC m j p~ | previous journal file           |
+     | ~SPC m j s~ | search the current journal file |
+     | ~SPC m j v~ | read journal entry              |
+     | ~SPC m j V~ | display journal entry           |
+     | ~SPC m j S~ | search all journals             |
+     | ~SPC m j w~ | search calendar week            |
+     | ~SPC m j m~ | search calendar month           |
+     | ~SPC m j y~ | search calendar year            |
+
+     Also, you can replace the prefix ~SPC m~ with ~,~ which is more
+     handy.
+
+
+**** Calendar Mode Bindings
+     | Key Binding | Description                                |
+     |-------------+--------------------------------------------|
+     | ~J j~       | new journal entry                          |
+     | ~J v~       | view an entry in a new buffer              |
+     | ~J V~       | view an entry but do not switch to it      |
+     | ~J n~       | go to next day with journal entries        |
+     | ~J p~       | go to previous day with journal entries    |
+     | ~J S~       | search in all entries of all time          |
+     | ~J w~       | search in all entries of the current week  |
+     | ~J m~       | search in all entries of the current month |
+     | ~J y~       | search in all entries of the current year  |
+*** Take a Journal
+    [2018-02-21 Wed 09:31]
+
+    After setting, you can take journal anywhere and anytime. In the
+    buffer not in =Org= mode, =SPC a j j= will generate and new
+    journal entry. In =Org= mode, =SPC m j j= or =, j j= will also
+    bring a new journal entry.
+*** Browse Your Journal
+    [2018-02-21 Wed 10:06]
+
+    To browse your journal, you'd better in the Calendar buffer using
+    =calendar= which I bind to =SPC o C= . In this buffer, press =J=
+    there will be a menu popping up for you.
+    [[../static/img/tools/20180221orgjournal.png]]
+
+    As you can see, the day with a journal is highlighted in yellow (
+    you can custom it to other colors ).
+
+   | keys  | description                           |
+   |-------+---------------------------------------|
+   | ~J n~ | jump to next day having a journal     |
+   | ~J p~ | jump to previous day having a journal |
+   | ~J v~ | display journal of current day        |
+
+*** Search Your Journal
+    [2018-02-21 Wed 09:34]
+
+    The key I use most is =org-journal-search-forever= which I bind to
+    =SPC a j S= and you can search all your journals anytime and
+    anywhere. You can also search a certain period by =SPC a j s=
+    with which you need to enter the begin and end of the period in
+    the minibuffer.
+
+
+    There are other search options which allow you search in a week,
+    month and a year. However, to search your journal in a week, a
+    month and a year, you need in the Calendar buffer.
+
+*** After a Period
+    [2018-02-21 Wed 08:50]
+
+    After a Period, say a month, there are quite a lot journals under
+    the =org-journal-dir= . One day One journal.
+** DONE Take a Diary Using Emacs Org     :Org:diary:@Emacs:
+CLOSED: [2018-02-25 Sun 19:47]
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: take-a-diary-using-emacs-org
+   :EXPORT_DATE: <2018-02-21 Wed 09:03>
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "keep a diary using Emacs Org"
+   :END:
+   :LOGBOOK:
+   CLOCK: [2018-02-21 Wed 09:04]--[2018-02-21 Wed 09:16] =>  0:12
+   :END:
+*** Introduction
+    [2018-02-21 Wed 09:06]
+
+    There is one diary system built in Emacs. When you are in the
+    Calendar buffer, press =i= will bring you a menu to select what
+    kind of diary you want to take. However, as a loyal fan of Emacs
+    Org, I want to take diary using Org.
+
+    When I am in the org agenda buffer, press =i= will bring me a menu
+    like what show in the calendar buffer after pressing =i=.
+*** Set up
+    [2018-02-21 Wed 09:09]
+
+    It seems that all you need to do is set the =org-agenda-diary-file=,
+      so that Org knows where to put the diary file.
+
+      #+begin_src lisp
+      (setq org-agenda-diary-file  "~/zorg/Dropbox/base/zdiary.org")
+      #+end_src
+
+      After this, everything is left for Org mode. All you have to do
+      is writing your diary.
 
 
 * TODO Git
