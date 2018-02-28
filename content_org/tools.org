@@ -3,7 +3,7 @@
 #+HUGO_SECTION: Tools
 #+FILETAGS: tools
 #+HUGO: more
-#+SEQ_TODO: TODO NEXT DRAFT DONE
+#+SEQ_TODO: TODO NEXT DONE
 #+HUGO_AUTO_SET_LASTMOD: t
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 
@@ -115,6 +115,15 @@ I like helm-mark-ring and helm-yank-ring
 [2018-02-25 Sun 00:12]
 *** =t= toggles
 [2018-02-25 Sun 00:12]
+
+| keys | brief                     | comments  |
+|------+---------------------------+-----------|
+| =tab=  | tab indent guide globally | not clear |
+| =-=    | centered point            |           |
+| =8=    | highlight long lines      |           |
+| =a=    | auto completion           |           |
+|      |                           |           |
+
 *** =T= UI toggles/themes
 [2018-02-25 Sun 00:13]
 *** =v= expand region

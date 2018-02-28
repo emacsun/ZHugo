@@ -1,21 +1,14 @@
+#+TITLE: Computer Science
 #+HUGO_BASE_DIR: ../
 #+HUGO_SECTION: computer
 #+FILETAGS:computer
-#+SEQ_TODO: TODO NEXT DRAFT DONE
-#+OPTIONS:   *:t <:nil timestamp:nil
+#+HUGO: more
+#+SEQ_TODO: TODO NEXT DONE
 #+HUGO_AUTO_SET_LASTMOD: t
+#+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 
 * Computer
-** DONE a test of computer section                          :@algorithm:
-   CLOSED: [2017-12-18 Mon 20:08]
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: a-test-of-computer-section
-   :EXPORT_DATE: <2017-12-18 Mon 20:06>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
-   :END:
-   :LOGBOOK:
-   - CLOSING NOTE [2017-12-18 Mon 20:08] \\
-     done
-   CLOCK: [2017-12-18 Mon 20:06]--[2017-12-18 Mon 20:07] =>  0:01
-   :END:
-   this is just a test for computer section to see whether the function works well or not.
+
+
+bibliography:~/zorg/research_library/zcl.bib
+bibliographystyle:unsrt
