@@ -29,11 +29,19 @@ filter_default = 0
   tag = "*"
 
 [[filter]]
-  name = "Deep Learning"
-  tag = ".deep-learning"
+  name = "Algorithm"
+  tag = ".sort"
 
 [[filter]]
-  name = "Other"
-  tag = ".demo"
+  name = "Emacs"
+  tag = ".Emacs"
+
+[[filter]]
+  name = "Reading"
+  tag = ".Reading"
+
+
+
+
 
 +++
