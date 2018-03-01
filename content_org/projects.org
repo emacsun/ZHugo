@@ -1,0 +1,63 @@
+#+TITLE: PROJECTS
+#+HUGO_BASE_DIR: ../
+#+HUGO_SECTION: project
+#+FILETAGS: project
+#+HUGO: more
+#+SEQ_TODO: TODO NEXT DONE
+#+HUGO_AUTO_SET_LASTMOD: t
+#+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
+
+
+
+* Projects
+** TODO a test                                       :test:
+:PROPERTIES:
+:EXPORT_FILE_NAME: a-test
+:EXPORT_DATE: <2018-02-28 Wed 23:42>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:END:
+
+this is a test
+** TODO another test
+:PROPERTIES:
+:EXPORT_FILE_NAME: another-test
+:EXPORT_DATE: <2018-02-28 Wed 23:55>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image_preview "projects/bubbles.jpg"
+:END:
+
+another test
+** TODO third test
+:PROPERTIES:
+:EXPORT_FILE_NAME: third-test
+:EXPORT_DATE: <2018-03-01 Thu 00:04>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image_preview "projects/bubbles.jpg"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image  "projects/readingabook_header.jpg"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :caption  "stay hungry, stay foolish:smile:"
+:END:
+
+third test
+** TODO fourth test
+:PROPERTIES:
+:EXPORT_FILE_NAME: fourth-test
+:EXPORT_DATE: <2018-03-01 Thu 00:10>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image_preview "projects/bubbles.jpg"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :[header]
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image  "projects/Readingabook.jpg"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :caption  "stay hungry, stay foolish:smile:"
+:END:
+
+four test
+
+** TODO fifth test
+:PROPERTIES:
+:EXPORT_FILE_NAME: fifth-test
+:EXPORT_DATE: <2018-03-01 Thu 00:10>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image_preview "projects/bubbles.jpg"
+:EXPORT_HUGO_header: :src "projects/Readingabook_header.jpg" :title "stay hungry stay foolish"
+:END:
+
+four test
