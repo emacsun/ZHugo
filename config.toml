@@ -101,7 +101,7 @@ defaultContentLanguageInSubdir = false
   comment_count = true
 
   # Display section pager for posts?
-  section_pager = true
+  section_pager = false
 
   # Enable global LaTeX math rendering?
   #   If false, you can enable it locally on a per page basis.
@@ -268,6 +268,10 @@ defaultContentLanguageInSubdir = false
 [[menu.main]]
   name = "Tools"
   url = "#tools"
+  weight = 7
+[[menu.main]]
+  name = "中文"
+  url = "https://zlearning.netlify.com/"
   weight = 7
 # [[menu.main]]
 #   name = "Teaching"

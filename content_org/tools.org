@@ -1375,7 +1375,7 @@ Of course, you can define your own command in Drafts just read the document.
 The configuration of Dropbox is easy. All you have todo is to put the
 org files in a directory where Beorg, Drafts and Windows knows.
 
-** DONE repeated tasks in Emacs Org     :@Emacs:@tools:Org:
+** DONE Repeated Tasks in Emacs Org     :@Emacs:@tools:Org:
 CLOSED: [2018-03-04 Sun 09:32]
 :PROPERTIES:
 :EXPORT_FILE_NAME: repeated-tasks-in-emacs-org

@@ -1,9 +1,10 @@
 +++
-title = "repeated tasks in Emacs Org"
+title = "Repeated Tasks in Emacs Org"
 author = ["Eason Zhang"]
 date = 2018-03-04T09:32:00+08:00
-lastmod = 2018-03-04T09:34:00+08:00
-tags = ["tools"]
+lastmod = 2018-03-04T09:41:00+08:00
+tags = ["tools", "Org"]
+categories = ["Emacs", "tools"]
 draft = false
 summary = "set deadline or scheculed date for a repeated task in Emacs Org"
 +++
