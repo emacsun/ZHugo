@@ -148,97 +148,6 @@ Today, I am going to write something about link in Emacs Org mode. I
 have to admit in advance that I don't know all about Org's link.
 However, the part I know about Org link has already made my life much more
 efficient.
-** DRAFT Extends Emacs Org Mode on iOS Device  :@Emacs:Org:
-:PROPERTIES:
-:EXPORT_FILE_NAME: using-emacs-org-mode-on-ios-device
-:EXPORT_DATE: <2018-02-25 Sun 11:12>
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
-:END:
-:LOGBOOK:
-CLOCK: [2018-02-25 Sun 12:57]--[2018-02-25 Sun 14:43] =>  1:46
-CLOCK: [2018-02-25 Sun 11:13]--[2018-02-25 Sun 12:38] =>  1:25
-:END:
-
-I use two APPs [[https://itunes.apple.com/us/app/beorg/id1238649962?mt=8][BeOrg]] and [[https://itunes.apple.com/us/app/drafts-quick-capture/id905337691?mt=8][Drafts]] as Org's extension on my iOS device.
-Oh, almost foget it. Another one: dropbox. Beorg and Drafts stores the
-captures of ideas into dropbox. I retrive them when I am home on
-Windows 10 using my Surface Pro.
-
-The relationship among all the APPs I mentioned above is like
-
-#+CAPTION:  My using of Org mode through mobile device
-#+ATTR_HTML:  :width 600 :align center
-#+NAME: fig:20180225orgmobile
-#+ATTR_LATEX: :width 0.6\textwidth :align center
-[[../static/img/tools/20180225orgmobile.png]]
-
-Actually, I also tried another APP named MobileOrg, but dislike it
-because of its inflexibility ,boring GUI and hard-to-config. The
-combination of Beorg and Drafts works well for me with their playing
-each's own role.
-
-*** BeOrg
-[2018-02-25 Sun 11:14]
-
-Using BeOrg, I only capture a TODO. I leave capturing a note to Drafts
-which is good at notes.
-
-One screenshot of Beorg is shown as:
-
-[[../static/img/tools/20180225beorg.png]]
-
-The green button is used to add a todo capture. As you can see, Beorg
-can also read the todos from your iOS calendar (I am sorry for whom
-cannot read Chinese. That item in Chinese comes from iOS calendar
-reminding me to pick up the magazines and newspaper).
-
-By default, Beorg display the week agenda. The TODO states are also
-can be customized. I set the file synchronization method as dropbox
-and set the org directory which is shared with Drafts and my windows.
-So I can keep the org files consistent.
-
-Beorg also has an option for quick capture. Naturally, I also set it
-as the inbox of my Org mode on Drafts and Windows. You can also
-control the vivibility of your iOS calendars, i.e. which part shoule
-be integrated into BeOrg agenda view, the family? personal? work? You
-name it, as you wish.
-
-*** Drafts
-[2018-02-25 Sun 11:17]
-
-Drafts is the most efficient tool for taking a note. All you need is
-to focus on writing. Furthermore, you can even export your notes to
-way many other APPs such as evernote, markdown, oneDrive, google drive
-and so on. There are tons of commands available on the [[http://drafts4-actions.agiletortoise.com/][action
-directory of Drafts]].
-
-Combined with dropbox, I config several commands of my own. One
-screenshot is like:
-
-[[../static/img/tools/20180225drafts.png]]
-
-Take my command =Drafts TODO BeOrg= for example, the step is append
-files on Dropbox and the content is shown as:
-
-#+begin_example
- * TODO  [[title]]
-SCHEDULED: <[[created|%Y-%m-%d %a]]>
-[[body]]
-#+end_example
-
-Notice that, I set the format of creating timestamp the same as Emacs
-Org so that Emacs Org can follow the todo from Drafts.
-
-Of course, you can define your own command in Drafts just read the document.
-
-*** Dropbox
-[2018-02-25 Sun 11:17]
-
-The configuration of Dropbox is easy. All you have todo is to put the
-org files in a directory where Beorg, Drafts and Windows knows.
-
-
-
 * TODO Emacs
 [2018-01-28 Sun 10:14]
 
@@ -1373,6 +1282,214 @@ CLOSED: [2018-02-25 Sun 19:47]
       After this, everything is left for Org mode. All you have to do
       is writing your diary.
 
+
+** DONE Extends Emacs Org Mode on iOS Device   :@Emacs:Org:
+CLOSED: [2018-03-04 Sun 09:31]
+:PROPERTIES:
+:EXPORT_FILE_NAME: using-emacs-org-mode-on-ios-device
+:EXPORT_DATE: <2018-02-25 Sun 11:12>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "Extends the swiss army knife from PC to movile device."
+:END:
+:LOGBOOK:
+- CLOSING NOTE [2018-03-04 Sun 09:31] \\
+  done draft version
+CLOCK: [2018-02-25 Sun 12:57]--[2018-02-25 Sun 14:43] =>  1:46
+CLOCK: [2018-02-25 Sun 11:13]--[2018-02-25 Sun 12:38] =>  1:25
+:END:
+
+I use two APPs [[https://itunes.apple.com/us/app/beorg/id1238649962?mt=8][BeOrg]] and [[https://itunes.apple.com/us/app/drafts-quick-capture/id905337691?mt=8][Drafts]] as Org's extension on my iOS device.
+Oh, almost foget it. Another one: dropbox. Beorg and Drafts stores the
+captures of ideas into dropbox. I retrive them when I am home on
+Windows 10 using my Surface Pro.
+
+The relationship among all the APPs I mentioned above is like
+
+#+CAPTION:  My using of Org mode through mobile device
+#+ATTR_HTML:  :width 600 :align center
+#+NAME: fig:20180225orgmobile
+#+ATTR_LATEX: :width 0.6\textwidth :align center
+[[../static/img/tools/20180225orgmobile.png]]
+
+Actually, I also tried another APP named MobileOrg, but dislike it
+because of its inflexibility ,boring GUI and hard-to-config. The
+combination of Beorg and Drafts works well for me with their playing
+each's own role.
+
+*** BeOrg
+[2018-02-25 Sun 11:14]
+
+Using BeOrg, I only capture a TODO. I leave capturing a note to Drafts
+which is good at notes.
+
+One screenshot of Beorg is shown as:
+
+[[../static/img/tools/20180225beorg.png]]
+
+The green button is used to add a todo capture. As you can see, Beorg
+can also read the todos from your iOS calendar (I am sorry for whom
+cannot read Chinese. That item in Chinese comes from iOS calendar
+reminding me to pick up the magazines and newspaper).
+
+By default, Beorg display the week agenda. The TODO states are also
+can be customized. I set the file synchronization method as dropbox
+and set the org directory which is shared with Drafts and my windows.
+So I can keep the org files consistent.
+
+Beorg also has an option for quick capture. Naturally, I also set it
+as the inbox of my Org mode on Drafts and Windows. You can also
+control the vivibility of your iOS calendars, i.e. which part shoule
+be integrated into BeOrg agenda view, the family? personal? work? You
+name it, as you wish.
+
+*** Drafts
+[2018-02-25 Sun 11:17]
+
+Drafts is the most efficient tool for taking a note. All you need is
+to focus on writing. Furthermore, you can even export your notes to
+way many other APPs such as evernote, markdown, oneDrive, google drive
+and so on. There are tons of commands available on the [[http://drafts4-actions.agiletortoise.com/][action
+directory of Drafts]].
+
+Combined with dropbox, I config several commands of my own. One
+screenshot is like:
+
+[[../static/img/tools/20180225drafts.png]]
+
+Take my command =Drafts TODO BeOrg= for example, the step is append
+files on Dropbox and the content is shown as:
+
+#+begin_example
+ * TODO  [[title]]
+SCHEDULED: <[[created|%Y-%m-%d %a]]>
+[[body]]
+#+end_example
+
+Notice that, I set the format of creating timestamp the same as Emacs
+Org so that Emacs Org can follow the todo from Drafts.
+
+Of course, you can define your own command in Drafts just read the document.
+
+*** Dropbox
+[2018-02-25 Sun 11:17]
+
+The configuration of Dropbox is easy. All you have todo is to put the
+org files in a directory where Beorg, Drafts and Windows knows.
+
+** DONE repeated tasks in Emacs Org     :@Emacs:@tools:Org:
+CLOSED: [2018-03-04 Sun 09:32]
+:PROPERTIES:
+:EXPORT_FILE_NAME: repeated-tasks-in-emacs-org
+:EXPORT_DATE: <2018-03-04 Sun 07:16>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "set deadline or scheculed date for a repeated task in Emacs Org"
+:END:
+:LOGBOOK:
+- CLOSING NOTE [2018-03-04 Sun 09:32] \\
+  done with draft version.
+  need to update referring to [[https://emacs-china.org/t/org-mode/776][this link]]
+CLOCK: [2018-03-04 Sun 08:54]--[2018-03-04 Sun 09:28] =>  0:34
+CLOCK: [2018-03-04 Sun 07:16]--[2018-03-04 Sun 07:49] =>  0:33
+:END:
+
+Timestamps in Emacs Org are easy. Setting timestamps for repeated
+tasks are more interesting. It is quite often in daily life that some
+tasks will be repeated day by day, such as having lunch and afternoon
+nap, taking exercise. Org has a repeater in a task with a deadline or
+scheduled.
+
+*** Repeater in Org
+
+#+begin_example
+**TODO take a noon nap
+DEADLINE:<2018-03-04 Sun 12:30 +1d>
+#+end_example
+=+1d= is a time repeater. The task =take a noon nap= is intened to be done
+every day at 12:30. The interesting part is that everytime the state
+of the task is changed from TODO to DONE. The task will be changed to
+TODO again with the timestamp changed for the next day automatically.
+For the user, you will never see the DONE state. The task with a
+repeater is always in TODO state.
+
+The =d= in =+1d= means day. In a straightforward way, it can be =h=  for
+an hour, =w= for a week, =m= for a month, =y= for a year.
+
+Deadlines and scheduled items generate an agenda item. If you want to
+be warned before a period you can add a warning period in the
+timestamp.
+
+#+begin_example
+**TODO take a noon nap
+DEADLINE:<2018-03-04 Sun 12:30 +1d -10m>
+#+end_example
+
+=-3h= means that the task will appear ten minutes before 12:30.  For a
+traditional task with a TODO having a deadline or scheduled time, once
+it was done, the item will disappear from the agenda. However, for a
+task with a repeater, Org will increase the date of the timestamp by
+the interval indicated by the repeater then set the task to TODO state
+immediately. The task will appear in all the agenda from the timestamp
+on.
+*** a special repeater
+[2018-03-04 Sun 09:01]
+
+For =+1d= the repeater will always adding one day every time you change
+the task from TODO to DONE. However, for the task like taking a nap,
+having a deadline at 2018-03-04, if you forget to change it from TODO
+to DONE on 2018-03-04 and you do this on 2018-03-05, The timestamp
+will not change to 2018-03-06. It will be 2018-03-05, this is werid
+because you have already done the task on 2018-03-05. You have to
+chage the task from TODO to DONE again so that the deadline timestamp
+will be 2018-03-06.
+
+For the scenario mentioned above, Org has repeaters with a special
+format =++=  and =.+= .
+
+#+begin_example
+**TODO take a noon nap
+DEADLINE:<2018-03-04 Sun 12:30 ++1d>
+#+end_example
+
+With =++1d= the deadline of a repeated task will always be tomorrow
+everytime you change the state from TODO to DONE even you forget to
+finish it several times.
+
+Actually, this kind of task is quite common in daily life. Taking
+calling your father weakly for example, if you forget to call him
+three weeks, it is impossible to call him three times in a week to
+make things up.
+*** the =.+= repeater
+[2018-03-04 Sun 09:13]
+
+Similar with =++= , =.+= will shift the date to the future after *today* .
+Take the following task for example,
+
+#+begin_example
+**TODO pay the telephone fee
+DEADLINE: <2018-03-04 Sun 09:17 .+1m>
+#+end_example
+
+If you finish this task on 2018-03-01, Org will shift the task like:
+
+#+begin_example
+**TODO pay the telephone fee
+DEADLINE: <2018-04-01 Sun 09:17 .+1m>
+#+end_example
+*** repeated period
+[2018-03-04 Sun 09:18]
+
+Sometimes, you know how long the repeated task will last. Take the
+noon nap for example, usually I will set up a alarm to wake me up half
+an hour later. So, I can set the task with repeated period instead of
+repeated timestamp.
+
+So the noon nap event will be like:
+
+
+#+begin_example
+**TODO take a noon nap
+SCHEDULE:<2018-03-04 Sun 12:30-13:30 ++1d>
+#+end_example
+
+This will schedule a noon nap every day from 12:30 to 13:00.
 
 * TODO Git
 [2018-01-28 Sun 10:14]

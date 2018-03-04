@@ -1,12 +1,14 @@
+#+TITLE: MATH
 #+HUGO_BASE_DIR: ../
 #+HUGO_SECTION: math
-#+SEQ_TODO: TODO NEXT DRAFT DONE
 #+FILETAGS: math
-#+OPTIONS:   *:t <:nil timestamp:nil
+#+HUGO: more
+#+SEQ_TODO: TODO NEXT DONE
 #+HUGO_AUTO_SET_LASTMOD: t
+#+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 
 * Math
-** DONE test the capture template :@analysis:
+** DONE test the capture template               :@analysis:
    CLOSED: [2017-12-18 Mon 17:47]
    :PROPERTIES:
    :EXPORT_FILE_NAME: test-the-capture-template
@@ -43,7 +45,15 @@
     $\sum_{i=1}^{9}$
     test 3
     中文测试
-* Analysis
+** TODO Toeplitz Matrix
+:PROPERTIES:
+:EXPORT_FILE_NAME: toeplitz-matrix
+:EXPORT_DATE: <2018-03-02 Fri 21:33>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:END:
+
+For quite a long time, I want to dive into the deep details of
+  Toeplitz matrix.* Analysis
   [2017-12-18 Mon 19:26]
 
 * Abstract Algebra

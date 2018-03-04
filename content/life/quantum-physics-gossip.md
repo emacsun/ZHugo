@@ -2,11 +2,14 @@
 title = "上帝掷骰子么?"
 author = ["Eason Zhang"]
 date = 2018-02-19T11:02:00+08:00
-lastmod = 2018-02-19T14:43:00+08:00
+lastmod = 2018-03-03T15:34:00+08:00
 tags = ["life", "reading"]
 categories = ["reading", "life"]
 draft = false
-summary = "波澜壮阔妙趣横生的量子物理史尽在《量子物理史话》"
+summary = "波澜壮阔妙趣横生的量子物理史尽在《量子物理史话》. 读起来一气呵成，令人身心愉悦。"
+[header]
+  image = "life/reading/20180303quantum_header.png"
+  caption = "stay hungry, stay foolish"
 +++
 
 <style>
@@ -25,6 +28,7 @@ summary = "波澜壮阔妙趣横生的量子物理史尽在《量子物理史话
     - <span class="section-num">2.2</span> [第二次波粒世界大战](#第二次波粒世界大战)
     - <span class="section-num">2.3</span> [第三次波粒世界大战](#第三次波粒世界大战)
 - <span class="section-num">3</span> [杂记](#杂记)
+
 </div>
 <!--endtoc-->
 

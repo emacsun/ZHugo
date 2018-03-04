@@ -10,12 +10,6 @@
 
 
 * Projects
-** TODO a test                                       :test:
-:PROPERTIES:
-:EXPORT_FILE_NAME: a-test
-:EXPORT_DATE: <2018-02-28 Wed 23:42>
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
-:END:
 
 this is a test
 ** TODO another test
@@ -57,7 +51,25 @@ four test
 :EXPORT_DATE: <2018-03-01 Thu 00:10>
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image_preview "projects/bubbles.jpg"
-:EXPORT_HUGO_header: :src "projects/Readingabook_header.jpg" :title "stay hungry stay foolish"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :header '((image . "projects/Readingabook_header.jpg") (caption . "stay hungry, stay foolish"))
 :END:
 
 four test
+** TODO six test
+:PROPERTIES:
+:EXPORT_FILE_NAME: six-test
+:EXPORT_DATE: <2018-03-03 Sat 11:19>
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image_preview "projects/bubbles.jpg"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :header '((image . "projects/Readingabook_header.jpg") (caption . "stay hungry, stay foolish"))
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-03 Sat 11:19]--[2018-03-03 Sat 11:20] =>  0:01
+:END:
+
+This is the test of sixth project
+This is the test of sixth project
+This is the test of sixth project
+This is the test of sixth project
+This is the test of sixth project
+This is the test of sixth project

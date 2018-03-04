@@ -49,12 +49,13 @@
 如果能有这么一群人一直陪着喝酒，也是幸福生活加分项。
 #+end_quote
 #+INCLUDE: ./life/666-hang-out-20171011.org :only-contents t
-** DONE 上帝掷骰子么?                   :reading:@reading:@life:
+** DONE 上帝掷骰子么?              :reading:@reading:@life:
 CLOSED: [2018-02-19 Mon 11:02]
 :PROPERTIES:
 :EXPORT_FILE_NAME: quantum-physics-gossip
 :EXPORT_DATE: <2018-02-19 Mon 09:03>
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "波澜壮阔妙趣横生的量子物理史尽在《量子物理史话》"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "波澜壮阔妙趣横生的量子物理史尽在《量子物理史话》. 读起来一气呵成，令人身心愉悦。"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :header '((image . "life/reading/20180303quantum_header.png") (caption . "stay hungry, stay foolish"))
 :END:
 :LOGBOOK:
 CLOCK: [2018-02-19 Mon 09:05]--[2018-02-19 Mon 10:51] =>  1:46
@@ -177,7 +178,7 @@ CLOCK: [2018-02-19 Mon 09:05]--[2018-02-19 Mon 10:51] =>  1:46
 
 扯得有点远了，还是那句话：读书，不愉悦，毋宁死。《量子物理史话》，读起
 来令人愉悦。
-** DONE 极简欧洲史                     :europe:history:@reading:
+** DONE 极简欧洲史                :europe:history:@reading:
 CLOSED: [2018-02-19 Mon 14:39]
 :PROPERTIES:
 :EXPORT_FILE_NAME: brief-history-of-europe

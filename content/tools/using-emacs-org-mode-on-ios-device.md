@@ -1,11 +1,12 @@
 +++
 title = "Extends Emacs Org Mode on iOS Device"
 author = ["Eason Zhang"]
-date = 2018-02-25T11:12:00+08:00
-lastmod = 2018-02-25T14:44:00+08:00
-tags = ["tools"]
-draft = true
-summary = "summary"
+date = 2018-03-04T09:31:00+08:00
+lastmod = 2018-03-04T09:34:00+08:00
+tags = ["tools", "Org"]
+categories = ["Emacs"]
+draft = false
+summary = "Extends the swiss army knife from PC to movile device."
 +++
 
 <style>
@@ -21,6 +22,7 @@ summary = "summary"
 - <span class="section-num">1</span> [BeOrg](#beorg)
 - <span class="section-num">2</span> [Drafts](#drafts)
 - <span class="section-num">3</span> [Dropbox](#dropbox)
+
 </div>
 <!--endtoc-->
 
@@ -31,7 +33,7 @@ Windows 10 using my Surface Pro.
 
 The relationship among all the APPs I mentioned above is like
 
-<a id="org3e3abfb"></a>
+<a id="org719fbfe"></a>
 
 {{< figure src="/img/tools/20180225orgmobile.png" caption="Figure 1: My using of Org mode through mobile device" width="600" >}}
 
