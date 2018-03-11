@@ -255,10 +255,10 @@ defaultContentLanguageInSubdir = false
 #   weight = 5
 
 
-[[menu.main]]
-  name = "About"
-  url = "#about"
-  weight = 5
+# [[menu.main]]
+#   name = "About"
+#   url = "#about"
+#   weight = 5
 
 [[menu.main]]
   name = "Life"
@@ -272,7 +272,7 @@ defaultContentLanguageInSubdir = false
 [[menu.main]]
   name = "中文"
   url = "https://zlearning.netlify.com/"
-  weight = 7
+  weight = 8
 # [[menu.main]]
 #   name = "Teaching"
 #   url = "#teaching"

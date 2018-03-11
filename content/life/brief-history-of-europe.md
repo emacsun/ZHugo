@@ -2,11 +2,14 @@
 title = "极简欧洲史"
 author = ["Eason Zhang"]
 date = 2018-02-19T14:39:00+08:00
-lastmod = 2018-02-19T14:45:00+08:00
+lastmod = 2018-03-04T10:03:00+08:00
 tags = ["life", "europe", "history"]
 categories = ["reading"]
 draft = false
 summary = "高屋建瓴的《极简欧洲史》，称得上极简"
+[header]
+  image = "life/reading/20180304europe_header.png"
+  caption = "stay hungry, stay foolish"
 +++
 
 <style>
@@ -28,6 +31,7 @@ summary = "高屋建瓴的《极简欧洲史》，称得上极简"
     - <span class="section-num">3.2</span> [民主意识发端于希腊](#民主意识发端于希腊)
     - <span class="section-num">3.3</span> [共和体制的变态](#共和体制的变态)
 - <span class="section-num">4</span> [杂记](#杂记)
+
 </div>
 <!--endtoc-->
 
@@ -100,7 +104,8 @@ summary = "高屋建瓴的《极简欧洲史》，称得上极简"
 是写的有点多了 :) ）。并不是西方的政府权力必须有所限制，而是西方的政府
 在一开始就没有什么权力，这是拜古典时期那些粗野的日耳曼民族所赐。
 
-<a id="org1707bd0"></a>
+<a id="org71a2e15"></a>
+
 {{< figure src="/img/life/20180219hybrideurope.png" caption="Figure 1: 欧洲古典时期混合体" width="400" >}}
 
 
@@ -143,7 +148,8 @@ summary = "高屋建瓴的《极简欧洲史》，称得上极简"
 然，浪漫主义也催生了民族主义，强调同一民族的应该建立国家，保持自己民族
 的传统。
 
-<a id="org82f4991"></a>
+<a id="orga06af4b"></a>
+
 {{< figure src="/img/life/20180219after1000years.png" caption="Figure 2: 19世纪的形态" width="400" >}}
 
 

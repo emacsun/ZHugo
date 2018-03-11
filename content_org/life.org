@@ -28,27 +28,6 @@
    我的母亲是从山的那一边嫁到山的这一边的。她和我的父亲是通过媒人认识的。至于媒人怎么介绍，我就不知道了。母亲兄妹六个，她是家里最小的孩子，家里人都很宠。父亲是家里哥俩两个，父亲是老大。
 
 
-** DONE 666 小聚                                :@life:666:
-   CLOSED: [2017-10-11 Wed 02:02]
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: 666-hang-out
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :thumbnailImage /img/life/20171011666.png
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :coverImage /img/life/friend.png
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :thumbnailImagePosition left
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :coverSize partial
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :showSocial false
-   :EXPORT_DATE: [2017-10-11 Wed 01:19]
-   :END:
-   :LOGBOOK:
-   - CLOSING NOTE [2017-10-11 Wed 02:02]
-   CLOCK: [2017-10-11 Wed 01:24]--[2017-10-11 Wed 02:02] =>  0:38
-   CLOCK: [2017-10-11 Wed 01:19]--[2017-10-11 Wed 01:20] =>  0:01
-   :END:
-
-#+begin_quote
-如果能有这么一群人一直陪着喝酒，也是幸福生活加分项。
-#+end_quote
-#+INCLUDE: ./life/666-hang-out-20171011.org :only-contents t
 ** DONE 上帝掷骰子么?              :reading:@reading:@life:
 CLOSED: [2018-02-19 Mon 11:02]
 :PROPERTIES:
@@ -184,6 +163,7 @@ CLOSED: [2018-02-19 Mon 14:39]
 :EXPORT_FILE_NAME: brief-history-of-europe
 :EXPORT_DATE: <2018-02-19 Mon 11:33>
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "高屋建瓴的《极简欧洲史》，称得上极简"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :header '((image . "life/reading/20180304europe_header.png") (caption . "stay hungry, stay foolish"))
 :END:
 :LOGBOOK:
 CLOCK: [2018-02-19 Mon 11:33]--[2018-02-19 Mon 14:39] =>  3:06
