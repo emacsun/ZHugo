@@ -8,56 +8,23 @@
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 
 * Math
-** DONE test the capture template               :@analysis:
-   CLOSED: [2017-12-18 Mon 17:47]
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: test-the-capture-template
-   :EXPORT_DATE: <2017-12-18 Mon 17:46>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image "summary"
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :caption "summary"
-   :END:
-   :LOGBOOK:
-   - CLOSING NOTE [2017-12-18 Mon 17:47] \\
-     done
-   CLOCK: [2017-12-18 Mon 17:46]--[2017-12-18 Mon 17:47] =>  0:01
-   :END:
-   this is a test of the capture template by org
-** DONE test the flag
-   CLOSED: [2017-12-18 Mon 17:52]
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: test-the-flag
-   :EXPORT_DATE: <2017-12-18 Mon 17:52>
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "this is a summary of the new post"
-   :END:
-   :LOGBOOK:
-   - CLOSING NOTE [2017-12-18 Mon 17:52] \\
-     done with the flag
-   :END:
-*** test the flag 1
-    test 3
-*** test the flag 2
-    [2017-12-18 Mon 17:56]
-
-    test 2
-*** test the flag 3
-    [2017-12-18 Mon 17:56]
-    $\sum_{i=1}^{9}$
-    test 3
-    中文测试
-** TODO Toeplitz Matrix
+** TODO toeplitz matrix
 :PROPERTIES:
 :EXPORT_FILE_NAME: toeplitz-matrix
-:EXPORT_DATE: <2018-03-02 Fri 21:33>
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "summary"
+:EXPORT_DATE: <2018-03-14 Wed 19:53>
+:EXPORT_DESCRIPTION: something about Toeplitz matrix
 :END:
 
-For quite a long time, I want to dive into the deep details of
-  Toeplitz matrix.* Analysis
-  [2017-12-18 Mon 19:26]
+For such a long time, I have it on my list to write something for
+Toeplitz matrix.
 
+bibliography:~/zorg/research_library/zcl.bib
+bibliographystyle:unsrt
 * Abstract Algebra
   [2017-12-18 Mon 19:26]
 
 * Probability
   [2017-12-18 Mon 19:26]
+
+bibliography:~/zorg/research_library/zcl.bib
+bibliographystyle:unsrt
