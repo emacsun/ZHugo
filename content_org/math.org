@@ -16,10 +16,28 @@
 :END:
 
 For such a long time, I have it on my list to write something for
-Toeplitz matrix.
+Toeplitz matrix. I want to derive the fundamental theorems on the
+asymptotic behavvior of eigenvalues, inverses, and products of banded
+Toeplitz matrices. To achieve this goal, I read the famous paper
+/Toeplitz and Circulant Matrices: A review/ by Robert M. Gray
+cite:Gray_2005 . I am fond of matrices with the style like Toeplitz
+matrices imagining that there must be something special existing in
+the sqare matrices. During writing this post, Matlab is also used to
+finish some mathematical test.
+*** Toeplitz and Circulant Matrices
+[2018-03-15 Thu 22:48]
+
+A Toeplitz matrix \(T\) is an square matrix with size \(n\times n\).
+\(T_{n} = [t_{k,j}; k,j= 0,1,\ldots,n-1]\) where \(t_{k,j} =
+t_{k-j}\).
+
+
+
+
 
 bibliography:~/zorg/research_library/zcl.bib
 bibliographystyle:unsrt
+
 * Abstract Algebra
   [2017-12-18 Mon 19:26]
 
