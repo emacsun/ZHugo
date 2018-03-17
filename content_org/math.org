@@ -5,6 +5,7 @@
 #+HUGO: more
 #+SEQ_TODO: TODO NEXT DONE
 #+HUGO_AUTO_SET_LASTMOD: t
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../static/css/worg.css"  />
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 
 * Math
@@ -22,17 +23,86 @@ Toeplitz matrices. To achieve this goal, I read the famous paper
 /Toeplitz and Circulant Matrices: A review/ by Robert M. Gray
 cite:Gray_2005 . I am fond of matrices with the style like Toeplitz
 matrices imagining that there must be something special existing in
-the sqare matrices. During writing this post, Matlab is also used to
+the square matrices. During writing this post, Matlab is also used to
 finish some mathematical test.
-*** Toeplitz and Circulant Matrices
+
+*** Toeplitz Matrices
 [2018-03-15 Thu 22:48]
 
 A Toeplitz matrix \(T\) is an square matrix with size \(n\times n\).
 \(T_{n} = [t_{k,j}; k,j= 0,1,\ldots,n-1]\) where \(t_{k,j} =
 t_{k-j}\).
 
+In matrix form, A toeplitz matrix can be expressed as:
+\begin{equation}
+\label{eq:1}
+T_{n} =
+\begin{pmatrix}
+t_{0} & t_{-1} & t_{-2} &\ldots & t_{-(n-1)} \\
+t_{1} & t_{0}  & t_{-1} & \ldots &\vdots \\
+t_{2} & t_{1}  & t_{0} & \ldots &\vdots \\
+\vdots & \vdots &\vdots & \ddots & \vdots \\
+t_{n-1} & \ldots & \ldots & \ldots & t_{0}
+\end{pmatrix}
+\end{equation}
 
+Because we dive into the details of Toeplitz matrix, some keypoints of
+matrices are recaptured, such as the eigenvalues, Norms and
+asymptotically equivalent matrices.
+*** Some Asymptotic Properties of Matrices
+[2018-03-17 Sat 12:05]
 
+Most often, we can study the asymptotic behavior of complicated
+matrices by studying a more structured and simplier asymptotically
+equivalent matirx. This method is used in many fields. A toy model is
+studied comprehensively before a more complicated one comes in.
+**** Eigenvalues
+[2018-03-17 Sat 12:08]
+
+Scalor \(\alpha\) and vector \(x\) satisfied \(Ax = \alpha x\) are
+called the eigenvalue and the corresponding eigenvector. We can get
+the eigenvalues by solving
+\begin{equation}
+\label{eq:2}
+\det(A-\alpha I) = 0
+\end{equation}
+
+For the sake of simplicity, we assume that the eigenvalues are ordered
+in noincreasing format, i.e. \(\alpha_{1} > \alpha_{2} > \ldots \).
+
+Any complex matrix \(A\) can be written as:
+\begin{equation}
+\label{eq:3}
+A = URU^{*}
+\end{equation}
+where the asterisk \(*\) denotes conjugate transpose, \(U\) is
+unitary, i.e., \(U^{-1} = U^{*}\) and \(R\) is  an upper triangular
+matrix. The eigenvalues of \(A\) are the principle diagonal elements
+of \(R\). if \(A\) is normal, i.e. if\(A^{*}A = AA^{*}\), then \(R\) is
+a diagonal matrix, which we denote as \(R = \diag(\alpha_{k})\). If
+\(A\) is Hermitian, i.e. if \(A^{*} = A\), then the eigenvalues are
+real. If a matrix is Hermitian, then it is also normal.
+
+For the case of Hermitian matrices, a useful description of the
+eigenvalues is the variational description given by the
+Courant-Fischer theorem.
+#+begin_corollary
+Define the Rayleigh quotient of an Hermitian matrix \(X\) and a vector
+(complex \(n\)-tuple ) x by
+\begin{equation}
+\label{eq:4}
+R_{H}(x) = (x^{*}Hx)/ (x^{*}x)
+\end{equation}
+Let \(\eta_{M}\) and \(\eta_{m}\) be the maximum and minimum
+eigenvalues of \(H\), respectively.
+
+Then
+\begin{eqnarray}
+\label{eq:5}
+\eta_{m}&=& \min_{x} R_{H}(x) = \min_{x:x^{**}x = 1} x^{**}Hx \\
+\eta_{M}&=& \max_{x} R_{H}(x) = \max_{x:x^{** }x = 1} x^{*}Hx
+\end{eqnarray}
+#+end_corollary
 
 
 bibliography:~/zorg/research_library/zcl.bib

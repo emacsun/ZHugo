@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>toeplitz matrix</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Eason Zhang" />
+<meta name="description" content="something about Toeplitz matrix"
+ />
+<link rel="stylesheet" type="text/css" href="../static/css/worg.css"  />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">toeplitz matrix</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org38d38c1">1. Toeplitz Matrices</a></li>
+<li><a href="#org18903f1">2. Some Asymptotic Properties of Matrices</a>
+<ul>
+<li><a href="#orgbd351bc">2.1. Eigenvalues</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+For such a long time, I have it on my list to write something for
+Toeplitz matrix. I want to derive the fundamental theorems on the
+asymptotic behavvior of eigenvalues, inverses, and products of banded
+Toeplitz matrices. To achieve this goal, I read the famous paper
+<i>Toeplitz and Circulant Matrices: A review</i> by Robert M. Gray
+<a class='org-ref-reference' href="#Gray_2005">Gray_2005</a> . I am fond of matrices with the style like Toeplitz
+matrices imagining that there must be something special existing in
+the sqare matrices. During writing this post, Matlab is also used to
+finish some mathematical test.
+</p>
+<div id="outline-container-org38d38c1" class="outline-2">
+<h2 id="org38d38c1"><span class="section-number-2">1</span> Toeplitz Matrices</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+
+</p>
+
+<p>
+A Toeplitz matrix \(T\) is an square matrix with size \(n\times n\).
+\(T_{n} = [t_{k,j}; k,j= 0,1,\ldots,n-1]\) where \(t_{k,j} =
+t_{k-j}\).
+</p>
+
+<p>
+In matrix form, A toeplitz matrix can be expressed as:
+</p>
+\begin{equation}
+\label{eq:1}
+T_{n} =
+\begin{pmatrix}
+t_{0} & t_{-1} & t_{-2} &\ldots & t_{-(n-1)} \\
+t_{1} & t_{0}  & t_{-1} & \ldots &\vdots \\
+t_{2} & t_{1}  & t_{0} & \ldots &\vdots \\
+\vdots & \vdots &\vdots & \ddots & \vdots \\
+t_{n-1} & \ldots & \ldots & \ldots & t_{0}
+\end{pmatrix}
+\end{equation}
+
+<p>
+Because we dive into the details of Toeplitz matrix, some keypoints of
+matrices are recaptured, such as the eigenvalues, Norms and
+asymptotically equivalent matrices.
+</p>
+</div>
+</div>
+<div id="outline-container-org18903f1" class="outline-2">
+<h2 id="org18903f1"><span class="section-number-2">2</span> Some Asymptotic Properties of Matrices</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+
+</p>
+
+<p>
+Most often, we can study the asymptotic behavior of complicated
+matrices by studying a more structured and simplier asymptotically
+equivalent matirx. This method is used in many fields. A toy model is
+studied comprehensively before a more complicated one comes in.
+</p>
+</div>
+<div id="outline-container-orgbd351bc" class="outline-3">
+<h3 id="orgbd351bc"><span class="section-number-3">2.1</span> Eigenvalues</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+
+</p>
+
+<p>
+Scalor \(\alpha\) and vector \(x\) satisfied \(Ax = \alpha x\) are
+called the eigenvalue and the corresponding eigenvector. We can get
+the eigenvalues by solving
+</p>
+\begin{equation}
+\label{eq:2}
+\det(A-\alpha I) = 0
+\end{equation}
+
+
+
+
+
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="Gray_2005">[Gray_2005]</a> <a name="Gray_2005">Gray, Toeplitz and Circulant Matrices: A Review, <i>Foundations and Trends® in Communications and Information
+                  Theory</i>, <b>2(3)</b>, 155–239 (2005). <a href="http://dx.doi.org/10.1561/0100000006">link</a>. <a href="http://dx.doi.org/10.1561/0100000006">doi</a>.</li>
+</ul>
+
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Eason Zhang (<a href="mailto:chaolongworld AT gmail dot com">chaolongworld AT gmail dot com</a>)</p>
+<p class="date">Date: 2018-03-14 Wed 19:53</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 25.0.50.1 (<a href="https://orgmode.org">Org</a> mode 9.1.7)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
