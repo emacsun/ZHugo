@@ -1,11 +1,11 @@
 +++
 title = "toeplitz matrix"
 author = ["Eason Zhang"]
-description = "something about Toeplitz matrix"
 date = 2018-03-14T19:53:00+08:00
-lastmod = 2018-03-18T07:12:00+08:00
+lastmod = 2018-03-18T22:13:00+08:00
 tags = ["math"]
 draft = true
+summary = "sommary of Toeplitz Matrix"
 +++
 
 <style>
@@ -30,7 +30,8 @@ Toeplitz matrix. I want to derive the fundamental theorems on the
 asymptotic behavvior of eigenvalues, inverses, and products of banded
 Toeplitz matrices. To achieve this goal, I read the famous paper
 _Toeplitz and Circulant Matrices: A review_ by Robert M. Gray
-. I am fond of matrices with the style like Toeplitz
+<sup id="ac945247a9e861b9ce0958daa357b943"><a href="#Gray_2005" title="Gray, Toeplitz and Circulant Matrices: A Review, {Foundations and Trends&#174; in Communications and Information
+                  Theory}, v(3), 155&#8211;239 (2005).">Gray_2005</a></sup> . I am fond of matrices with the style like Toeplitz
 matrices imagining that there must be something special existing in
 the square matrices. During writing this post, Matlab is also used to
 finish some mathematical test.

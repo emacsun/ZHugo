@@ -13,7 +13,7 @@
 :PROPERTIES:
 :EXPORT_FILE_NAME: toeplitz-matrix
 :EXPORT_DATE: <2018-03-14 Wed 19:53>
-:EXPORT_DESCRIPTION: something about Toeplitz matrix
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "sommary of Toeplitz Matrix"
 :END:
 
 For such a long time, I have it on my list to write something for
@@ -79,7 +79,7 @@ where the asterisk \(*\) denotes conjugate transpose, \(U\) is
 unitary, i.e., \(U^{-1} = U^{*}\) and \(R\) is  an upper triangular
 matrix. The eigenvalues of \(A\) are the principle diagonal elements
 of \(R\). if \(A\) is normal, i.e. if\(A^{*}A = AA^{*}\), then \(R\) is
-a diagonal matrix, which we denote as \(R = \diag(\alpha_{k})\). If
+a diagonal matrix, which we denote as \(R = diag(\alpha_{k})\). If
 \(A\) is Hermitian, i.e. if \(A^{*} = A\), then the eigenvalues are
 real. If a matrix is Hermitian, then it is also normal.
 
@@ -99,14 +99,11 @@ eigenvalues of \(H\), respectively.
 Then
 \begin{eqnarray}
 \label{eq:5}
-\eta_{m}&=& \min_{x} R_{H}(x) = \min_{x:x^{**}x = 1} x^{**}Hx \\
-\eta_{M}&=& \max_{x} R_{H}(x) = \max_{x:x^{** }x = 1} x^{*}Hx
+\eta_{m}&=& \min_{x} R_{H}(x) = \min_{x:x^{*}x = 1} x^{*}Hx \\
+\eta_{M}&=& \max_{x} R_{H}(x) = \max_{x:x^{* }x = 1} x^{*}Hx
 \end{eqnarray}
 #+end_corollary
 
-
-bibliography:~/zorg/research_library/zcl.bib
-bibliographystyle:unsrt
 
 * Abstract Algebra
   [2017-12-18 Mon 19:26]
