@@ -2,9 +2,9 @@
 title = "toeplitz matrix"
 author = ["Eason Zhang"]
 date = 2018-03-14T19:53:00+08:00
-lastmod = 2018-03-18T22:13:00+08:00
+lastmod = 2018-03-21T23:21:00+08:00
 tags = ["math"]
-draft = true
+draft = false
 summary = "sommary of Toeplitz Matrix"
 +++
 
@@ -21,6 +21,7 @@ summary = "sommary of Toeplitz Matrix"
 - <span class="section-num">1</span> [Toeplitz Matrices](#toeplitz-matrices)
 - <span class="section-num">2</span> [Some Asymptotic Properties of Matrices](#some-asymptotic-properties-of-matrices)
     - <span class="section-num">2.1</span> [Eigenvalues](#eigenvalues)
+    - <span class="section-num">2.2</span> [Matrix Norms](#matrix-norms)
 
 </div>
 <!--endtoc-->
@@ -113,7 +114,7 @@ Courant-Fischer theorem.
 <div></div>
 
 Define the Rayleigh quotient of an Hermitian matrix \\(X\\) and a vector
-(complex \\(n\\)-tuple ) x by
+(complex \\(n\\)-tuple ) \\(x\\) by
 
 \begin{equation}
 \label{eq:4}
@@ -131,3 +132,94 @@ Then
 \eta\_{M}&=& \max\_{x} R\_{H}(x) = \max\_{x:x^{\* }x = 1} x^{\*}Hx
 \end{eqnarray}
 </div>
+
+This corollary will be useful in specifying the interval containing
+the eigenvalues of an Hermitian matrix.
+
+The following lemma is usefull when studying non-Hermitian matrices
+and products of Hermitian matrices.
+
+Let \\(A\\) be a matrix with eigenvalues \\(\alpha\_{k}\\). Define the
+eigenvalues of the Hermitian matrix \\(A^{\*}A\\) to be \\(\lambda\_{k}\\).
+Then:
+
+\begin{equation}
+\label{eq:6}
+\sum\_{k=0}^{n-1} \lambda\_{k} \geq \sum\_{k=0}^{n-1}|\alpha\_{k}|^{2}
+\end{equation}
+
+with equality iff \\(A\\) is normal.
+
+Proff. The trace of a matrix is the sum of the diagonal elements of a
+matrix. The trace is invariant to unitary operations so that it also
+is equal to the sum of the eigenvalues of amatrix. i.e.,
+
+\begin{equation}
+\label{eq:7}
+Tr (A^{\*}A) = \sum\_{k=0}^{n-1}(A^{\*}A)\_{k,k}  = \sum\_{k=0}^{n-1} \lambda\_{k}
+\end{equation}
+
+We have
+
+\begin{eqnarray\*}
+Tr( \{A^{\*}A\} ) &=& Tr( \{R^{\*}R\} )  \\\\\\
+&=& \sum\_{k=0}^{n-1}\sum\_{j=0}^{n-1} |r\_{j,k}|^{2} \\\\\\
+&=& \sum\_{k=0}^{n-1} |\alpha\_{k}|^{2} + \sum\_{k\neq j} |r\_{j,k}|^{2} \\\\\\
+&\geq& \sum\_{k=0}^{n-1} |\alpha\_{k}|^{2}
+\end{eqnarray\*}
+
+
+### <span class="section-num">2.2</span> Matrix Norms {#matrix-norms}
+
+
+
+To study the asymptotic equivalence of matrices we require a metric or
+equivalently a norm of the appropriate kind. Here we use two norms the
+operator and the Hilbert-Schmidt. We call the former the strong norm
+and later the weak norm.
+
+Let \\(A\\) be a matrix with eigenvalues \\(\alpha\_{k}\\) and let
+\\(\lambda\_{k}\\) be the eigenvalues of the Hermitian matrix \\(A^{\*}A\\).
+The strong norm \\(\\|A\\|\\) is difined by:
+
+\begin{equation}
+\label{eq:8}
+\\|A\\| = \max\_{x} R\_{A^{\*}A}(x)^{1/2} = \max\_{x:x^{\*}x=1} [x^{\*}A^{\*}Ax]^{1/2}
+\end{equation}
+
+According the corollary mentioned before, we have:
+
+\begin{equation}
+\label{eq:9}
+\\|A\\|^{2} = \max\_{k}\lambda\_{k} = \lambda\_{M}
+\end{equation}
+
+The strong norm of \\(A\\) can be bounded below by letting \\(e\_{M}\\) be
+the eigenvector of \\(A\\) corresponding to \\(\alpha\_{M}\\), the
+eigenvalue of \\(A\\) having largest absolute value:
+
+\begin{equation}
+\label{eq:10}
+\\|A\\|^{2} = \max\_{x:x^{\*}x = 1} x^{\*}A^{\*}Ax \geq (e\_{M}^{\*}A^{\*}) (Ae\_{M}) = |\alpha\_{M}|^{2}
+\end{equation}
+
+If \\(A\\) is itself Hermitian, then its eigenvalues \\(\alpha\_{k}\\) are
+real and the eigenvalues \\(\lambda\_{k}\\) of \\(A^{\*}A\\) are simply
+\\(\lambda\_{k} = \alpha\_{k}^{2}\\). This follows since if \\(e^{(k)}\\) is
+an eigenvector of \\(A\\) with eigenvalue \\(\alpha\_{k}\\), then
+\\(A^{\*}Ae^{(k)} = \alpha\_{k}A^{\*}e^{(k)} = \alpha\_{k}^{2}e^{(k)}\\).
+Thus, in particular, if \\(A\\) is Hermitian then
+
+\begin{equation}
+\label{eq:11}
+\\|A\\| = \max\_{k} |\alpha\_{k}| = |\alpha\_{M}|
+\end{equation}
+
+The Hilbert-Schmidt norm of an \\(n\times n\\) matrix \\(A =
+\{a\_{k,j}\}\\) is defined by:
+
+\begin{eqnarray\*}
+|A| &=& \bigg(n^{-1}\sum\_{k=0}^{n-1} \sum\_{j=0}^{n-1} |a\_{k,j}|^{2}\bigg)^{\tfrac{1}{2}} \\\\\\
+&=& \bigg(n^{-1} Tr[A^{\*}A] \bigg)^{\tfrac{1}{2}} \\\\\\
+&=& \bigg( n^{-1} \sum\_{k=0}^{n-1} \lambda\_{k} \bigg)^{\tfrac{1}{2}}
+\end{eqnarray\*}
