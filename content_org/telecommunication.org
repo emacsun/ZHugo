@@ -81,7 +81,10 @@ So there are three ways to represent Shannon limit:
 |               |                |
 
 
-** DONE Density Evolution          :LDPC:@telecommunication:
+* ECC
+[2018-02-03 Sat 09:14]
+
+** DONE Density Evolution         :LDPC:@telecommunication:
 CLOSED: [2018-02-07 Wed 20:02]
 :PROPERTIES:
 :EXPORT_FILE_NAME: density-evolution
@@ -535,12 +538,10 @@ We will meet density evolution again!!!
 
 
 
-* ECC
-[2018-02-03 Sat 09:14]
-
-
 * MIMO
 [2018-02-03 Sat 09:15]
 
 * Wireless Channel
 [2018-02-03 Sat 09:15]
+* Filter
+[2018-04-20 Fri 21:01]

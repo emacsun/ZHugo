@@ -182,8 +182,6 @@ The Hilbert-Schmidt norm of an \(n\times n\) matrix \(A =
 \end{eqnarray*}
 
 
-
-
 * Abstract Algebra
   [2017-12-18 Mon 19:26]
 
