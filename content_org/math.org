@@ -35,6 +35,11 @@ CLOSED: [2018-04-28 Sat 22:00]
    homepage.
 4. The textbook /Matrix Analysis and Applied Linear Algebra/ by [[http://meyer.math.ncsu.edu/][Carl D. Meyer]].
 
+All the materials mentioned above have one important point in common.
+Deteriminant is *not* located at the very beginning. The authors
+arrange their books in a more desirable order taking the readers into
+consideration. As Prof. Strang said
+
 By following Professor Strang, I got an overview of the four spaces of
 one matrix. Actually, I learnt the 18.06 from the MIT OCW more than
 one time. After each time, my understanding of linear algebra was

@@ -3,6 +3,7 @@
 #+FILETAGS:telecommunication
 #+SEQ_TODO: TODO NEXT DRAFT DONE
 #+HUGO_AUTO_SET_LASTMOD: t
+#+hugo_front_matter_key_replace: description>summary
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 * Telecommunication
 
