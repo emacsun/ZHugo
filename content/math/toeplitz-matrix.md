@@ -2,7 +2,7 @@
 title = "toeplitz matrix"
 author = ["Eason Zhang"]
 date = 2018-03-14T19:53:00+08:00
-lastmod = 2018-03-21T23:21:00+08:00
+lastmod = 2018-04-28T22:33:00+08:00
 tags = ["math"]
 draft = false
 summary = "sommary of Toeplitz Matrix"
@@ -111,7 +111,7 @@ eigenvalues is the variational description given by the
 Courant-Fischer theorem.
 
 <div class="corollary">
-<div></div>
+  <div></div>
 
 Define the Rayleigh quotient of an Hermitian matrix \\(X\\) and a vector
 (complex \\(n\\)-tuple ) \\(x\\) by
@@ -131,6 +131,7 @@ Then
 \eta\_{m}&=& \min\_{x} R\_{H}(x) = \min\_{x:x^{\*}x = 1} x^{\*}Hx \\\\\\
 \eta\_{M}&=& \max\_{x} R\_{H}(x) = \max\_{x:x^{\* }x = 1} x^{\*}Hx
 \end{eqnarray}
+
 </div>
 
 This corollary will be useful in specifying the interval containing
