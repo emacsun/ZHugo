@@ -1,7 +1,8 @@
 +++
 title = "Density Evolution"
+author = ["Eason Zhang"]
 date = 2018-02-07T20:02:00+08:00
-lastmod = 2018-02-07T22:26:00+08:00
+lastmod = 2018-04-28T22:14:00+08:00
 tags = ["telecommunication", "LDPC"]
 categories = ["telecommunication"]
 draft = false
@@ -26,6 +27,7 @@ summary = "Density evolution plays the foundamental role in designing and analyz
 - <span class="section-num">4</span> [Density evolution on general memoryless channels](#density-evolution-on-general-memoryless-channels)
     - <span class="section-num">4.1</span> [get an excellent degree distribution](#get-an-excellent-degree-distribution)
 - <span class="section-num">5</span> [Summary](#summary)
+
 </div>
 <!--endtoc-->
 
@@ -116,7 +118,7 @@ Thus, for a \\((w\_{c},w\_{r})\\) regular ensemble, we have a recursion:
 
 \begin{eqnarray}
 \label{eq:3}
-p\_{0}&=&\epsilon \newline
+p\_{0}&=&\epsilon \\\\\\
 p\_{l}&=& \epsilon \big( 1 - (1-p\_{l-1})^{(w\_{r} - 1)}\big)^{(w\_{c} -1)}
 \end{eqnarray}
 
@@ -146,7 +148,7 @@ It's easy to get:
 
 \begin{eqnarray}
 \label{eq:7}
-\sum\_{i}\lambda\_{i}&=& 1 \newline
+\sum\_{i}\lambda\_{i}&=& 1 \\\\\\
 \sum\_{i}\rho\_{i} &=& 1
 \end{eqnarray}
 
@@ -154,7 +156,7 @@ We also define the **degree distrubution functions** as:
 
 \begin{eqnarray}
 \label{eq:8}
-\lambda(x)&=&\lambda\_{2} x + \lambda\_{3}x^{2} + \ldots + \lambda\_{i}x^{i-1} + \ldots \newline
+\lambda(x)&=&\lambda\_{2} x + \lambda\_{3}x^{2} + \ldots + \lambda\_{i}x^{i-1} + \ldots \\\\\\
 \rho(x) &=& \rho\_{2}(x) + \rho\_{3}x^{2} + \ldots + \rho\_{i}x^{i-1} + \ldots
 \end{eqnarray}
 
@@ -162,7 +164,7 @@ We can transform between node degrees and edge degrees by:
 
 \begin{eqnarray}
 \label{eq9}
-v\_{i}&=& \frac{\lambda\_{i}/i}{\sum\_{j}\lambda\_{j}/j} \newline
+v\_{i}&=& \frac{\lambda\_{i}/i}{\sum\_{j}\lambda\_{j}/j} \\\\\\
 h\_{i}&=& \frac{\rho\_{i}/i}{\sum\_{j}\rho\_{j}/j}
 \end{eqnarray}
 
@@ -187,8 +189,8 @@ Then,
 
 \begin{eqnarray}
 \label{eq:10}
-\frac{\lambda\_{i}/i}{\sum\_{k} \lambda\_{k}/k } &=& \frac{ \frac{n\_{i}}{\sum\_{j}n\_{j}j}  }{ \sum\_{k} \frac{n\_{k}}{\sum\_{j}n\_{j}j}} \newline
-&=& \frac{n\_{i}}{\sum\_{k}n\_{k}} \newline
+\frac{\lambda\_{i}/i}{\sum\_{k} \lambda\_{k}/k } &=& \frac{ \frac{n\_{i}}{\sum\_{j}n\_{j}j}  }{ \sum\_{k} \frac{n\_{k}}{\sum\_{j}n\_{j}j}} \\\\\\
+&=& \frac{n\_{i}}{\sum\_{k}n\_{k}} \\\\\\
 &=& v\_{i}
 \end{eqnarray}
 
@@ -290,7 +292,7 @@ In particular,
 
 \begin{eqnarray}
 \label{eq:26}
-f(0,\epsilon)&=&\epsilon \lambda(1-\rho(1)) = 0 \\
+f(0,\epsilon)&=&\epsilon \lambda(1-\rho(1)) = 0 \\\\\\
 f(1,\epsilon)&=&\epsilon \lambda(1-\rho(1-1)) = \epsilon
 \end{eqnarray}
 
@@ -437,12 +439,13 @@ L(x) = \log \big( \frac{p(x=0)}{p(x=1)} \big)
 So the sign of \\(L(x)\\) determine it is \\(0\\) or \\(1\\) and the
 magnatue of \\(|L(x)|\\) tell us how sure we are about the decision.
 
-Figure [1](#org23fcb38) shows a gaussian PDF for
+Figure [1](#orgea4b30b) shows a gaussian PDF for
 \\(\mathcal{p}( r)\\) and the probability that the bit is "1" is the area
 of the shade.
 
-<a id="org23fcb38"></a>
-{{< figure src="/img/telecommunication/20180205gaussian.png" caption="a Gaussian PDF" width="400" >}}
+<a id="orgea4b30b"></a>
+
+{{< figure src="/img/telecommunication/20180205gaussian.png" caption="Figure 1: a Gaussian PDF" width="400" >}}
 
 The LLR are real numbers, so it can be illustrated using a probability
 density function. We define the PDF for a B2C message at iteration as

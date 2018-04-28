@@ -323,7 +323,7 @@ See `org-capture-templates' for more information."
                  "\n")))
 #+end_src
 
-One more point, it is awesome to preview each article after saveing it.
+One more point, it is awesome to preview each article after saving it.
 Yes! you can do it according [[https://ox-hugo.scripter.co/doc/auto-export-on-saving][this article]].
 *** Settings for Hugo themes
 

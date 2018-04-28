@@ -2,8 +2,8 @@
 #+HUGO_SECTION: telecommunication
 #+FILETAGS:telecommunication
 #+SEQ_TODO: TODO NEXT DRAFT DONE
-#+OPTIONS:   *:t <:nil timestamp:nil num:t toc:t
 #+HUGO_AUTO_SET_LASTMOD: t
+#+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 * Telecommunication
 
 ** TODO channel coding : the road to channel-capacity
@@ -173,7 +173,7 @@ a bit is erased by the channel.
 Thus, for a \((w_{c},w_{r})\) regular ensemble, we have a recursion:
 \begin{eqnarray}
 \label{eq:3}
-p_{0}&=&\epsilon \newline
+p_{0}&=&\epsilon \\
 p_{l}&=& \epsilon \big( 1 - (1-p_{l-1})^{(w_{r} - 1)}\big)^{(w_{c} -1)}
 \end{eqnarray}
 The above recursion describes how the erasure probability of MPA evolves as a
@@ -201,21 +201,21 @@ the fraction of edges connecting to degree-\(i\) check nodes.
 It's easy to get:
 \begin{eqnarray}
 \label{eq:7}
-\sum_{i}\lambda_{i}&=& 1 \newline
+\sum_{i}\lambda_{i}&=& 1 \\
 \sum_{i}\rho_{i} &=& 1
 \end{eqnarray}
 
 We also define the *degree distrubution functions* as:
 \begin{eqnarray}
 \label{eq:8}
-\lambda(x)&=&\lambda_{2} x + \lambda_{3}x^{2} + \ldots + \lambda_{i}x^{i-1} + \ldots \newline
+\lambda(x)&=&\lambda_{2} x + \lambda_{3}x^{2} + \ldots + \lambda_{i}x^{i-1} + \ldots \\
 \rho(x) &=& \rho_{2}(x) + \rho_{3}x^{2} + \ldots + \rho_{i}x^{i-1} + \ldots
 \end{eqnarray}
 
 We can transform between node degrees and edge degrees by:
 \begin{eqnarray}
 \label{eq9}
-v_{i}&=& \frac{\lambda_{i}/i}{\sum_{j}\lambda_{j}/j} \newline
+v_{i}&=& \frac{\lambda_{i}/i}{\sum_{j}\lambda_{j}/j} \\
 h_{i}&=& \frac{\rho_{i}/i}{\sum_{j}\rho_{j}/j}
 \end{eqnarray}
 
@@ -235,8 +235,8 @@ Thus,
 Then,
 \begin{eqnarray}
 \label{eq:10}
-\frac{\lambda_{i}/i}{\sum_{k} \lambda_{k}/k } &=& \frac{ \frac{n_{i}}{\sum_{j}n_{j}j}  }{ \sum_{k} \frac{n_{k}}{\sum_{j}n_{j}j}} \newline
-&=& \frac{n_{i}}{\sum_{k}n_{k}} \newline
+\frac{\lambda_{i}/i}{\sum_{k} \lambda_{k}/k } &=& \frac{ \frac{n_{i}}{\sum_{j}n_{j}j}  }{ \sum_{k} \frac{n_{k}}{\sum_{j}n_{j}j}} \\
+&=& \frac{n_{i}}{\sum_{k}n_{k}} \\
 &=& v_{i}
 \end{eqnarray}
 

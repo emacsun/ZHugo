@@ -182,11 +182,27 @@ The Hilbert-Schmidt norm of an \(n\times n\) matrix \(A =
 \end{eqnarray*}
 
 
+
+
+** DONE linear algebra done right
+CLOSED: [2018-04-28 Sat 22:00]
+:PROPERTIES:
+:EXPORT_FILE_NAME: linear-algebra-done-right
+:EXPORT_DATE: <2018-04-28 Sat 21:57>
+:EXPORT_DESCRIPTION: summary of this post
+:END:
+:LOGBOOK:
+- CLOSING NOTE [2018-04-28 Sat 22:00] \\
+  done
+:END:
+By far, the best tutorial I read on linear algebra.
 * Abstract Algebra
   [2017-12-18 Mon 19:26]
 
+
 * Probability
   [2017-12-18 Mon 19:26]
+
 
 bibliography:~/zorg/research_library/zcl.bib
 bibliographystyle:unsrt
