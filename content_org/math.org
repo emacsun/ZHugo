@@ -135,7 +135,7 @@ Tr( \{A^{*}A\} ) &=& Tr( \{R^{*}R\} )  \\
 &\geq& \sum_{k=0}^{n-1} |\alpha_{k}|^{2}
 \end{eqnarray*}
 **** Matrix Norms
-     [2018-03-18 Sun 23:11]
+[2018-03-18 Sun 23:11]
 
 To study the asymptotic equivalence of matrices we require a metric or
 equivalently a norm of the appropriate kind. Here we use two norms the
