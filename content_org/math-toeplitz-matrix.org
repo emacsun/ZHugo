@@ -56,14 +56,14 @@ in noincreasing format, i.e. \(\alpha_{1} > \alpha_{2} > \ldots \).
 Any complex matrix \(A\) can be written as:
 \begin{equation}
 \label{eq:3}
-A = URU^{*}
+A = URU^{T}
 \end{equation}
-where the asterisk \(*\) denotes conjugate transpose, \(U\) is
-unitary, i.e., \(U^{-1} = U^{*}\) and \(R\) is  an upper triangular
+where the asterisk \(T\) denotes conjugate transpose, \(U\) is
+unitary, i.e., \(U^{-1} = U^{T}\) and \(R\) is  an upper triangular
 matrix. The eigenvalues of \(A\) are the principle diagonal elements
-of \(R\). if \(A\) is normal, i.e. if\(A^{*}A = AA^{*}\), then \(R\) is
+of \(R\). if \(A\) is normal, i.e. if\(A^{T}A = AA^{T}\), then \(R\) is
 a diagonal matrix, which we denote as \(R = diag(\alpha_{k})\). If
-\(A\) is Hermitian, i.e. if \(A^{*} = A\), then the eigenvalues are
+\(A\) is Hermitian, i.e. if \(A^{T} = A\), then the eigenvalues are
 real. If a matrix is Hermitian, then it is also normal.
 
 For the case of Hermitian matrices, a useful description of the
@@ -75,7 +75,7 @@ Define the Rayleigh quotient of an Hermitian matrix \(X\) and a vector
 (complex \(n\)-tuple ) \(x\) by
 \begin{equation}
 \label{eq:4}
-R_{H}(x) = (x^{*}Hx)/ (x^{*}x)
+R_{H}(x) = (x^{T}Hx)/ (x^{T}x)
 \end{equation}
 Let \(\eta_{M}\) and \(\eta_{m}\) be the maximum and minimum
 eigenvalues of \(H\), respectively.
@@ -83,8 +83,8 @@ eigenvalues of \(H\), respectively.
 Then
 \begin{eqnarray}
 \label{eq:5}
-\eta_{m}&=& \min_{x} R_{H}(x) = \min_{x:x^{*}x = 1} x^{*}Hx \\
-\eta_{M}&=& \max_{x} R_{H}(x) = \max_{x:x^{* }x = 1} x^{*}Hx
+\eta_{m}&=& \min_{x} R_{H}(x) = \min_{x:x^{T}x = 1} x^{T}Hx \\
+\eta_{M}&=& \max_{x} R_{H}(x) = \max_{x:x^{T }x = 1} x^{T}Hx
 \end{eqnarray}
 #+end_corollary
 
@@ -95,7 +95,7 @@ The following lemma is usefull when studying non-Hermitian matrices
 and products of Hermitian matrices.
 
 Let \(A\) be a matrix with eigenvalues \(\alpha_{k}\). Define the
-eigenvalues of the Hermitian matrix \(A^{*}A\) to be \(\lambda_{k}\).
+eigenvalues of the Hermitian matrix \(A^{T}A\) to be \(\lambda_{k}\).
 Then:
 \begin{equation}
 \label{eq:6}
@@ -108,11 +108,11 @@ matrix. The trace is invariant to unitary operations so that it also
 is equal to the sum of the eigenvalues of amatrix. i.e.,
 \begin{equation}
 \label{eq:7}
-Tr (A^{*}A) = \sum_{k=0}^{n-1}(A^{*}A)_{k,k}  = \sum_{k=0}^{n-1} \lambda_{k}
+Tr (A^{T}A) = \sum_{k=0}^{n-1}(A^{T}A)_{k,k}  = \sum_{k=0}^{n-1} \lambda_{k}
 \end{equation}
 We have
 \begin{eqnarray*}
-Tr( \{A^{*}A\} ) &=& Tr( \{R^{*}R\} )  \\
+Tr( \{A^{T}A\} ) &=& Tr( \{R^{T}R\} )  \\
 &=& \sum_{k=0}^{n-1}\sum_{j=0}^{n-1} |r_{j,k}|^{2} \\
 &=& \sum_{k=0}^{n-1} |\alpha_{k}|^{2} + \sum_{k\neq j} |r_{j,k}|^{2} \\
 &\geq& \sum_{k=0}^{n-1} |\alpha_{k}|^{2}
@@ -126,11 +126,11 @@ operator and the Hilbert-Schmidt. We call the former the strong norm
 and later the weak norm.
 
 Let \(A\) be a matrix with eigenvalues \(\alpha_{k}\) and let
-\(\lambda_{k}\) be the eigenvalues of the Hermitian matrix \(A^{*}A\).
+\(\lambda_{k}\) be the eigenvalues of the Hermitian matrix \(A^{T}A\).
 The strong norm \(\|A\|\) is difined by:
 \begin{equation}
 \label{eq:8}
-\|A\| = \max_{x} R_{A^{*}A}(x)^{1/2} = \max_{x:x^{*}x=1} [x^{*}A^{*}Ax]^{1/2}
+\|A\| = \max_{x} R_{A^{T}A}(x)^{1/2} = \max_{x:x^{T}x=1} [x^{T}A^{T}Ax]^{1/2}
 \end{equation}
 According the corollary mentioned before, we have:
 \begin{equation}
@@ -143,13 +143,13 @@ the eigenvector of \(A\) corresponding to \(\alpha_{M}\), the
 eigenvalue of \(A\) having largest absolute value:
 \begin{equation}
 \label{eq:10}
-\|A\|^{2} = \max_{x:x^{*}x = 1} x^{*}A^{*}Ax \geq (e_{M}^{*}A^{*}) (Ae_{M}) = |\alpha_{M}|^{2}
+\|A\|^{2} = \max_{x:x^{T}x = 1} x^{T}A^{T}Ax \geq (e_{M}^{T}A^{T}) (Ae_{M}) = |\alpha_{M}|^{2}
 \end{equation}
 If \(A\) is itself Hermitian, then its eigenvalues \(\alpha_{k}\) are
-real and the eigenvalues \(\lambda_{k}\) of \(A^{*}A\) are simply
+real and the eigenvalues \(\lambda_{k}\) of \(A^{T}A\) are simply
 \(\lambda_{k} = \alpha_{k}^{2}\). This follows since if \(e^{(k)}\) is
 an eigenvector of \(A\) with eigenvalue \(\alpha_{k}\), then
-\(A^{*}Ae^{(k)} = \alpha_{k}A^{*}e^{(k)} = \alpha_{k}^{2}e^{(k)}\).
+\(A^{T}Ae^{(k)} = \alpha_{k}A^{T}e^{(k)} = \alpha_{k}^{2}e^{(k)}\).
 Thus, in particular, if \(A\) is Hermitian then
 \begin{equation}
 \label{eq:11}
@@ -160,6 +160,48 @@ The Hilbert-Schmidt norm of an \(n\times n\) matrix \(A =
 
 \begin{eqnarray*}
 |A| &=& \bigg(n^{-1}\sum_{k=0}^{n-1} \sum_{j=0}^{n-1} |a_{k,j}|^{2}\bigg)^{\tfrac{1}{2}} \\
-&=& \bigg(n^{-1} Tr[A^{*}A] \bigg)^{\tfrac{1}{2}} \\
+&=& \bigg(n^{-1} Tr[A^{T}A] \bigg)^{\tfrac{1}{2}} \\
 &=& \bigg( n^{-1} \sum_{k=0}^{n-1} \lambda_{k} \bigg)^{\tfrac{1}{2}}
 \end{eqnarray*}
+
+The quantity \(\sqrt{n}|A|\) is sometimes called the Frobenius norm or
+Euclidean norm. From equation (\ref{eq:6}), we have
+\begin{equation}
+\label{eq:12}
+|A|^{2} \geq n^{-1} \sum_{k=0}^{n-1} |\alpha_{k}|^{2}
+\end{equation}
+with equality iff  \(A\) is normal. The Hilbert-Schmidt norm is the
+weaker of the two norm since
+\begin{equation}
+\label{eq:13}
+\| A\|^{2} = \max_{k} \lambda_{k} \geq n^{-1} \sum_{k=0}^{n-1} \lambda_{k} = |A|^{2}
+\end{equation}
+
+A matrix is said to be bounded if it is bounde in both norms. Given
+two \(n\times n\) matrices \(G\) and \(H\), then
+\begin{equation}
+\label{eq:14}
+|GH| \leq \|G\| \cdot |H|
+\end{equation}
+**** Asymptotically Equivalent Matrices
+[2018-04-29 Sun 22:04]
+
+We will be considering \(n\times n\) matrices that approximate each
+other when \(n\) is large. We use the weak norm of the difference of
+two matrices as a   measure of the "distance" between them. Two
+sequences of \(n\times n\) matrices \(A_{n}\) and \(B_{n}\) are said
+to be asymptotically equivalent if
+1. \(A_{n}\) and \(B_{n}\) are uniformly  bounded in strong norm:
+   \begin{equation}
+   \label{eq:15}
+   \|A_{n}\|, \|B_{n}\| \leq M < \infty
+   \end{equation}
+2. \(A_{n} - B_{n} = D_{n}\) goes to zero in weak norm as \(n\to
+   \infty\)
+   \begin{equation}
+   \label{eq:16}
+   \lim_{n\to \infty} |A_{n} - B_{n} | = \lim_{n\to \infty}|D_{n}| = 0
+   \end{equation}
+Asymptotic equivalence of \(A_{n}\) and \(B_{n}\) will be aabbreviated
+\(A_{n}\sim B_{n}\). If one of the two matrices is Toeplitz, then the
+other is said to be asymptotically Toeplitz.

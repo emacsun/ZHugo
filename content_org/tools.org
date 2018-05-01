@@ -1371,6 +1371,9 @@ Org so that Emacs Org can follow the todo from Drafts.
 Of course, you can define your own command in Drafts just read the document.
 
 *** Dropbox
+:LOGBOOK:
+CLOCK: [2018-04-29 Sun 21:39]--[2018-04-29 Sun 21:40] =>  0:01
+:END:
 [2018-02-25 Sun 11:17]
 
 The configuration of Dropbox is easy. All you have todo is to put the

@@ -17,6 +17,11 @@
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :summary "sommary of Toeplitz Matrix"
 :END:
 #+include: "./math-toeplitz-matrix.org"
+
+
+bibliography:~/zorg/research_library/zcl.bib
+bibliographystyle:unsrt
+
 ** DONE linear algebra done right
 CLOSED: [2018-04-28 Sat 22:00]
 :PROPERTIES:
@@ -29,8 +34,8 @@ CLOSED: [2018-04-28 Sat 22:00]
  referenced:
 1. The opencourse 18.06 from [[http://www-math.mit.edu/~gs/][Gilbert Strang]]. From Strang's home, many
    valuable materials are available.
-2. The textbook /Introduction to Linear Algebra/ by Gilbert Strang.
-3. The textbook /Linear Algebra Done Right/ by [[http://www.axler.net/][Sheldon Axler]]. You can
+2. The textbook /Introduction to Linear Algebra/  by Gilbert Strang cite:Strang2016Aug.
+3. The textbook /Linear Algebra Done Right/ by [[http://www.axler.net/][Sheldon Axler]] cite:Axler2014. You can
    get an abridged version of /Linear Algebra Done Right/ from Axler's
    homepage.
 4. The textbook /Matrix Analysis and Applied Linear Algebra/ by [[http://meyer.math.ncsu.edu/][Carl D. Meyer]].
