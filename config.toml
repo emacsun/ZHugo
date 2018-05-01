@@ -260,10 +260,10 @@ defaultContentLanguageInSubdir = false
 #   url = "#about"
 #   weight = 5
 
-[[menu.main]]
-  name = "Life"
-  url = "#life"
-  weight = 6
+# [[menu.main]]
+#   name = "Life"
+#   url = "#life"
+#   weight = 6
 
 [[menu.main]]
   name = "Tools"

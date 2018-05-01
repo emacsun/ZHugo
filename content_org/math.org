@@ -19,7 +19,7 @@
 #+include: "./math-toeplitz-matrix.org"
 
 
-bibliography:~/zorg/research_library/zcl.bib
+bibliography:~/Dropbox/research_library/zcl.bib
 bibliographystyle:unsrt
 
 ** DONE linear algebra done right
@@ -43,7 +43,11 @@ CLOSED: [2018-04-28 Sat 22:00]
 All the materials mentioned above have one important point in common.
 Deteriminant is *not* located at the very beginning. The authors
 arrange their books in a more desirable order taking the readers into
-consideration. As Prof. Strang said
+consideration. Take the determinants for example, many textbooks
+arrange the determinants chapter at the very beginning. However, the
+three books mentioned above put the determinants chapter at the near
+end of the book. All the books mentioned above focus on the linear
+space.
 
 By following Professor Strang, I got an overview of the four spaces of
 one matrix. Actually, I learnt the 18.06 from the MIT OCW more than
@@ -60,5 +64,5 @@ deepened.
   [2017-12-18 Mon 19:26]
 
 
-bibliography:~/zorg/research_library/zcl.bib
+bibliography:~/Dropbox/research_library/zcl.bib
 bibliographystyle:unsrt
