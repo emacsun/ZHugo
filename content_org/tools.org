@@ -123,7 +123,6 @@ I like helm-mark-ring and helm-yank-ring
 | =-=    | centered point            |           |
 | =8=    | highlight long lines      |           |
 | =a=    | auto completion           |           |
-|      |                           |           |
 
 *** =T= UI toggles/themes
 [2018-02-25 Sun 00:13]
