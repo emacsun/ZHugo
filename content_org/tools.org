@@ -6,6 +6,7 @@
 #+SEQ_TODO: TODO NEXT DONE
 #+HUGO_AUTO_SET_LASTMOD: t
 #+hugo_front_matter_key_replace: description>summary
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../static/css/worg.css"  />
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
 
 
@@ -148,6 +149,79 @@ Today, I am going to write something about link in Emacs Org mode. I
 have to admit in advance that I don't know all about Org's link.
 However, the part I know about Org link has already made my life much more
 efficient.
+** TODO write and evaluate python code in Org mode
+:PROPERTIES:
+:EXPORT_FILE_NAME: write-and-evaluate-python-code-in-org-mode
+:EXPORT_DATE: <2018-05-04 Fri 23:34>
+:EXPORT_DESCRIPTION: summary of this post
+:END:
+:LOGBOOK:
+CLOCK: [2018-05-04 Fri 23:34]--[2018-05-04 Fri 23:36] =>  0:02
+:END:
+
+*** set the command for evaluating the python code
+
+#+begin_src emacs-lisp
+(setq org-babel-python-command "python3")
+#+end_src
+*** delete the *.elc files
+[2018-05-04 Fri 23:36]
+
+After org mode version 9, it is buggy to evaluate python code in Org mode and
+the error message is :
+#+begin_example
+Evaluation of this python code is disabled
+#+end_example
+
+After some google, I find the solution at [[https://github.com/syl20bnr/spacemacs/issues/7641][here]] . The solution is easy: deleting
+the .elc files under the .emacs.d/elpa/org-plus-contrib-XXXXXX/ directory.
+*** export with the result
+[2018-05-04 Fri 23:41]
+
+Take the following code snippet for example.
+#+begin_src python -n :results output :export both
+cars = 100
+space_in_a_car = 4
+drivers = 30
+passengers = 90
+cars_not_driven = cars - drivers
+cars_driven = drivers
+carpool_capacity = cars_driven * space_in_a_car
+average_passengers_per_car = passengers / cars_driven
+
+print("There are",cars,"cars available.")
+print("There are only",drivers,"drivers avaiable.")
+print("There will be", cars_not_driven,"empty cars today.")
+print("We can transport",carpool_capacity,"people today.")
+print("We have",passengers,"to carpool today.")
+print("We need to put ablout",average_passengers_per_car,"in each car")
+#+end_src
+
+After the above debugging and config, you can evalute the code snippet using
+=C-c C-c= inside the code. and after that the result will appear below the code
+as:
+#+begin_example
+#+RESULTS:
+: There are 100 cars available.
+: There are only 30 drivers avaiable.
+: There will be 70 empty cars today.
+: We can transport 120 people today.
+: We have 90 to carpool today.
+: We need to put ablout 3.0 in each car
+#+end_example
+
+However, when I call the org export dispatcher using =C-c C-e h o= . The result
+part is not displayed as the code snippet does. After checking the Org manual,
+there is a variable =org-export-use-babel= controing whether evaluate the code
+snippet or not during exporting. Evan the variable is set to be =t=, the code is
+not evaluated. To control export the code, results or both, the =:export= header
+arguments should be set to =code=, =results=  or =both= .
+
+
+
+
+
+
 * TODO Emacs
 [2018-01-28 Sun 10:14]
 

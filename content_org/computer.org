@@ -7,9 +7,85 @@
 #+HUGO_AUTO_SET_LASTMOD: t
 #+hugo_front_matter_key_replace: description>summary
 #+SETUPFILE: ~/.spacemacs.d/org-templates/math.org
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../static/css/worg.css"  />
 
 * Computer
 
+
+
+
+** NEXT learn python the hard way
+:PROPERTIES:
+:EXPORT_FILE_NAME: learn-python-the-hard-way
+:EXPORT_DATE: <2018-05-04 Fri 21:46>
+:EXPORT_DESCRIPTION: summary of this post
+:END:
+:LOGBOOK:
+CLOCK: [2018-05-04 Fri 22:09]--[2018-05-04 Fri 23:34] =>  1:25
+CLOCK: [2018-05-04 Fri 21:57]--[2018-05-04 Fri 21:58] =>  0:01
+CLOCK: [2018-05-04 Fri 21:51]--[2018-05-04 Fri 21:57] =>  0:06
+CLOCK: [2018-05-04 Fri 21:46]--[2018-05-04 Fri 21:50] =>  0:04
+:END:
+
+For a long time, I have been planning to learn Python. However, because I never
+use Python in my work, the plan was delayed again and again. Today, it is
+raining cats and dogs outside. Why not do something I have planned long time ago
+in this perfect mode? So I picked up the book /Learning Python the Hard Way/ by
+Zed Shaw. During the learning, I use Emacs as my Editor, running the programming
+on my old Thinkpad with Ubuntu 16.04 and Python3.5. I am going to learn Python
+in the hard way. However, I believe it will be the clever and efficient way.
+** a small surprise in ex4.py
+Everything goes fine until I am doing exercise 4. The python code is:
+#+begin_src python -n :results output :exports both
+cars = 100
+space_in_a_car = 4
+drivers = 30
+passengers = 90
+cars_not_driven = cars - drivers
+cars_driven = drivers
+carpool_capacity = cars_driven * space_in_a_car
+average_passengers_per_car = passengers / cars_driven
+
+print("There are",cars,"cars available.")
+print("There are only",drivers,"drivers avaiable.")
+print("There will be", cars_not_driven,"empty cars today.")
+print("We can transport",carpool_capacity,"people today.")
+print("We have",passengers,"to carpool today.")
+print("We need to put ablout",average_passengers_per_car,"in each car")
+#+end_src
+
+#+RESULTS:
+: There are 100 cars available.
+: There are only 30 drivers avaiable.
+: There will be 70 empty cars today.
+: We can transport 120 people today.
+: We have 90 to carpool today.
+: We need to put ablout 3.0 in each car
+
+
+and the result is shown belowing the code.
+
+Notice that in the source, the first line concerning print is:
+#+begin_src python
+print("There are",cars,"cars available.")
+#+end_src
+instead of
+#+begin_src python
+print("There are ",cars," cars available.")
+#+end_src
+Notice the difference? the whitespace. In Python, the whitespace is inserted
+around the results automatically which is kind of a surprise for a programmer
+familiar with =C/C++= .
+
+
+
+
+
+
+
+
+
+* Reference
 
 bibliography:~/zorg/research_library/zcl.bib
 bibliographystyle:unsrt
