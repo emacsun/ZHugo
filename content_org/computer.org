@@ -10,11 +10,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../static/css/worg.css"  />
 
 * Computer
-
-
-
-
-** NEXT learn python the hard way
+** TODO learn python the hard way
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-python-the-hard-way
 :EXPORT_DATE: <2018-05-04 Fri 21:46>
@@ -34,7 +30,7 @@ in this perfect mode? So I picked up the book /Learning Python the Hard Way/ by
 Zed Shaw. During the learning, I use Emacs as my Editor, running the programming
 on my old Thinkpad with Ubuntu 16.04 and Python3.5. I am going to learn Python
 in the hard way. However, I believe it will be the clever and efficient way.
-** a small surprise in ex4.py
+*** a small surprise in ex4.py
 Everything goes fine until I am doing exercise 4. The python code is:
 #+begin_src python -n :results output :exports both
 cars = 100
@@ -76,13 +72,319 @@ print("There are ",cars," cars available.")
 Notice the difference? the whitespace. In Python, the whitespace is inserted
 around the results automatically which is kind of a surprise for a programmer
 familiar with =C/C++= .
+*** imcompatiblility  between python 3.5 and 3.6
+[2018-05-05 Sat 09:33]
+
+I have python3.5 installed on my Ubuntu 16.04 hoping it will help me go through
+the book /Learning Python the Hard Way/ . However, when it comes to ex5.py, the
+dream is waken up.
+
+#+begin_src python -n
+my_name = 'Zed A. Shaw'
+my_age = 35
+my_height = 74
+my_weight = 180
+my_eyes = 'Blue'
+my_teeth = 'White'
+my_hair = 'Brown'
+
+print(f"Let's talk about {my_name}.")
+print(f"He's {my_height} inches tall.")
+print(f"He's {my_weight} pounds heavy.")
+print("Actually that's not too heavy.")
+print(f"He's got {my_eyes} eyes and {my_hair} hair.")
+print(f"His teeth are usually {my_teeth} depending on the coffee.")
+
+# this line is tricky, try to get it exact right
+total = my_age + my_height + my_weight
+print(f"If I add {my_age}, {my_height}, and {my_weight} I get {total}.")
+#+end_src
+
+When I execute =python3.5 ex5.py= in terminal. SyntaxError is triggered and it
+says:
+#+begin_example
+  File "ex5.py", line 9
+    print(f"Let's talk about {my_name}.")
+                                       ^
+SyntaxError: invalid syntax
+#+end_example
+
+After carefully comparison with the code in the book, I found no mistakes. So
+maybe it is the interpreter that raise the error. So python 3.6 is installed.
+#+begin_src shell
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+#+end_src
+
+Then I execute =python3.6 ex5.py=, hooray, it works with output:
+#+begin_example
+Let's talk about Zed A. Shaw.
+He's 74 inches tall.
+He's 180 pounds heavy.
+Actually that's not too heavy.
+He's got Blue eyes and Brown hair.
+His teeth are usually White depending on the coffee.
+If I add 35, 74, and 180 I get 289.
+#+end_example
+After this, I began to worry python for its incompatibility even after python3.
+Even this little =print= function shows difference, what about other features?
+*** default end is enter
+[2018-05-05 Sat 19:38]
+
+In ex7.py
+#+begin_src python
+print("Mary had a little lamb.")
+print("Its fleece was white as {}.".format('snow'))
+print("And everywhere that Mary went.")
+print("."*10)
+
+end1 = "C"
+end2 = "h"
+end3 = "e"
+end4 = "e"
+end5 = "s"
+end6 = "e"
+end7 = "B"
+end8 = "u"
+end9 = "r"
+end10 = "g"
+end11 = "e"
+end12 = "r"
+# watch end = '' at the end. try removing it to see what happens
+print(end1 + end2 + end3 + end4 + end5 + end6 , end=' ')
+print(end7 + end8 + end9 + end10 + end11 + end12)
+#+end_src
 
 
+The output is:
+#+begin_example
+Mary had a little lamb.
+Its fleece was white as snow.
+And everywhere that Mary went.
+..........
+Cheese Burger
+#+end_example
+
+Notice the line:
+#+begin_src python
+print(end1 + end2 + end3 + end4 + end5 + end6 , end=' ')
+#+end_src
+
+This line change the default =end= as whitespace. By default, the =end= will be
+=enter=
+*** the multiline string
+[2018-05-05 Sat 21:18]
+
+There are two ways to generate multiline string. first is using the escape
+sequence; second is to use three double-quotes pair. Today, I found that three
+single-quotes pair is also ok. see the example below.
+
+#+begin_src python :results output
+fat_cat ='''
+I'll do a list:
+\t* Cat food
+\t* Fishies
+\t* Catnip\n\t* Grass
+'''
+
+thin_mouse ='''
+I'll do another list:
+\t* mouse food
+\t* Rice
+\t* Catnip\n\t* Grass
+'''
+print(fat_cat)
+print(thin_mouse)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+I'll do a list:
+	,* Cat food
+	,* Fishies
+	,* Catnip
+	,* Grass
 
 
+I'll do another list:
+	,* mouse food
+	,* Rice
+	,* Catnip
+	,* Grass
+#+end_example
+
+also don't foget that the string can be format by prefix a =f= to be a f-string.
+*** help in Ipython
+[2018-05-05 Sat 22:18]
+
+I like Ipython because of its REPL style. To get help of a function just follow
+the function with a ? or ??, then hit the return.
+
+For example, I want to read the help for the builtin function =input=
+#+begin_example
+In [1]: input?
+Type:        builtin_function_or_method
+String form: <built-in function input>
+Namespace:   Python builtin
+Definition:  input(prompt)
+Docstring:
+Read a string from standard input.  The trailing newline is stripped.
+
+The prompt string, if given, is printed to standard output without a
+trailing newline before reading input.
+
+If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+On *nix systems, readline is used if available.
+#+end_example
+
+Maybe, ? and ?? will be the most frequenct symbol I use during using python.
+*** call a script with more inputs
+[2018-05-05 Sat 22:30]
+
+You can call a script with more inputs using the =argv= module
+#+begin_src python
+from sys import argv
+# read the WYSS section for how to run this
+script, first, second ,third = argv
+
+print("The script is called:",script)
+print("Your first variable is:",first)
+print("Your second variable is:",second)
+print("Your third variable is:",third)
+#+end_src
+
+when save the above code as ex13.py, then call it from the shell:
+#+begin_example
+python3.6 ex13.py 1st 2nd 3rd
+#+end_example
+
+Then the =argv= will contains the =ex13.py= =1st= =2nd= =3rd= . The first line
+of the code:
+#+begin_src python
+script, first, second, third = argv
+#+end_src
+unpack the =argv= . Then, =script ='ex13.py'=  =first = '1st'=  =second = '2nd'=
+and so on.
+
+Another way allowing the user to input is using the function =input= .
+*** open a file
+[2018-05-06 Sun 08:24]
+
+#+begin_src python
+txt = open(filename)
+#+end_src
+
+The =txt= is not the contents of the file. It is a file object. By this object,
+you can move around and read the file. Actually, we can open the file twice and
+use two different file objects pointing to the same file.
 
 
+A file opject also has the following function:
+#+CAPTION: functions that a file object can call
+#+NAME: tab:20180506functionsatablecall
+#+ATTR_HTML: :border 1 :rules all :frame border :align center
+#+ATTR_LATEX: :align center
+|----------------+-----------------------------------------------------------|
+| name           | description                                               |
+|----------------+-----------------------------------------------------------|
+| close          | close the file                                            |
+| read           | read the contents of the file                             |
+| readline       | reads just one line of a text file                        |
+| truncate       | empties the file                                          |
+| write('stuff') | writes "stuff" into the file                              |
+| seek(0)        | move the read/write location to the beginning of the file |
+|----------------+-----------------------------------------------------------|
 
+By default, the file is opened for reading. If you want to open a file and
+writing something into it, use:
+#+begin_src python
+txt = open(filename,'w')
+#+end_src
+
+If you want to open a file, read the contents, then write something into it.
+#+begin_src python
+txt = open(filename,'r+')
+#+end_src
+
+Actually, there is another option for reading and writing =w+=, and the
+difference is :
+1. =r+= Open for reading and writing.  The stream is positioned at the beginning
+   of the file.
+2. =w+= Open for reading and writing.  The file is created if it does not exist,
+   otherwise it is truncated.  The stream is positioned at the beginning of the
+   file.
+
+Notice that the =w+= option will truncate the file if it exists. Also, the =w=
+option will truncate the file if exists. So the =target.truncate()= is not
+necessary if you open a file with =w= or =w+= .
+
+On =close= your file, you will find that most of the time it is ok not close it
+because Cpython will do it for you. However, when you forget to close the file,
+the contents aimed to be written into the file is actually stored in a buffer.
+until you close the file, the contents will not be saved to the file.
+*** call function recursively
+[2018-05-06 Sun 12:01]
+
+Look at the code below:
+#+begin_src python
+# this one is like your scripts with argv
+def print_two(*args):
+    arg1,arg2,arg3 = args
+    print(f"arg1: {arg1},arg2: {arg2}, arg3: {arg3}")
+    print_none()
+# ok, that *args is actually pointless, we can just do this
+def print_two_again(arg1,arg2):
+    print(f"arg1: {arg1},arg2: {arg2}")
+
+# this just takes one argument
+def print_one(arg1):
+    print(f"arg1: {arg1}")
+
+# this one takes no arguments
+def print_none():
+    print("I got nothin'.")
+    print_two("Zhang","Chao","long")
+
+print_two_again("Zed","Shaw")
+print_one("First!")
+print_none()
+#+end_src
+
+Notice that =print_two= calls =print_none= and vice versa. This will raise the
+RecursionError :
+#+begin_example
+RecursionError: maximum recursion depth exceeded while calling a Python object
+#+end_example
+
+I am just curious what will happen if I let two functions call each other
+recursively. :)
+*** the input of a function
+[2018-05-06 Sun 14:33]
+
+Input to a function is just like =argv= to a script. I found that duirng the
+input of a function can also be a function:
+#+begin_src python
+print("input the argument:")
+cheese_and_crackers(input("arg1:"),input("arg2:"))
+#+end_src
+
+Drill more on the =input("arg1:")= , I found that the return of =input("arg1:")=
+is a str, so there must be an automatic convert from str to int for the
+=cheese_and_crackers= .
+
+#+begin_src python
+cheese_and_crackers(input("arg1:")+10,input("arg2:"))
+#+end_src
+
+will raise a TypeError. So:
+#+begin_src python
+cheese_and_crackers(int(input("arg1:"))+10,input("arg2:"))
+#+end_src
+
+will work as I wish. Furthermore, maybe the =int= should be =float= to accept
+float number.
 
 
 * Reference

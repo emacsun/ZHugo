@@ -149,7 +149,7 @@ Today, I am going to write something about link in Emacs Org mode. I
 have to admit in advance that I don't know all about Org's link.
 However, the part I know about Org link has already made my life much more
 efficient.
-** TODO write and evaluate python code in Org mode
+** TODO write and evaluate python in Emacs and maybe Org mode
 :PROPERTIES:
 :EXPORT_FILE_NAME: write-and-evaluate-python-code-in-org-mode
 :EXPORT_DATE: <2018-05-04 Fri 23:34>
@@ -158,6 +158,20 @@ efficient.
 :LOGBOOK:
 CLOCK: [2018-05-04 Fri 23:34]--[2018-05-04 Fri 23:36] =>  0:02
 :END:
+
+I write this post during reading the book /Learn Python3 the Hard Way/. This is
+the first python book I read from page to page.
+
+*** edit the source code in python mode
+[2018-05-05 Sat 18:15]
+
+In Emacs Org mode, you can insert the source code using =<s= then =<tab>= . If
+you want to edit the source code, you can hit =C-c '= then you will be switched
+to a buffer in python mode and all the features of python mode can be
+utilitized. After finishing the modification, =, c= will save the changes and
+switch you back to the Org file and =, k= will give up the changes and switch
+you back to the Org file.
+
 
 *** set the command for evaluating the python code
 
@@ -197,6 +211,9 @@ print("We have",passengers,"to carpool today.")
 print("We need to put ablout",average_passengers_per_car,"in each car")
 #+end_src
 
+
+
+
 After the above debugging and config, you can evalute the code snippet using
 =C-c C-c= inside the code. and after that the result will appear below the code
 as:
@@ -217,9 +234,67 @@ snippet or not during exporting. Evan the variable is set to be =t=, the code is
 not evaluated. To control export the code, results or both, the =:export= header
 arguments should be set to =code=, =results=  or =both= .
 
+In summary, in order to control the evaluation and export, =results= and
+=export= header arguments are necessary.
 
+*** change the systematic
+[2018-05-05 Sat 12:44]
 
+If you install several versions of Python in your system, you have to
+choose one as the default.  Execute the following to set the priority list:
+#+begin_src shell
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 3
+#+end_src
 
+If you want to switch to a different version of Python, just execute the
+following comand :
+#+begin_src shell
+sudo update-alternatives --config python
+#+end_src
+Then choose the right number from the popup menu.
+*** install the distutils packages
+[2018-05-05 Sat 17:54]
+
+After updating the python from 3.5 to 3.6, anaconda-mode does not work. In the
+minibuffer, it says:
+#+begin_example
+InternalError: The subprocess /usr/bin/python3.6 has crashed.
+#+end_example
+It takes me much time to begin to read the anaconda-mode buffer the find the
+error message. what a stupid guy. The error message is
+#+begin_example
+<module>
+    from distutils.spawn import find_executable
+ModuleNotFoundError: No module named 'distutils.spawn'
+#+end_example
+
+After several google, I install the =python3-distutils= using:
+#+begin_src shell
+sudo apt-get install python3-distutils
+#+end_src
+
+Notice that it is =python3-distutils= , not =python-distutils= .
+
+After this, the auto-completion is live again.
+*** debug python in Emacs
+[2018-05-06 Sun 17:13]
+
+During working on ex23.py, I have an idea to
+
+I know it is =pdb= that call the python debugger. However, when I use python3.6.
+I have to modify it to:
+#+begin_example
+python3.6 -m pdb ex23.py utf-8 strict
+#+end_example
+
+Then, I found that there is an extension [[https://github.com/realgud/realgud/][realgud]] , which even allow you use the
+=F10= to next, =F11= to step in, =shift F11= to step out, =F5= to run/continue.
+More important all the shortcut are effective in the source code buffer, pretty
+handy.
+
+You even can you mouse to set and clear breakpoints.
 
 
 * TODO Emacs
