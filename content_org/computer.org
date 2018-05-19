@@ -385,7 +385,115 @@ cheese_and_crackers(int(input("arg1:"))+10,input("arg2:"))
 
 will work as I wish. Furthermore, maybe the =int= should be =float= to accept
 float number.
+*** variable in the for loop
+[2018-05-19 Sat 19:43]
 
+In a =for= loop, python can use a variable that isn't defined yet. This is because
+that the =for= loop defines the variable and initialize it to the current
+element of the loop iteration each time through.
+
+Now, we give an example:
+#+begin_src python -n
+# we can also build lists, first start with an empty one
+# you have to define this variable before you use it.
+elements = []
+
+# then use the range function to do 0 to 5 counts
+for i in range(4,100,16):
+    # you don't have to define i before you use it.
+    print(f"Adding {i} to the list.")
+    # append is a function that lists understand
+    elements.append(i)
+
+
+i = 20
+print(f"i is {i}")
+# now we can print them out too
+for i in elements:
+    #even you define i = 6, i will be overwritten in the for statement
+    print(f"Element was: {i}")
+
+print(f"i is {i}")
+#+end_src
+
+At first, we define an empty list =elements= , then we fill the list with
+=range(3,100,16)= . After that we print the elements of the list. Notice that
+even we define a variable =i=20= , the statement =for i in elements:= will
+define a new variable =i= and overwrite the value of =20= . The value of the new
+=i= is the value of the first element of the list. After each loop, the =i=
+steps through the list.
+
+The result is:
+#+begin_example
+Adding 4 to the list.
+Adding 20 to the list.
+Adding 36 to the list.
+Adding 52 to the list.
+Adding 68 to the list.
+Adding 84 to the list.
+i is 20
+Element was: 4
+Element was: 20
+Element was: 36
+Element was: 52
+Element was: 68
+Element was: 84
+i is 84
+#+end_example
+
+Notice that before the =for= loop, =i=20= . Once the =for= loop begins, =i=
+will be recreated and be asigned value =4= which is the first element of the
+list. After the =for= loop, =i=84= .
+*** the =range= function
+[2018-05-19 Sat 20:00]
+
+In ex32, there appears a builtin function =range=. =range= is used to generate a
+sequence of integers, and its help doc is:
+#+begin_example
+Type:            type
+String form:     <class 'range'>
+Namespace:       Python builtin
+Init definition: range(self, *args, **kwargs)
+Docstring:
+range(stop) -> range object
+range(start, stop[, step]) -> range object
+
+Return an object that produces a sequence of integers from start (inclusive)
+to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.
+start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.
+These are exactly the valid indices for a list of 4 elements.
+When step is given, it specifies the increment (or decrement).
+#+end_example
+
+Notice that:
+#+begin_src python
+range(start,stop,step)
+#+end_src
+will generate the sequence of integers including the =start= and excluding the
+=stop= . This is different from Matlab, in which =start:step:stop= will include
+both the =start= and the =stop= .
+*** variable in the for loop and range
+[2018-05-19 Sat 20:49]
+
+Check the following code:
+#+begin_src python -n
+def loopnumber(variable,step):
+    numbers = []
+    i = 2
+    for i in range(i,variable,step):
+        numbers.append(i)
+    return numbers
+
+variable = 9
+step     = 2
+print("The numbers: ")
+for num in loopnumber(variable,step):
+    print(num)
+#+end_src
+
+Notice the =i= in the line 4, the first =i= will be created at the start of the
+loop while the second =i= will take the value from line 3. So the contents of
+=numbers= will be =[2,4,6,8]=
 
 
 * Reference
