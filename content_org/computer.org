@@ -10,13 +10,18 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../static/css/worg.css"  />
 
 * Computer
-** TODO learn python the hard way
+* python
+    [2018-05-27 Sun 20:50]
+** DONE learn python the hard way                   :python:
+   CLOSED: [2018-05-27 Sun 20:43]
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-python-the-hard-way
 :EXPORT_DATE: <2018-05-04 Fri 21:46>
-:EXPORT_DESCRIPTION: summary of this post
+:EXPORT_DESCRIPTION: notes of /learn python3 the hard way/
 :END:
 :LOGBOOK:
+- CLOSING NOTE [2018-05-27 Sun 20:43] \\
+  done
 CLOCK: [2018-05-04 Fri 22:09]--[2018-05-04 Fri 23:34] =>  1:25
 CLOCK: [2018-05-04 Fri 21:57]--[2018-05-04 Fri 21:58] =>  0:01
 CLOCK: [2018-05-04 Fri 21:51]--[2018-05-04 Fri 21:57] =>  0:06
@@ -497,26 +502,74 @@ loop while the second =i= will take the value from line 3. So the contents of
 *** a project skeleton
 [2018-05-25 Fri 21:38]
 
-Because of the multi-version issue of Python, it will be safe to start your
-project with =virtualenv= . Using =virtualenv= , your python environment is safe
-even if you use install multiple python on your computer. This section will help
-you create a skeleton directory which you can use to start a new project up
-easily. The skeleton directory will have your project layout, automated tests,
-modules, and install scripts. When a new project is to be created, you just copy
-this directory ,rename it and everything is ready for you to start coding.
+Because of the issue of python multi-version, it will be safe to
+start your project with =virtualenv= . Using =virtualenv= , your python
+environment is safe even if you install multiple python on your computer.
+This section will help you create a skeleton directory which you can use to
+start a new project up easily. The skeleton directory will have your project
+layout, automated tests, modules, and install scripts. When a new project is to
+be created, you just copy this directory ,rename it and everything is ready for
+you to start coding.
 
 As mentioned before, =virtualenv= will be needed. so install it:
+
 #+begin_example
 sudo pip3 install virtualenv
 #+end_example
 
-Sometimes, the pip will crash. If  you want to reinstall your pip, goto the
+Sometimes, the pip will crash. If you want to reinstall your pip, goto the
 [[https://pypi.org/project/pip/#files][website]] , download and extract the source, then install it using:
+
 #+begin_example
 sudo python3 setup.py install
 #+end_example
 
+During my installation of =virtualenv=, there is an error =Missing dependencies
+for SOCKS support= . You need the following commands:
 
+#+begin_example
+unset all_proxy
+unset ALL_PROXY
+pip install pysocks
+source .bashrc
+#+end_example
+and =pip= works again with socks proxy. want more please check [[https://stackoverflow.com/questions/40926018/pip-install-doesnt-work-invalidschema-missing-dependencies-for-socks-support/43135798][here]].
+
+If =virtualenv= is ready, then you can create a python installation, which is
+handy to manage versions of your package for different projects. The following
+commands will create the virtual environment.
+
+#+begin_src shell -n
+mkdir ~/.venvs
+virtualenv ~/.venvs/lpthw
+. ~/.venvs/lpthw/bin/activate
+#+end_src
+
+then you will find the shell symbol changing from =$= to =(lpthw) $= . After
+that you will find there is a =python= under =/lpthw/bin= . The final step is to
+install =nose= , which is a testing framework we'll use.
+
+#+begin_example
+pip install nose
+#+end_example
+
+Notice that the =nose= will appear at directory =~/.venvs/lpthw/bin= . This let
+you install different versions of python packages for different projects without
+infecting the main system environment.
+
+
+Note that when in shell you should have =(lpthw)= at the very beginning of the
+line with =$=.
+
+#+begin_example
+. ~/.venvs/lpthw/bin/activate
+#+end_example
+
+will tell the shell that the virtual environment use python installed at
+=~/.venvs/lpthw/bin/=
+
+This project skeleton is useful when you want to create a module based on
+certain vertion of python.
 * Reference
 
 bibliography:~/zorg/research_library/zcl.bib

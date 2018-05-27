@@ -1,11 +1,11 @@
 +++
 title = "learn python the hard way"
 author = ["Eason Zhang"]
-summary = "summary of this post"
-date = 2018-05-04T21:46:00+08:00
-lastmod = 2018-05-19T20:03:00+08:00
-tags = ["computer"]
-draft = true
+summary = "notes of /learn python3 the hard way/"
+date = 2018-05-27T20:43:00+08:00
+lastmod = 2018-05-27T20:49:00+08:00
+tags = ["computer", "python"]
+draft = false
 +++
 
 <style>
@@ -29,6 +29,8 @@ draft = true
 - <span class="section-num">9</span> [the input of a function](#the-input-of-a-function)
 - <span class="section-num">10</span> [variable in the for loop](#variable-in-the-for-loop)
 - <span class="section-num">11</span> [the `range` function](#the-range-function)
+- <span class="section-num">12</span> [variable in the for loop and range](#variable-in-the-for-loop-and-range)
+- <span class="section-num">13</span> [a project skeleton](#a-project-skeleton)
 
 </div>
 <!--endtoc-->
@@ -312,7 +314,7 @@ use two different file objects pointing to the same file.
 
 A file opject also has the following function:
 
-<a id="org3755ebc"></a>
+<a id="orgd804b12"></a>
 
 <div class="table-caption">
   <span class="table-number">Table 1:</span>
@@ -499,7 +501,8 @@ list. After the `for` loop, `i=84` .
 
 
 
-`range` is used to generate a sequence of integers, and its help doc is:
+In ex32, there appears a builtin function `range`. `range` is used to generate a
+sequence of integers, and its help doc is:
 
 ```text
 Type:            type
@@ -526,3 +529,103 @@ range(start,stop,step)
 will generate the sequence of integers including the `start` and excluding the
 `stop` . This is different from Matlab, in which `start:step:stop` will include
 both the `start` and the `stop` .
+
+
+## <span class="section-num">12</span> variable in the for loop and range {#variable-in-the-for-loop-and-range}
+
+
+
+Check the following code:
+
+{{< highlight python "linenos=table, linenostart=1" >}}
+def loopnumber(variable,step):
+    numbers = []
+    i = 2
+    for i in range(i,variable,step):
+        numbers.append(i)
+    return numbers
+
+variable = 9
+step     = 2
+print("The numbers: ")
+for num in loopnumber(variable,step):
+    print(num)
+{{< /highlight >}}
+
+Notice the `i` in the line 4, the first `i` will be created at the start of the
+loop while the second `i` will take the value from line 3. So the contents of
+`numbers` will be `[2,4,6,8]`
+
+
+## <span class="section-num">13</span> a project skeleton {#a-project-skeleton}
+
+
+
+Because of the issue of python multi-version, it will be safe to
+start your project with `virtualenv` . Using `virtualenv` , your python
+environment is safe even if you install multiple python on your computer.
+This section will help you create a skeleton directory which you can use to
+start a new project up easily. The skeleton directory will have your project
+layout, automated tests, modules, and install scripts. When a new project is to
+be created, you just copy this directory ,rename it and everything is ready for
+you to start coding.
+
+As mentioned before, `virtualenv` will be needed. so install it:
+
+```text
+sudo pip3 install virtualenv
+```
+
+Sometimes, the pip will crash. If you want to reinstall your pip, goto the
+[website](https://pypi.org/project/pip/#files) , download and extract the source, then install it using:
+
+```text
+sudo python3 setup.py install
+```
+
+During my installation of `virtualenv`, there is an error `Missing dependencies
+for SOCKS support` . You need the following commands:
+
+```text
+unset all_proxy
+unset ALL_PROXY
+pip install pysocks
+source .bashrc
+```
+
+and `pip` works again with socks proxy. want more please check [here](https://stackoverflow.com/questions/40926018/pip-install-doesnt-work-invalidschema-missing-dependencies-for-socks-support/43135798).
+
+If `virtualenv` is ready, then you can create a python installation, which is
+handy to manage versions of your package for different projects. The following
+commands will create the virtual environment.
+
+{{< highlight shell "linenos=table, linenostart=1" >}}
+mkdir ~/.venvs
+virtualenv ~/.venvs/lpthw
+. ~/.venvs/lpthw/bin/activate
+{{< /highlight >}}
+
+then you will find the shell symbol changing from `$` to `(lpthw) $` . After
+that you will find there is a `python` under `/lpthw/bin` . The final step is to
+install `nose` , which is a testing framework we'll use.
+
+```text
+pip install nose
+```
+
+Notice that the `nose` will appear at directory `~/.venvs/lpthw/bin` . This let
+you install different versions of python packages for different projects without
+infecting the main system environment.
+
+Note that when in shell you should have `(lpthw)` at the very beginning of the
+line with `$`.
+
+```text
+. ~/.venvs/lpthw/bin/activate
+```
+
+will tell the shell that the virtual environment use python installed at
+`~/.venvs/lpthw/bin/`
+
+This project skeleton is useful when you want to create a module based on
+certain vertion of python.
