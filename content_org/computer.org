@@ -10,10 +10,113 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../static/css/worg.css"  />
 
 * Computer
+** TODO dive into the tensorflow
+:PROPERTIES:
+:EXPORT_FILE_NAME: dive-into-the-tensorflow
+:EXPORT_DATE: <2018-05-27 Sun 21:07>
+:EXPORT_DESCRIPTION: my understanding and analysis of the tensorflow
+:END:
+:LOGBOOK:
+CLOCK: [2018-05-27 Sun 21:07]--[2018-05-27 Sun 21:42] =>  0:35
+:END:
+
+My understanding and analysis of the [[https://www.tensorflow.org/][tensorflow]] platform.
+
+** TODO copy and deep copy in python
+:PROPERTIES:
+:EXPORT_FILE_NAME: copy-and-deep-copy-in-python
+:EXPORT_DATE: <2018-05-28 Mon 19:50>
+:EXPORT_DESCRIPTION: summary of this post
+:END:
+
+In the [[https://docs.scipy.org/doc/numpy/user/quickstart.html][tutorial of Numpy]], there a section called /Copies and Views/, as a newbie
+of Python, I was shocked. In particular, some priori information of Matlab
+aggravate the feeling even more. Let's take a look at what happened in Python
+when I want to copy the value of one variable to another one.
+
+*** No Copy at All
+
+  Naturally, when I execute =b=a= in any language. =b= is expected to have the
+  value of =a= , and if =a= and =b= are both array of =int= , then after =b=a= ,
+  I execute =b[1]=b[1]+1= will make =b[1]= greater than =a[1]= by =1=. However,
+  this is not the case in Python.
+
+  For example:
+  #+begin_example
+  import numpy as np
+  a = np.arange(12)
+  b = a
+  #+end_example
+
+  The statement of =b is a= will return =True= which means that =b= and =a= are
+  two names for the same array object. =b= and =a= behave like the pointer in C.
+  if you execute =b[1] = 555= ,then =a[1]= will be =555= too.
+
+  Also, if you use the =id()= function, =id(a)= and =id(b)= will return the same
+  value. The =id()= function return the unique identifier of an object. If two
+  objects have the same identifier, the two objects are actually one object.
+*** view or Shallow Copy
+    [2018-06-01 Fri 20:29]
+
+    =view= is a good word for what shallow copy mean. For a large value, if you
+    want to change part of it, you view the part you want to change.
+
+    For example,
+#+begin_example
+import numpy as np
+a = np.random.random((3,5))
+#+end_example
+If you just want to change the second and the third column of =a=, you view the
+part you want change by slicing it:
+#+begin_example
+p = a[:,1:3]
+p[:] = 10
+#+end_example
+Then the second and third column will be all =10= . =view= behaves like the
+microscope. Only the part of viewed will be shared by the two objects.
+*** Deep Copy
+    [2018-06-01 Fri 20:35]
+
+    What? deep copy? Yes, it's deep copy that implement the real copy as we
+    expect.
+
+    #+begin_example
+    b = a.copy()
+    #+end_example
+
+    Then =b= is a complete copy of =a=. =b= and =a= will not share the same
+    object id. This is what the copy we want.
+
+    For example, if you have:
+    #+begin_example
+    import numpy as np
+    a = np.arange(4)
+    b = a.copy()
+    b[0] = 4
+    #+end_example
+
+    you will have =b= equals =[4,1,2,3]= and =a= equals =[0,1,2,3]= . Now =b=
+    and =a=
+
+
+*** only happened in array
+
+    Fortunately, the three version copy just happened on array type. when =b=
+    and =a= are just integers or float numbers, ===  will implement the real
+    copy.
+
+    For example, when you have:
+    #+begin_example
+    a = 2
+    b = a
+    b += 2
+    #+end_example
+    then you get =b=4= and =a=2=
+
 * python
-    [2018-05-27 Sun 20:50]
+[2018-05-27 Sun 20:50]
 ** DONE learn python the hard way                   :python:
-   CLOSED: [2018-05-27 Sun 20:43]
+CLOSED: [2018-05-27 Sun 20:43]
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-python-the-hard-way
 :EXPORT_DATE: <2018-05-04 Fri 21:46>
@@ -37,7 +140,7 @@ on my old Thinkpad with Ubuntu 16.04 and Python3.5. I am going to learn Python
 in the hard way. However, I believe it will be the clever and efficient way.
 *** a small surprise in ex4.py
 Everything goes fine until I am doing exercise 4. The python code is:
-#+begin_src python -n :results output :exports both
+    #+begin_src python -n :results output :exports both
 cars = 100
 space_in_a_car = 4
 drivers = 30
@@ -53,7 +156,7 @@ print("There will be", cars_not_driven,"empty cars today.")
 print("We can transport",carpool_capacity,"people today.")
 print("We have",passengers,"to carpool today.")
 print("We need to put ablout",average_passengers_per_car,"in each car")
-#+end_src
+    #+end_src
 
 #+RESULTS:
 : There are 100 cars available.
@@ -67,13 +170,13 @@ print("We need to put ablout",average_passengers_per_car,"in each car")
 and the result is shown belowing the code.
 
 Notice that in the source, the first line concerning print is:
-#+begin_src python
+    #+begin_src python
 print("There are",cars,"cars available.")
-#+end_src
+    #+end_src
 instead of
-#+begin_src python
+    #+begin_src python
 print("There are ",cars," cars available.")
-#+end_src
+    #+end_src
 Notice the difference? the whitespace. In Python, the whitespace is inserted
 around the results automatically which is kind of a surprise for a programmer
 familiar with =C/C++= .
@@ -84,7 +187,7 @@ I have python3.5 installed on my Ubuntu 16.04 hoping it will help me go through
 the book /Learning Python the Hard Way/ . However, when it comes to ex5.py, the
 dream is waken up.
 
-#+begin_src python -n
+    #+begin_src python -n
 my_name = 'Zed A. Shaw'
 my_age = 35
 my_height = 74
@@ -103,7 +206,7 @@ print(f"His teeth are usually {my_teeth} depending on the coffee.")
 # this line is tricky, try to get it exact right
 total = my_age + my_height + my_weight
 print(f"If I add {my_age}, {my_height}, and {my_weight} I get {total}.")
-#+end_src
+    #+end_src
 
 When I execute =python3.5 ex5.py= in terminal. SyntaxError is triggered and it
 says:
@@ -116,11 +219,11 @@ SyntaxError: invalid syntax
 
 After carefully comparison with the code in the book, I found no mistakes. So
 maybe it is the interpreter that raise the error. So python 3.6 is installed.
-#+begin_src shell
+    #+begin_src shell
 sudo add-apt-repository ppa:jonathonf/python-3.6
 sudo apt-get update
 sudo apt-get install python3.6
-#+end_src
+    #+end_src
 
 Then I execute =python3.6 ex5.py=, hooray, it works with output:
 #+begin_example
@@ -138,7 +241,7 @@ Even this little =print= function shows difference, what about other features?
 [2018-05-05 Sat 19:38]
 
 In ex7.py
-#+begin_src python
+    #+begin_src python
 print("Mary had a little lamb.")
 print("Its fleece was white as {}.".format('snow'))
 print("And everywhere that Mary went.")
@@ -159,7 +262,7 @@ end12 = "r"
 # watch end = '' at the end. try removing it to see what happens
 print(end1 + end2 + end3 + end4 + end5 + end6 , end=' ')
 print(end7 + end8 + end9 + end10 + end11 + end12)
-#+end_src
+    #+end_src
 
 
 The output is:
@@ -172,9 +275,9 @@ Cheese Burger
 #+end_example
 
 Notice the line:
-#+begin_src python
+    #+begin_src python
 print(end1 + end2 + end3 + end4 + end5 + end6 , end=' ')
-#+end_src
+    #+end_src
 
 This line change the default =end= as whitespace. By default, the =end= will be
 =enter=
@@ -185,7 +288,7 @@ There are two ways to generate multiline string. first is using the escape
 sequence; second is to use three double-quotes pair. Today, I found that three
 single-quotes pair is also ok. see the example below.
 
-#+begin_src python :results output
+    #+begin_src python :results output
 fat_cat ='''
 I'll do a list:
 \t* Cat food
@@ -201,23 +304,23 @@ I'll do another list:
 '''
 print(fat_cat)
 print(thin_mouse)
-#+end_src
+    #+end_src
 
 #+RESULTS:
 #+begin_example
 
 I'll do a list:
-	,* Cat food
-	,* Fishies
-	,* Catnip
-	,* Grass
+  ,* Cat food
+  ,* Fishies
+  ,* Catnip
+  ,* Grass
 
 
 I'll do another list:
-	,* mouse food
-	,* Rice
-	,* Catnip
-	,* Grass
+  ,* mouse food
+  ,* Rice
+  ,* Catnip
+  ,* Grass
 #+end_example
 
 also don't foget that the string can be format by prefix a =f= to be a f-string.
@@ -249,7 +352,7 @@ Maybe, ? and ?? will be the most frequenct symbol I use during using python.
 [2018-05-05 Sat 22:30]
 
 You can call a script with more inputs using the =argv= module
-#+begin_src python
+    #+begin_src python
 from sys import argv
 # read the WYSS section for how to run this
 script, first, second ,third = argv
@@ -258,7 +361,7 @@ print("The script is called:",script)
 print("Your first variable is:",first)
 print("Your second variable is:",second)
 print("Your third variable is:",third)
-#+end_src
+    #+end_src
 
 when save the above code as ex13.py, then call it from the shell:
 #+begin_example
@@ -267,9 +370,9 @@ python3.6 ex13.py 1st 2nd 3rd
 
 Then the =argv= will contains the =ex13.py= =1st= =2nd= =3rd= . The first line
 of the code:
-#+begin_src python
+    #+begin_src python
 script, first, second, third = argv
-#+end_src
+    #+end_src
 unpack the =argv= . Then, =script ='ex13.py'=  =first = '1st'=  =second = '2nd'=
 and so on.
 
@@ -277,9 +380,9 @@ Another way allowing the user to input is using the function =input= .
 *** open a file
 [2018-05-06 Sun 08:24]
 
-#+begin_src python
+    #+begin_src python
 txt = open(filename)
-#+end_src
+    #+end_src
 
 The =txt= is not the contents of the file. It is a file object. By this object,
 you can move around and read the file. Actually, we can open the file twice and
@@ -304,14 +407,14 @@ A file opject also has the following function:
 
 By default, the file is opened for reading. If you want to open a file and
 writing something into it, use:
-#+begin_src python
+    #+begin_src python
 txt = open(filename,'w')
-#+end_src
+    #+end_src
 
 If you want to open a file, read the contents, then write something into it.
-#+begin_src python
+    #+begin_src python
 txt = open(filename,'r+')
-#+end_src
+    #+end_src
 
 Actually, there is another option for reading and writing =w+=, and the
 difference is :
@@ -333,7 +436,7 @@ until you close the file, the contents will not be saved to the file.
 [2018-05-06 Sun 12:01]
 
 Look at the code below:
-#+begin_src python
+    #+begin_src python
 # this one is like your scripts with argv
 def print_two(*args):
     arg1,arg2,arg3 = args
@@ -355,7 +458,7 @@ def print_none():
 print_two_again("Zed","Shaw")
 print_one("First!")
 print_none()
-#+end_src
+    #+end_src
 
 Notice that =print_two= calls =print_none= and vice versa. This will raise the
 RecursionError :
@@ -370,23 +473,23 @@ recursively. :)
 
 Input to a function is just like =argv= to a script. I found that duirng the
 input of a function can also be a function:
-#+begin_src python
+    #+begin_src python
 print("input the argument:")
 cheese_and_crackers(input("arg1:"),input("arg2:"))
-#+end_src
+    #+end_src
 
 Drill more on the =input("arg1:")= , I found that the return of =input("arg1:")=
 is a str, so there must be an automatic convert from str to int for the
 =cheese_and_crackers= .
 
-#+begin_src python
+    #+begin_src python
 cheese_and_crackers(input("arg1:")+10,input("arg2:"))
-#+end_src
+    #+end_src
 
 will raise a TypeError. So:
-#+begin_src python
+    #+begin_src python
 cheese_and_crackers(int(input("arg1:"))+10,input("arg2:"))
-#+end_src
+    #+end_src
 
 will work as I wish. Furthermore, maybe the =int= should be =float= to accept
 float number.
@@ -398,7 +501,7 @@ that the =for= loop defines the variable and initialize it to the current
 element of the loop iteration each time through.
 
 Now, we give an example:
-#+begin_src python -n
+    #+begin_src python -n
 # we can also build lists, first start with an empty one
 # you have to define this variable before you use it.
 elements = []
@@ -419,7 +522,7 @@ for i in elements:
     print(f"Element was: {i}")
 
 print(f"i is {i}")
-#+end_src
+    #+end_src
 
 At first, we define an empty list =elements= , then we fill the list with
 =range(3,100,16)= . After that we print the elements of the list. Notice that
@@ -471,9 +574,9 @@ When step is given, it specifies the increment (or decrement).
 #+end_example
 
 Notice that:
-#+begin_src python
+    #+begin_src python
 range(start,stop,step)
-#+end_src
+    #+end_src
 will generate the sequence of integers including the =start= and excluding the
 =stop= . This is different from Matlab, in which =start:step:stop= will include
 both the =start= and the =stop= .
@@ -481,7 +584,7 @@ both the =start= and the =stop= .
 [2018-05-19 Sat 20:49]
 
 Check the following code:
-#+begin_src python -n
+    #+begin_src python -n
 def loopnumber(variable,step):
     numbers = []
     i = 2
@@ -494,7 +597,7 @@ step     = 2
 print("The numbers: ")
 for num in loopnumber(variable,step):
     print(num)
-#+end_src
+    #+end_src
 
 Notice the =i= in the line 4, the first =i= will be created at the start of the
 loop while the second =i= will take the value from line 3. So the contents of
@@ -539,11 +642,11 @@ If =virtualenv= is ready, then you can create a python installation, which is
 handy to manage versions of your package for different projects. The following
 commands will create the virtual environment.
 
-#+begin_src shell -n
+    #+begin_src shell -n
 mkdir ~/.venvs
 virtualenv ~/.venvs/lpthw
 . ~/.venvs/lpthw/bin/activate
-#+end_src
+    #+end_src
 
 then you will find the shell symbol changing from =$= to =(lpthw) $= . After
 that you will find there is a =python= under =/lpthw/bin= . The final step is to
