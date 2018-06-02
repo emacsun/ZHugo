@@ -1,11 +1,11 @@
 +++
 title = "copy and deep copy in python"
 author = ["Eason Zhang"]
-summary = "summary of this post"
-date = 2018-05-28T19:50:00+08:00
-lastmod = 2018-06-01T21:14:00+08:00
-tags = ["computer"]
-draft = true
+summary = "the frustraing \"copy\" in python. Every newbie of python from other language maybe frustrated by \"copy\" in python. In python, variable behaves like pointer. If you want to have \"copy\" like what other languages (say, C and java), you have to do extra work to make it."
+date = 2018-06-01T21:16:00+08:00
+lastmod = 2018-06-02T08:34:00+08:00
+tags = ["computer", "python"]
+draft = false
 +++
 
 <style>

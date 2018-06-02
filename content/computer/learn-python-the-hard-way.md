@@ -1,9 +1,9 @@
 +++
 title = "learn python the hard way"
 author = ["Eason Zhang"]
-summary = "notes of /learn python3 the hard way/"
+summary = "As a language of the AI era, python plas an important role in interacting with the low level API to fasten the project."
 date = 2018-05-27T20:43:00+08:00
-lastmod = 2018-05-27T20:49:00+08:00
+lastmod = 2018-06-02T08:40:00+08:00
 tags = ["computer", "python"]
 draft = false
 +++
@@ -314,7 +314,7 @@ use two different file objects pointing to the same file.
 
 A file opject also has the following function:
 
-<a id="orgd804b12"></a>
+<a id="org245f9bd"></a>
 
 <div class="table-caption">
   <span class="table-number">Table 1:</span>
