@@ -1,9 +1,9 @@
 +++
-title = "write and evaluate python in Emacs and maybe Org mode"
+title = "write Python in Emacs and Org mode"
 author = ["Eason Zhang"]
 summary = "The way I code Python using Emacs and Org mode."
 date = 2018-05-13T11:22:00+08:00
-lastmod = 2018-06-02T21:23:00+08:00
+lastmod = 2018-06-02T21:28:00+08:00
 tags = ["tools", "python", "Org"]
 categories = ["Emacs"]
 draft = false
